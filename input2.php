@@ -49,20 +49,20 @@
         
             <?php for ($i=1; $i < $playerCount +1; $i++): 
             ?>
-                <tr>
+                <tr id="player<?= $i ?>">
                     <td>
-                        <?php selectOptions($i, 'person', $people); ?>
+                        <?php selectOptions($i, $people, 'person'); ?>
                     </td>
                     <td>
-                        <?php selectOptions($i, 'character', $characters); ?>
+                        <?php selectOptions($i,  $characters, 'character'); ?>
 
                     </td>
                     <td>
-                        <?php selectOptions($i, 'vehicle', $vehicles ); ?>
+                        <?php selectOptions($i, $vehicles, 'vehicle'); ?>
                     </td>
                     <?php for ($j=1; $j < $raceCount+1; $j++): ?>
                         <td>
-                            <?php selectOptions($i, 'race' . $j, array(1,2,3,4,5,6,7,8,9,10,11,12) ); ?>
+                            <?php selectOptions($i, array(1,2,3,4,5,6,7,8,9,10,11,12), 'race' . $j, 'race' ); ?>
                         </td>
                     <?php endfor; ?>
                     

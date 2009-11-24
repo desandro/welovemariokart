@@ -8,12 +8,13 @@
 
     $vehicles = array('Standard Kart Small', 'Baby Booster', 'Concerto', 'Rally Romper', 'Blue Falcon', 'Cheep Charger', 'Standard Kart Medium', 'Nostalgia 1', 'Wild Wing', 'Turbo Blooper', 'Royal Racer', 'B Dasher Mk 2', 'Standard Kart Large', 'Offroader', 'Flame Flyer', 'Piranha Prowler', 'Dragonetti', 'Aero Glider', 'Standard Bike Small', 'Bullet Bike', 'Nano Bike', 'Quacker', 'Magikruiser', 'Torpedo', 'Standard Bike Medium', 'Mach Bike', 'Bon Bon', 'Rapide', 'Dolphin Dasher', 'Nitrocycle', 'Standard Bike Large', 'Bowser Bike', 'Wario Bike', 'Twinkle Star', 'Phantom', 'Torpedo');
 
+    $placePoints = array(15,12,10,8,7,6,5,4,3,2,1);
 
     function radioInputs( $legend, $id, $items ) {
         include('_base/includes/templates/radio_inputs.php');
     }
 
-    function selectOptions($playerID, $class, $items) {
+    function selectOptions($playerID,  $items, $class1, $class2) {
         include('_base/includes/templates/select_options.php');
     }
 
