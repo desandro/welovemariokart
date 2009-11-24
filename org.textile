@@ -1,0 +1,51 @@
+h1. Toonament
+
+h2. Overview
+
+Visualizes progress in a tournament. Made especially for Mario Kart.
+
+h2. Vars
+
+Per Round
+    Date (date)
+    Number of Races (1-10)
+    Number of Players (2-4)
+    Round ID (#)
+    
+Per Player
+    Player Name / Player ID
+    Character
+    Vehicle
+
+
+h4. Characters
+
+Baby Mario
+Baby Peach
+Toad
+Koopa Troopa
+Baby Luigi
+Baby Daisy
+Toadette
+Dry Bones
+Mario
+Luigi
+Peach
+Yoshi
+Daisy
+Birdo
+Bowser Jr.
+Diddy Kong
+Wario
+Waluigi
+Donkey Kong
+Bowser
+Funky Kong
+King Boo
+Rosalina
+Dry Bowser
+
+
+Legend
+id
+array

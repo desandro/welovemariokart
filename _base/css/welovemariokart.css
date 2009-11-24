@@ -1,0 +1,13 @@
+body {
+    font-size: 13px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    padding: 40px;
+}
+
+th, td {
+    border: 1px solid #333;
+}
+
+select.course {
+    width: 80px;
+}
