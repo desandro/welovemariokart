@@ -1,3 +1,5 @@
+var placePoints = [15,12,10,8,7,6,5,4,3,2,1,0];
+
 $(function(){
     
     $('tr:eq(0)').append('<th>Total</th>');
@@ -14,7 +16,7 @@ $(function(){
         var selOpt = $(this).find(':selected');
         var selIdx = $(this).find('option').index( selOpt );
 
-        console.log( classes );
+        // console.log( classes );
 
         var otherSelects = $('select.' + classes).not(this);
 
@@ -43,7 +45,23 @@ $(function(){
     
     // tally player total
     $('select.race').change(function(){
-       // console.log( this );
+        var tr = $(this).parents('tr');
+        var selVal = parseInt( $(this).val() );
+
+        var playerTotal = 0;
+        tr.find('select.race').each(function(){
+            if( $(this).val() != '---' ) {
+                var selVal = parseInt( $(this).val() );
+                // console.log (selVal);
+                playerTotal += placePoints[selVal-1];
+            }
+            
+            // console.log( check  );
+        })
+
+        tr.children('.total').text( playerTotal );
+
+        // console.log( placePoints[selVal-1] );
     });
 
     
