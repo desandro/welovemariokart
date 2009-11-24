@@ -62,8 +62,21 @@ $(function(){
     
     // change race_entry table dynamically
     $('#race_setup input[name="race_count"]').change(function(){
-        // console.log( $(this).val() );
-    })
+        var raceCount = parseInt( $(this).val() );
+        $('tr').each(function(){
+            $(this).children(':gt('+(raceCount+2)+'):not(:last):visible').hide();
+            $(this).children(':lt('+(raceCount+3)+'):hidden').show();
+        })
+        $('#race_entry input[name="race_count"]').val( raceCount );
+    });
+
+    // change race_entry table dynamically
+    $('#race_setup input[name="player_count"]').change(function(){
+        var playerCount = parseInt( $(this).val() );
+        $('tr:gt('+(playerCount+1)+'):visible').hide();
+        $('tr:lt('+(playerCount+2)+'):hidden').show();
+        $('#race_entry input[name="player_count"]').val( playerCount );
+    });
 
     
     
