@@ -13,7 +13,7 @@
     
     <h1>input1</h1>
     
-    <form action="input2.php" method="post">
+    <form action="entry.php" method="post">
         
         <?php 
             radioInputs('Number of Races', 'race_count', array(1,3,4,8,10) ); 

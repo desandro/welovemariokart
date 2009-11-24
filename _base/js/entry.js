@@ -6,7 +6,6 @@ $(function(){
     $('tr:gt(0)').append('<td class="total" />');
     
     
-    
     // select exclusivity
     $('select').not('.vehicle').change(function(){  
 
@@ -38,7 +37,6 @@ $(function(){
         
         $(this).data('prevSelIdx', selIdx);
 
-        // $('select.' + selectClass).not(this)
 
     });
     
@@ -56,12 +54,10 @@ $(function(){
                 playerTotal += placePoints[selVal-1];
             }
             
-            // console.log( check  );
         })
 
         tr.children('.total').text( playerTotal );
 
-        // console.log( placePoints[selVal-1] );
     });
 
     

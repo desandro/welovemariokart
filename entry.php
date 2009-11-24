@@ -1,30 +1,49 @@
 <?php
     include('_base/includes/config.php');
 
-    $raceCount = intval($_POST['race_count']);
-    $playerCount = intval($_POST['player_count']);
+    $raceCountPosted = $_POST['race_count'];
+    $playerCountPosted = $_POST['player_count'];
+
+    if ( isset($raceCountPosted) ) {
+        $raceCount = intval($raceCountPosted);
+    } else {
+        $raceCount = 10;
+    }
+
+    if ( isset($playerCountPosted) ) {
+        $playerCount = intval($playerCountPosted);
+    } else {
+        $playerCount = 4;
+    }
 
 
     include('_base/includes/templates/html_head.php');
 ?>
 
-    <title>input2</title>
+    <title>entry</title>
     
-    <script type="text/javascript" src="_base/js/input2.js" charset="utf-8"></script>
+    <script type="text/javascript" src="_base/js/entry.js" charset="utf-8"></script>
 
 </head>
 <body class="input1_page">
     
-    <h1>input2</h1>
+    <h1>entry</h1>
     
+    <form action="entry.php" method="post">
+        
+        <?php 
+            radioInputs('Number of Races', 'race_count', array(1,3,4,8,10), $raceCount  ); 
+            radioInputs('Number of Players', 'player_count', array(2,3,4), $playerCount ); 
+        ?>
+
+        <input type="submit" name="revise_round" value="Revise Round" id="revise_round" />
+        
+    </form>
+
+
     <form action="race.php" method="post">
 
         
-        <p>Race count: <?= $raceCount ?></p>        
-        <p>Player count: <?= $playerCount ?></p>
-        
-        <input type="hidden" name="race_count" value="<?= $raceCount ?>" />
-        <input type="hidden" name="player_count" value="<?= $playerCount ?>" />
         
         <table>
             <tr>

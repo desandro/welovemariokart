@@ -10,7 +10,7 @@
 
     $placePoints = array(15,12,10,8,7,6,5,4,3,2,1);
 
-    function radioInputs( $legend, $id, $items ) {
+    function radioInputs( $legend, $id, $items, $variable ) {
         include('_base/includes/templates/radio_inputs.php');
     }
 

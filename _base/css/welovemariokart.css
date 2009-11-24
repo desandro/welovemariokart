@@ -5,7 +5,11 @@ body {
 }
 
 th, td {
-    border: 1px solid #333;
+    border: 1px solid #AAA;
+}
+
+select.race {
+    font-size: 15px;
 }
 
 select.course {

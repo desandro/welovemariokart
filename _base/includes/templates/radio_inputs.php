@@ -5,9 +5,10 @@
             $itemID = $id . '_' . $item;
         ?>
             <li>
-                <input type="radio" value="<?= $item ?>" id="<?= $itemID ?>" name="<?= $id ?>"/>
+                <input type="radio" value="<?= $item ?>" id="<?= $itemID ?>" name="<?= $id ?>" <?php if( $item == $variable) {echo 'checked="checked"';} ?>  />
                 <label for="<?= $itemID ?>"><?= $item ?></label>
             </li>
         <?php endforeach; ?>
+        
     </ul>
 </div>
