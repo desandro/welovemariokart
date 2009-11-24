@@ -10,6 +10,7 @@
 
     <title>input2</title>
     
+    <script type="text/javascript" src="_base/js/input2.js" charset="utf-8"></script>
 
 </head>
 <body class="input1_page">
