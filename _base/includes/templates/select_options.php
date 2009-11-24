@@ -2,6 +2,6 @@
 <select name="<?= $id ?>" id="<?= $id ?>" class="<?= $class ?>">
     <option>&mdash;</option>
     <?php foreach ($items as $item): ?>
-        <option><?= $item ?></option>
+        <option value="<?= $item ?>"><?= $item ?></option>
     <?php endforeach; ?>
 </select>
