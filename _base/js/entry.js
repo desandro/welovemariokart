@@ -47,7 +47,7 @@ $(function(){
         var selVal = parseInt( $(this).val() );
 
         var playerTotal = 0;
-        tr.find('select.race:visible').each(function(){
+        tr.find('td:visible select.race').each(function(){
             if( $(this).val() != '---' ) {
                 var selVal = parseInt( $(this).val() );
                 // console.log (selVal);
@@ -63,21 +63,29 @@ $(function(){
     // change race_entry table dynamically
     $('#race_setup input[name="race_count"]').change(function(){
         var raceCount = parseInt( $(this).val() );
+        console.log( raceCount );
         $('tr').each(function(){
-            $(this).children(':gt('+(raceCount+2)+'):not(:last):visible').hide();
+            $(this).children(':gt('+(raceCount+2)+'):not(:last)').hide();
             $(this).children(':lt('+(raceCount+3)+'):hidden').show();
         })
         $('#race_entry input[name="race_count"]').val( raceCount );
+        $('select.race').change();
     });
 
     // change race_entry table dynamically
     $('#race_setup input[name="player_count"]').change(function(){
         var playerCount = parseInt( $(this).val() );
+        console.log( playerCount );
         $('tr:gt('+(playerCount+1)+'):visible').hide();
         $('tr:lt('+(playerCount+2)+'):hidden').show();
         $('#race_entry input[name="player_count"]').val( playerCount );
     });
 
+    // initiate change so table is properly sized on window.load
+    $('#race_setup input:checked').change();
+
+    // hide revise round button
+    $('#revise_round').hide();
     
     
 })
