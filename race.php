@@ -46,8 +46,8 @@
                 <th>Player</th>
                 <th>Character</th>
                 <th>Vehicle</th>
-                <?php for ($i=0; $i < $raceCount; $i++): ?>
-                    <th>Race <?= $i+1 ?></th>
+                <?php for ($i=1; $i < $raceCount+1; $i++): ?>
+                    <th>Race <?= $i ?></th>
                 <?php endfor; ?>
             </tr>
             <tr id="courses">

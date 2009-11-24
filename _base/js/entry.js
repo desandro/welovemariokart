@@ -47,7 +47,7 @@ $(function(){
         var selVal = parseInt( $(this).val() );
 
         var playerTotal = 0;
-        tr.find('select.race').each(function(){
+        tr.find('select.race:visible').each(function(){
             if( $(this).val() != '---' ) {
                 var selVal = parseInt( $(this).val() );
                 // console.log (selVal);
@@ -59,6 +59,11 @@ $(function(){
         tr.children('.total').text( playerTotal );
 
     });
+    
+    // change race_entry table dynamically
+    $('#race_setup input[name="race_count"]').change(function(){
+        // console.log( $(this).val() );
+    })
 
     
     

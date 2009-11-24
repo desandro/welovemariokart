@@ -29,7 +29,7 @@
     
     <h1>entry</h1>
     
-    <form action="entry.php" method="post">
+    <form id="race_setup" action="entry.php" method="post">
         
         <?php 
             radioInputs('Number of Races', 'race_count', array(1,3,4,8,10), $raceCount  ); 
@@ -41,8 +41,10 @@
     </form>
 
 
-    <form action="race.php" method="post">
+    <form id="race_entry" action="race.php" method="post">
 
+        <input type="hidden" name="race_count" value="<?= $raceCount ?>" />
+        <input type="hidden" name="player_count" value="<?= $playerCount ?>" />
         
         
         <table>
@@ -50,8 +52,8 @@
                 <th>Player</th>
                 <th>Character</th>
                 <th>Vehicle</th>
-                <?php for ($i=1; $i < $raceCount+1; $i++): ?>
-                    <th>Race <?= $i ?></th>
+                <?php for ($i=1; $i <= 10; $i++): ?>
+                    <th <?php if ( $i > $raceCount ): ?>style="display: none;"<?php endif; ?> >Race <?= $i ?></th>
                 <?php endfor; ?>
             </tr>
             <tr id="courses">
@@ -59,16 +61,16 @@
                 <td></td>
                 <td></td>                
    
-                <?php for ($i=1; $i < $raceCount+1; $i++): ?>
-                    <td>
+                <?php for ($i=1; $i <= 10; $i++): ?>
+                    <td <?php if ( $i > $raceCount ): ?>style="display: none;"<?php endif; ?> >
                         <?php include('_base/includes/templates/select_courses.php'); ?>
                     </td>
                 <?php endfor; ?>
             </tr>
         
-            <?php for ($i=1; $i < $playerCount +1; $i++): 
+            <?php for ($i=1; $i <= 4; $i++): 
             ?>
-                <tr id="player<?= $i ?>">
+                <tr id="player<?= $i ?>"  <?php if ( $i > $playerCount ): ?>style="display: none;"<?php endif; ?>>
                     <td>
                         <?php selectOptions($i, $people, 'person'); ?>
                     </td>
@@ -79,8 +81,8 @@
                     <td>
                         <?php selectOptions($i, $vehicles, 'vehicle'); ?>
                     </td>
-                    <?php for ($j=1; $j < $raceCount+1; $j++): ?>
-                        <td>
+                    <?php for ($j=1; $j <= 10; $j++): ?>
+                        <td <?php if ( $j > $raceCount ): ?>style="display: none;"<?php endif; ?> >
                             <?php selectOptions($i, array(1,2,3,4,5,6,7,8,9,10,11,12), 'race' . $j, 'race' ); ?>
                         </td>
                     <?php endfor; ?>
