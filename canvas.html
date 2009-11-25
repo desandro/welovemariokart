@@ -34,14 +34,16 @@
 
 	    var placePoints = [15,12,10,8,7,6,5,4,3,2,1,0]
 	    
+	    var raceCount = 10;
+	    var playerCount = 4;
 	
 		$(function(){
 		    var playerPoints = []
-		    for (i=1; i <= 4; i++) {
+		    for (i=1; i <= playerCount; i++) {
     	        row = $('<tr />');
     	        cells = '';
     	        playerPoints[i] = [];
-    	        for (j=1; j<=10; j++ ) {
+    	        for (j=1; j <= raceCount; j++ ) {
     	            var place = Math.ceil( Math.random() * 12)
     	            var points = placePoints[place-1];
     	            cells += '<td>'+points+'</td>';
@@ -62,6 +64,77 @@
                     var marginY = 60;
 
                     var x = [];
+
+
+                    ctx.lineWidth = 3;
+
+
+                    /*
+                    for(var j=1; j <= playerPoints[1].length; j++ ) {
+                        // ctx.fillRect(j*40,250,10,10);
+                        var hue = (360 / playerPoints[1].length) * j;
+                        hue = parseInt(hue);
+                        ctx.strokeStyle = 'hsl('+hue+',100%, 80%)';
+                        
+                        var curveHandle = marginY/2;
+                        
+                        
+                        var x1 = (j-0)*40+.5;
+                        var cpx1 = x1;
+                        
+                        var y1 = 0;
+                        var cpy1 = y1 + curveHandle;
+
+                        var x2 = x1 + 40;
+                        var cpx2 = x2;
+                        
+                        var y2 = y1 + marginY;
+                        var cpy2 = y2 - curveHandle;
+                        
+                        ctx.beginPath();
+                            ctx.moveTo( x1, y1);
+                            // ctx.lineTo( x2, y2);
+                            ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, x2, y2);
+                            ctx.stroke();
+                        ctx.closePath();
+                    }
+                    */
+
+                    var x = 0;
+                    for(var j=1; j <= raceCount; j++ ) {
+                        var hue = (360 / raceCount) * j;
+                        hue = parseInt(hue);
+                        ctx.strokeStyle = 'hsl('+hue+',100%, 80%)';
+                        
+                        var curveHandle = (marginY-meterH)/2;
+
+                        var points = playerPoints[1][j] * 4;
+                        
+                        var x1 = x + points + 1.5;
+                        var cpx1 = x1;
+                        
+                        var y1 = meterH;
+                        var cpy1 = y1 + curveHandle;
+
+                        var x2 = x1 + 40;
+                        var cpx2 = x2;
+                        
+                        var y2 = y1 + (marginY - meterH);
+                        var cpy2 = y2 - curveHandle;
+                        
+                        ctx.beginPath();
+                            ctx.moveTo( x1, y1);
+                            // ctx.lineTo( x2, y2);
+                            ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, x2, y2);
+                            ctx.stroke();
+                        ctx.closePath();
+                        
+                        x += points;
+                    }
+
+
+
+                    var x = [];
                     for (var i=1; i < playerPoints.length; i++) {
                         x[i] = 0;
                         for (var j=1; j < playerPoints[i].length; j++) {
@@ -80,37 +153,6 @@
                     }
 
 
-                    ctx.lineWidth = 3;
-
-                    for(var j=1; j <= playerPoints[1].length; j++ ) {
-                        // ctx.fillRect(j*40,250,10,10);
-                        var hue = (360 / playerPoints[1].length) * j;
-                        hue = parseInt(hue);
-                        ctx.strokeStyle = 'hsl('+hue+',100%, 50%)';
-                        
-                        var curveHandle = marginY/2;
-                        
-                        
-                        var x1 = (j-0)*40+.5;
-                        var cpx1 = x1;
-                        
-                        var y1 = 250;
-                        var cpy1 = y1 + curveHandle;
-
-                        var x2 = x1 + 40;
-                        var cpx2 = x2;
-                        
-                        var y2 = y1 + marginY;
-                        var cpy2 = y2 - curveHandle;
-                        
-                        ctx.beginPath();
-                            ctx.moveTo( x1, y1);
-                            // ctx.lineTo( x2, y2);
-                            ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, x2, y2);
-                            ctx.lineTo(x2,y2);
-                            ctx.stroke();
-                        ctx.closePath();
-                    }
 
 
     			}
