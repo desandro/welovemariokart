@@ -160,31 +160,40 @@
                     }
                     */
 
-                    /*
-                    var x = [];
-                    var x = 0;
-                    for (var j=1; j <= raceCount; j++) {
+                    for (i=1; i <= playerCount; i++) {
+                        x[i] = 0;
+                    }
+
+                    for ( j=1; j <= raceCount; j++) {
                         var hue = (360 / raceCount) * j;
                         hue = parseInt(hue);
-                        ctx.strokeStyle = 'hsl('+hue+',100%, 50%)';
+                        ctx.strokeStyle = 'hsla('+hue+',100%, 50%, .8)';
 
-                        var points = playerPoints[1][j] * 4;
+                        var player1points = playerPoints[1][j] * 4;
 
-                        var x1 = x + points + 1.5;
+                        var x1 = x[1] + player1points + 1.5;
                         var y1 = 0;
-                        
-                        var x2 = x1;
-                        var y2 = y1 + meterH;
 
                         ctx.beginPath();
                             ctx.moveTo(x1,y1);
-                            ctx.lineTo(x2,y2);
+
+                            for (i=2; i <= playerCount; i++) {
+                                var points = playerPoints[i][j] * 4;
+
+                                var x2 = x[i] + points + 1.5;
+                                var y2 = marginY*(i-1);
+
+                                ctx.lineTo(x2,y2);
+
+                                x[i] += points;
+                            }
+
                             ctx.stroke();
                         ctx.closePath();
-                    
-                        x += points;
+
+                        x[1] += player1points;
+                        
                     }
-                    */
 
                     
 
@@ -195,7 +204,7 @@
                     for ( j=1; j <= raceCount; j++) {
                         var hue = (360 / raceCount) * j;
                         hue = parseInt(hue);
-                        ctx.strokeStyle = 'hsl('+hue+',100%, 50%)';
+                        ctx.strokeStyle = 'hsla('+hue+',100%, 50%, .3)';
 
                         for (i=1; i <= playerCount; i++) {
                             var points = playerPoints[i][j] * 4;
@@ -214,7 +223,6 @@
 
                             x[i] += points;
                         }
-
 
                     }
 
