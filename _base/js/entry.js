@@ -1,7 +1,14 @@
 var placePoints = [15,12,10,8,7,6,5,4,3,2,1,0];
 
+
 $(function(){
     
+	// console log wrapper.
+	function debug(){
+	    window.console && console.log.call(console,arguments);
+	}
+
+
     $('tr:eq(0)').append('<th>Total</th>');
     $('tr:gt(0)').append('<td class="total" />');
     
@@ -15,11 +22,11 @@ $(function(){
         var selOpt = $(this).find(':selected');
         var selIdx = $(this).find('option').index( selOpt );
 
-        // console.log( classes );
+        // debug( classes );
 
         var otherSelects = $('select.' + classes).not(this);
 
-        // console.log( otherSelects );
+        // debug( otherSelects );
         
         var prevSelIdx = $(this).data('prevSelIdx');
         if ( prevSelIdx != undefined ) {
@@ -40,42 +47,47 @@ $(function(){
 
     });
     
-    
-    // tally player total
-    $('select.race').change(function(){
-        var tr = $(this).parents('tr');
-        var selVal = parseInt( $(this).val() );
-
+    function updatePlayerTotal(row) {
         var playerTotal = 0;
-        tr.find('td:visible select.race').each(function(){
+		row.find('td:visible select.place').each(function(){
             if( $(this).val() != '---' ) {
                 var selVal = parseInt( $(this).val() );
-                // console.log (selVal);
+                // debug (selVal);
                 playerTotal += placePoints[selVal-1];
             }
             
         })
 
-        tr.children('.total').text( playerTotal );
+        row.children('.total').text( playerTotal );
+	}
+
+    // tally player total
+    $('select.place').change(function(){
+
+        var row = $(this).parents('tr');
+		updatePlayerTotal( row );
 
     });
     
     // change race_entry table dynamically
     $('#race_setup input[name="race_count"]').change(function(){
         var raceCount = parseInt( $(this).val() );
-        console.log( raceCount );
+        debug('raceCount', raceCount );
         $('tr').each(function(){
             $(this).children(':gt('+(raceCount+2)+'):not(:last)').hide();
             $(this).children(':lt('+(raceCount+3)+'):hidden').show();
         })
         $('#race_entry input[name="race_count"]').val( raceCount );
-        $('select.race').change();
+
+		$('tr:gt(1):visible').each(function(){
+			updatePlayerTotal( $(this) );
+		});
     });
 
     // change race_entry table dynamically
     $('#race_setup input[name="player_count"]').change(function(){
         var playerCount = parseInt( $(this).val() );
-        console.log( playerCount );
+        debug('playerCount', playerCount );
         $('tr:gt('+(playerCount+1)+'):visible').hide();
         $('tr:lt('+(playerCount+2)+'):hidden').show();
         $('#race_entry input[name="player_count"]').val( playerCount );
@@ -85,7 +97,31 @@ $(function(){
     $('#race_setup input:checked').change();
 
     // hide revise round button
-    $('#revise_round').hide();
+    // $('#revise_round').hide();
+    $('#revise_round').attr('disabled', 'disabled').hide();
     
+
+	$('select, input[type="radio"]').change(function(){
+		var validateSelects = true;
+		var submitDisabled = $('#submit_round').attr('disabled');
+	
+		$('td:visible select').each(function(){
+			if( $(this).val() == '---' ) {
+				// debug('invalid selects', this );
+				validateSelects = false;
+				return false;
+			}
+		})
+
+		if ( !validateSelects && !submitDisabled ) {
+			$('#submit_round').attr('disabled', 'disabled');
+		} else if ( validateSelects && submitDisabled  ) {
+			$('#submit_round').removeAttr('disabled');
+		}
+		
+	});
+		// check it on startup
+	$('select').eq(0).change();
+
     
 })

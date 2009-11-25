@@ -1,3 +1,9 @@
+/* HTML5 styles */
+section, meter {
+	display: block;
+}
+
+
 body {
     font-size: 13px;
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -6,6 +12,7 @@ body {
 
 th, td {
     border: 1px solid #AAA;
+	padding: 1px;
 }
 
 select.race {

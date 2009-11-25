@@ -83,7 +83,7 @@
                     </td>
                     <?php for ($j=1; $j <= 10; $j++): ?>
                         <td <?php if ( $j > $raceCount ): ?>style="display: none;"<?php endif; ?> >
-                            <?php selectOptions($i, array(1,2,3,4,5,6,7,8,9,10,11,12), 'race' . $j, 'race' ); ?>
+                            <?php selectOptions($i, array(1,2,3,4,5,6,7,8,9,10,11,12), 'place_race' . $j, 'place' ); ?>
                         </td>
                     <?php endfor; ?>
                     
@@ -91,7 +91,7 @@
             <?php endfor; ?>
         </table>
         
-        <input type="submit" name="submit" value="Submit" id="submit" />
+        <input type="submit" name="submit_round" value="Submit Round" id="submit_round" />
         
         
     </form>
