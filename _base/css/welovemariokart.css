@@ -42,7 +42,8 @@ select.course {
 }
 
 #viz meter.round {
-    border: 1px solid #AAA;
+
+    border: 1px solid #111;
     height: 20px;
     width: 640px;
     position: relative;
@@ -54,6 +55,8 @@ select.course {
     top: 0;
     left: 0;
     height: 100%;
+    border-right: 2px solid #F00;
+    text-indent: -9999em;
 }
 
 #viz .identity {
@@ -94,13 +97,13 @@ select.course {
     font-weight: 100;
 }
 
-#viz .race1 { background: #EAA; }
-#viz .race2 { background: #AEE; }
-#viz .race3 { background: #AEA; }
-#viz .race4 { background: #EAE; }
-#viz .race5 { background: #AAE; }
-#viz .race6 { background: #EEA; }
-#viz .race7 { background: #ECA; }
-#viz .race8 { background: #ACE; }
-#viz .race9 { background: #CAE; }
-#viz .race10 { background: #ECA; }
+#viz meter.race.race1 { border-color: #E33; }
+#viz meter.race.race2 { border-color: #3EE; }
+#viz meter.race.race3 { border-color: #3E3; }
+#viz meter.race.race4 { border-color: #E3E; }
+#viz meter.race.race5 { border-color: #33E; }
+#viz meter.race.race6 { border-color: #EE3; }
+#viz meter.race.race7 { border-color: #E83; }
+#viz meter.race.race8 { border-color: #38E; }
+#viz meter.race.race9 { border-color: #83E; }
+#viz meter.race.race10 { border-color: #E83; }

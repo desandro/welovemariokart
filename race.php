@@ -74,7 +74,7 @@
         
         ?>
             <div id="player_<?= $player->id ?>" class="player">
-                <meter class="round" value="<?= $player->total ?>" min="0" max="<?= $roundMax ?>" style="width: <?= pixelWidth($player->total) ?>px;">
+                <meter class="round" value="<?= $player->total ?>" min="0" max="<?= $roundMax ?>" style="width: <?= pixelWidth($player->total)+2 ?>px;">
                     <span class="identity">
                         <em class="avatar"><?= $player->character ?></em>
                         <strong class="name"><?= $player->name ?></strong>
@@ -84,9 +84,10 @@
                         $x = 0;
                         for ($j=1; $j <= $raceCount; $j++): 
                             $w = pixelWidth($player->points[$j]);
+                            $points = $player->points[$j];
                     ?>
-                        <meter class="race race<?= $j ?>" value="<?= $player->points[$j] ?>" min="0" max="15" style="width: <?= $w ?>px; left: <?= $x ?>px;">
-                            <?= $player->points[$j] ?>
+                        <meter class="race race<?= $j ?>" value="<?= $points ?>" min="0" max="15" style="width: <?= $w ?>px; left: <?= $x ?>px;">
+                            <?= $points ?>
                         </meter>
                     <?php 
                         $x += $w; 
