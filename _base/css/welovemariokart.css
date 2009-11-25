@@ -8,6 +8,7 @@ body {
     font-size: 13px;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     padding: 40px;
+    color: #111;
 }
 
 th, td {
@@ -26,3 +27,62 @@ select.course {
 .hidden {
     display: none;
 }
+
+/**************************
+**  Visualization
+**************************/
+
+#viz {
+
+}
+
+#viz .player {
+    border: 0px solid #CCC;
+    margin-bottom: 40px;
+}
+
+#viz meter.round {
+    border: 1px solid #AAA;
+    height: 30px;
+    width: 640px;
+    position: relative;
+}
+
+#viz meter.race {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+#viz .identity {
+    position: absolute;
+    top: -5px;
+    right: -310px;
+    width: 300px;
+}
+
+#viz .identity .avatar {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: #CCC;
+    color: #FFF;
+}
+
+#viz .identity .name {
+    font: 500 normal 48px/40px Impact, 'Helvetica Neue', Arial, sans-serif;
+    padding-left: 5px;
+}
+
+#viz .race1 { background: #EAA; }
+#viz .race2 { background: #AEE; }
+#viz .race3 { background: #AEA; }
+#viz .race4 { background: #EAE; }
+#viz .race5 { background: #AAE; }
+#viz .race6 { background: #EEA; }
+#viz .race7 { background: #ECA; }
+#viz .race8 { background: #ACE; }
+#viz .race9 { background: #CAE; }
+#viz .race10 { background: #ECA; }
