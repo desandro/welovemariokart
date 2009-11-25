@@ -36,6 +36,7 @@
 	    
 	    var raceCount = 10;
 	    var playerCount = 4;
+	    var roundMax = raceCount * 15;
 	
 		$(function(){
 		    var playerPoints = []
@@ -60,9 +61,10 @@
     				var ctx = canvas.getContext("2d");
     				// begin canvas code
 
-                    var meterH = 20;
-                    var marginY = 60;
+                    var meterH = 40;
+                    var marginY = 40;
                     var handleY = (marginY-meterH)/2;
+                    var pixelAdjust = 800 / roundMax;
 
                     var x = [];
 
@@ -70,98 +72,8 @@
                     ctx.lineWidth = 3;
 
 
-                    /*
-                    for(var j=1; j <= playerPoints[1].length; j++ ) {
-                        // ctx.fillRect(j*40,250,10,10);
-                        var hue = (360 / playerPoints[1].length) * j;
-                        hue = parseInt(hue);
-                        ctx.strokeStyle = 'hsl('+hue+',100%, 80%)';
-                        
-                        var curveHandle = marginY/2;
-                        
-                        
-                        var x1 = (j-0)*40+.5;
-                        var cpx1 = x1;
-                        
-                        var y1 = 0;
-                        var cpy1 = y1 + curveHandle;
-
-                        var x2 = x1 + 40;
-                        var cpx2 = x2;
-                        
-                        var y2 = y1 + marginY;
-                        var cpy2 = y2 - curveHandle;
-                        
-                        ctx.beginPath();
-                            ctx.moveTo( x1, y1);
-                            // ctx.lineTo( x2, y2);
-                            ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, x2, y2);
-                            ctx.stroke();
-                        ctx.closePath();
-                    }
-                    */
-
-                    /*
-                    x[1] = 0;
-                    for(var j=1; j <= raceCount; j++ ) {
-                        var hue = (360 / raceCount) * j;
-                        hue = parseInt(hue);
-                        ctx.strokeStyle = 'hsl('+hue+',100%, 80%)';
-                        
-                        var handleY = (marginY-meterH)/2;
-
-                        var points = playerPoints[1][j] * 4;
-                        
-                        var x1 = x[1] + points + 1.5;
-                        var y1 = 0;
-                        
-                        ctx.beginPath();
-                            ctx.moveTo( x1, y1);
-
-                            for (i=2; i <= playerCount; i++ ) {
-                                
-                                var x2 = x[i-1];
-                                var y2 = y1 + meterH + marginY * (i-2);
-                                
-                                var cpx2 = x2;
-                                var cpy2 = y2 + handleY;
-                                
-                                var x3 = 
-                                
-                                ctx.lineTo(x2,y2);
-                                
-                                // ctx.lineTo()
-                            }
-                            // ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, x2, y2);
-                            ctx.stroke();
-                        ctx.closePath();
-                        
-                        x[1] += points;
-                    }
-                    */
-
-                    /*
-                    var x = [];
-                    for (var i=1; i < playerPoints.length; i++) {
-                        x[i] = 0;
-                        for (var j=1; j < playerPoints[i].length; j++) {
-                            var points = playerPoints[i][j] * 4;
-
-                            var hue = (360 / playerPoints[i].length) * j;
-                            hue = parseInt(hue);
-                            ctx.fillStyle = 'hsl('+hue+',100%, 50%)';
-
-                            ctx.fillRect (x[i] + points, marginY * (i-1), 3, meterH);
-
-
-
-                            x[i] += points;
-                        }
-                    }
-                    */
-
                     for (i=1; i <= playerCount; i++) {
-                        x[i] = 0;
+                        x[i] = 1.5;
                     }
 
                     for ( j=1; j <= raceCount; j++) {
@@ -169,21 +81,34 @@
                         hue = parseInt(hue);
                         ctx.strokeStyle = 'hsla('+hue+',100%, 50%, .8)';
 
-                        var player1points = playerPoints[1][j] * 4;
+                        var player1points = playerPoints[1][j] * pixelAdjust;
 
-                        var x1 = x[1] + player1points + 1.5;
+                        var x1 = x[1] + player1points;
                         var y1 = 0;
+
+
+                        x[1] += player1points;
+
 
                         ctx.beginPath();
                             ctx.moveTo(x1,y1);
 
                             for (i=2; i <= playerCount; i++) {
-                                var points = playerPoints[i][j] * 4;
+                                var points = playerPoints[i][j] * pixelAdjust;
 
-                                var x2 = x[i] + points + 1.5;
-                                var y2 = marginY*(i-1);
+                                var x2 = x[i-1];
+                                var y2 = meterH * (i-1) + marginY*(i-2);
+
+                                var x3 = x[i] + points;
+                                var y3 = y2 + marginY;
+
+                                var x4 = x3;
+                                var y4 = y3 + meterH;
+
 
                                 ctx.lineTo(x2,y2);
+                                ctx.lineTo(x3,y3);
+                                ctx.lineTo(x4,y4);
 
                                 x[i] += points;
                             }
@@ -191,8 +116,6 @@
                             ctx.stroke();
                         ctx.closePath();
 
-                        x[1] += player1points;
-                        
                     }
 
                     
@@ -218,7 +141,7 @@
                             ctx.beginPath();
                                 ctx.moveTo(x1,y1);
                                 ctx.lineTo(x2,y2);
-                                ctx.stroke();
+                                // ctx.stroke();
                             ctx.closePath();
 
                             x[i] += points;
