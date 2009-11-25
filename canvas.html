@@ -61,16 +61,15 @@
     				var ctx = canvas.getContext("2d");
     				// begin canvas code
 
-                    var meterH = 40;
-                    var marginY = 40;
-                    var handleY = (marginY-meterH)/2;
-                    var pixelAdjust = 800 / roundMax;
+                    var meterH = 20;
+                    var marginY = 60;
+                    var handleY = marginY * .5;
+                    var pixelAdjust = 600 / roundMax;
 
                     var x = [];
 
 
                     ctx.lineWidth = 3;
-
 
                     for (i=1; i <= playerCount; i++) {
                         x[i] = 1.5;
@@ -86,7 +85,6 @@
                         var x1 = x[1] + player1points;
                         var y1 = 0;
 
-
                         x[1] += player1points;
 
 
@@ -94,20 +92,28 @@
                             ctx.moveTo(x1,y1);
 
                             for (i=2; i <= playerCount; i++) {
-                                var points = playerPoints[i][j] * pixelAdjust;
+                                var points, x2, y2, cp2x, cp2y, 
+                                    x3, y3, cp3x, cp3y, x4, y4;
 
-                                var x2 = x[i-1];
-                                var y2 = meterH * (i-1) + marginY*(i-2);
+                                points = playerPoints[i][j] * pixelAdjust;
 
-                                var x3 = x[i] + points;
-                                var y3 = y2 + marginY;
+                                x2 = x[i-1];
+                                y2 = meterH * (i-1) + marginY*(i-2);
 
-                                var x4 = x3;
-                                var y4 = y3 + meterH;
+                                cp2x = x2;
+                                cp2y = y2 + handleY;
+                                
+                                x3 = x[i] + points;
+                                y3 = y2 + marginY;
 
+                                cp3x = x3;
+                                cp3y = y3 - handleY;
+
+                                x4 = x3;
+                                y4 = y3 + meterH;
 
                                 ctx.lineTo(x2,y2);
-                                ctx.lineTo(x3,y3);
+                                ctx.bezierCurveTo(cp2x, cp2y, cp3x, cp3y, x3, y3);  
                                 ctx.lineTo(x4,y4);
 
                                 x[i] += points;
@@ -118,37 +124,7 @@
 
                     }
 
-                    
-
-                    for (i=1; i <= playerCount; i++) {
-                        x[i] = 0;
-                    }
-
-                    for ( j=1; j <= raceCount; j++) {
-                        var hue = (360 / raceCount) * j;
-                        hue = parseInt(hue);
-                        ctx.strokeStyle = 'hsla('+hue+',100%, 50%, .3)';
-
-                        for (i=1; i <= playerCount; i++) {
-                            var points = playerPoints[i][j] * 4;
-
-                            var x1 = x[i] + points + 1.5;
-                            var y1 = marginY*(i-1);
-
-                            var x2 = x1;
-                            var y2 = y1 + meterH;
-
-                            ctx.beginPath();
-                                ctx.moveTo(x1,y1);
-                                ctx.lineTo(x2,y2);
-                                // ctx.stroke();
-                            ctx.closePath();
-
-                            x[i] += points;
-                        }
-
-                    }
-
+       
 
     			}
     		}
