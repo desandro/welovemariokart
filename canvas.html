@@ -58,16 +58,59 @@
     				var ctx = canvas.getContext("2d");
     				// begin canvas code
 
-    				ctx.fillStyle = "rgb(200,0,0)";
-                    
-                    for (var i=1; i < playerPoints.length; i++) {
-                        for (var j=1; j < playerPoints[i].length; j++) {
-                            var points = playerPoints[i][j];
-                            ctx.fillRect (20 * j, 20 * i, points, 10);
-                        };
+                    var meterH = 20;
+                    var marginY = 60;
 
-                    
-                    };
+                    var x = [];
+                    for (var i=1; i < playerPoints.length; i++) {
+                        x[i] = 0;
+                        for (var j=1; j < playerPoints[i].length; j++) {
+                            var points = playerPoints[i][j] * 4;
+
+                            var hue = (360 / playerPoints[i].length) * j;
+                            hue = parseInt(hue);
+                            ctx.fillStyle = 'hsl('+hue+',100%, 50%)';
+
+                            ctx.fillRect (x[i] + points, marginY * (i-1), 3, meterH);
+
+
+
+                            x[i] += points;
+                        }
+                    }
+
+
+                    ctx.lineWidth = 3;
+
+                    for(var j=1; j <= playerPoints[1].length; j++ ) {
+                        // ctx.fillRect(j*40,250,10,10);
+                        var hue = (360 / playerPoints[1].length) * j;
+                        hue = parseInt(hue);
+                        ctx.strokeStyle = 'hsl('+hue+',100%, 50%)';
+                        
+                        var curveHandle = marginY/2;
+                        
+                        
+                        var x1 = (j-0)*40+.5;
+                        var cpx1 = x1;
+                        
+                        var y1 = 250;
+                        var cpy1 = y1 + curveHandle;
+
+                        var x2 = x1 + 40;
+                        var cpx2 = x2;
+                        
+                        var y2 = y1 + marginY;
+                        var cpy2 = y2 - curveHandle;
+                        
+                        ctx.beginPath();
+                            ctx.moveTo( x1, y1);
+                            // ctx.lineTo( x2, y2);
+                            ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, x2, y2);
+                            ctx.lineTo(x2,y2);
+                            ctx.stroke();
+                        ctx.closePath();
+                    }
 
 
     			}
