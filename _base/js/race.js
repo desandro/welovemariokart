@@ -1,8 +1,7 @@
 var placePoints = [15,12,10,8,7,6,5,4,3,2,1,0]
 
-var raceCount = 10;
-var playerCount = 4;
-var roundMax = raceCount * 15;
+
+
 
 $(function(){
 
@@ -11,7 +10,12 @@ $(function(){
 	    window.console && console.log.call(console,arguments);
 	}
 
+    var raceCount = $('#player_1 meter.race').length;
+    var playerCount = $('#graph .player').length;
+    var roundMax = raceCount * 15;
 
+    debug('playerCount', playerCount);
+    debug('raceCount', raceCount);
 
     var playerPoints = [];
     var table = $('<table />');
@@ -20,7 +24,7 @@ $(function(){
         cells = '';
         playerPoints[i] = [];
         for (j=1; j <= raceCount; j++ ) {
-            // var place = Math.ceil( Math.random() * 12)
+            // var place = Math.ceil( Math.random() * 12);
             var points = $('#graph .player:eq('+(i-1)+') meter.race:eq('+(j-1)+')')
                             .attr('value');
             // place = parseInt(place);
@@ -55,7 +59,7 @@ $(function(){
             ctx.globalAlpha = .3;
 
             for (i=1; i <= playerCount; i++) {
-                x[i] = 1;
+                x[i] = 2;
             }
 
             for ( j=1; j <= raceCount; j++) {
