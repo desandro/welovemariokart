@@ -1,5 +1,5 @@
 /* HTML5 styles */
-section, meter {
+section, header, meter {
 	display: block;
 }
 
@@ -32,16 +32,64 @@ select.course {
 **  Visualization
 **************************/
 
-#viz {
+#graph {
+    margin-top: 40px;
     margin-left: 100px;
+    background: #FFF;
+    position: relative;
 }
 
-#viz .player {
+
+/**** Graph lines ****/
+
+#graph .graph_lines {
+    border-left: 1px solid #DDD;
+    position: absolute;
+    height: 280px;
+    top: -20px;
+    left: 0;
+}
+
+#graph .graph_lines div {
+    width: 99px;
+    border-right: 1px solid #DDD;
+    float: left;
+    position: relative;
+    height: 100%; 
+}
+
+#graph .graph_lines label {
+    position: absolute;
+    font-size: 11px;
+    color: #888;
+    top: -20px;
+    display: block;
+    width: 30px;
+    text-align: center;
+    right: -15px;
+}
+
+#graph .graph_lines label.zero {
+    left: -15px;
+}
+
+
+/**** Canvas ****/
+
+#graph canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/**** Player ****/
+
+#graph .player {
     border: 0px solid #CCC;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
-#viz meter.round {
+#graph meter.round {
 
     border: 1px solid #111;
     height: 20px;
@@ -50,7 +98,7 @@ select.course {
 
 }
 
-#viz meter.race {
+#graph meter.race {
     position: absolute;
     top: 0;
     left: 0;
@@ -59,14 +107,14 @@ select.course {
     text-indent: -9999em;
 }
 
-#viz .identity {
+#graph .identity {
     position: absolute;
     top: -12px;
     right: -310px;
     width: 300px;
 }
 
-#viz .identity .avatar {
+#graph .identity .avatar {
     display: block;
     float: left;
     width: 40px;
@@ -76,14 +124,14 @@ select.course {
     border: 1px solid #888;
 }
 
-#viz .identity .name {
+#graph .identity .name {
     padding-left: 5px;
     font-size: 48px;
     line-height: 40px;
     letter-spacing: -0.04em;
 }
 
-#viz .total {
+#graph .total {
     position: absolute;
     left: -115px;
     top: -12px;
@@ -97,13 +145,13 @@ select.course {
     font-weight: 100;
 }
 
-#viz meter.race.race1 { border-color: #E33; }
-#viz meter.race.race2 { border-color: #3EE; }
-#viz meter.race.race3 { border-color: #3E3; }
-#viz meter.race.race4 { border-color: #E3E; }
-#viz meter.race.race5 { border-color: #33E; }
-#viz meter.race.race6 { border-color: #EE3; }
-#viz meter.race.race7 { border-color: #E83; }
-#viz meter.race.race8 { border-color: #38E; }
-#viz meter.race.race9 { border-color: #83E; }
-#viz meter.race.race10 { border-color: #E83; }
+#graph meter.race.race1 { border-color: #E33; }
+#graph meter.race.race2 { border-color: #3EE; }
+#graph meter.race.race3 { border-color: #3E3; }
+#graph meter.race.race4 { border-color: #E3E; }
+#graph meter.race.race5 { border-color: #33E; }
+#graph meter.race.race6 { border-color: #EE3; }
+#graph meter.race.race7 { border-color: #E83; }
+#graph meter.race.race8 { border-color: #38E; }
+#graph meter.race.race9 { border-color: #83E; }
+#graph meter.race.race10 { border-color: #E83; }

@@ -54,6 +54,8 @@
     include('_base/includes/templates/html_head.php');
 ?>
 
+    <script type="text/javascript" src="_base/js/race.js" charset="utf-8"></script>
+
     <title>race</title>
     
 
@@ -62,11 +64,17 @@
     
     <h1>race</h1>
     
-    <section id="viz">
-        <header>
-            <p class="min">0</p>
-            <p class="max"><?= $roundMax ?></p>
-        </header>
+    <section id="graph">
+        <div class="graph_lines">
+            <label class="zero">0</label>
+            <?php for ($i=1; $i <= 6; $i++): 
+                $lineValue = ($roundMax / 6) * $i;
+            ?>
+                <div><label><?= $lineValue ?></label></div>
+            <?php endfor; ?>
+        </div>
+        
+    	<canvas id="curves" width="600" height="300"></canvas>
         
         <?php foreach( $players as $player): 
             $roundW = ($player->total / $roundMax) * 600;
