@@ -82,12 +82,8 @@
         
         ?>
             <div id="player_<?= $player->id ?>" class="player">
+                <p class="total"><?= $player->total ?></p>
                 <meter class="round" value="<?= $player->total ?>" min="0" max="<?= $roundMax ?>" style="width: <?= pixelWidth($player->total)+2 ?>px;">
-                    <span class="identity">
-                        <em class="avatar"><?= $player->character ?></em>
-                        <strong class="name"><?= $player->name ?></strong>
-                    </span>
-                    <strong class="total"><?= $player->total ?></strong>
                     <?php 
                         $x = 0;
                         for ($j=1; $j <= $raceCount; $j++): 
@@ -102,6 +98,11 @@
                         endfor; 
                     ?>
                 </meter>
+                <p class="identity">
+                    <em class="avatar"><?= $player->character ?></em>
+                    <strong class="name"><?= $player->name ?></strong>
+                </p>
+
             </div>
         <?php endforeach; ?>
         
