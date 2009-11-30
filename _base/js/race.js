@@ -13,6 +13,7 @@ $(function(){
     var raceCount = $('#player_1 meter.race').length;
     var playerCount = $('#graph .player').length;
     var roundMax = raceCount * 15;
+    var pixelAdjust = 600 / roundMax;
 
     debug('playerCount', playerCount);
     debug('raceCount', raceCount);
@@ -27,6 +28,40 @@ $(function(){
         }
     }
     
+    
+
+    $('#graph').after('<button id="animate_graph">Animate Graph</button>');
+
+    $('#animate_graph').click(function(){
+        $('#graph .player meter.round').animate({ width: 0 });
+        $('#curves').fadeOut();
+        $('#graph .player .total').text('0');
+
+        var progressX = [];
+        var points = [];
+        for (var i=0; i < playerCount; i++) {
+            progressX[i] = 0;
+            points[i] = 0;
+        };
+
+
+        for(j=1; j <= raceCount; j++) {
+            $('#graph .player').each(function(i){
+                var addPoints =  playerPoints[i+1][j];
+                points[i] += addPoints * 1;
+                progressX[i] += addPoints * pixelAdjust;
+                $(this).children('meter.round').animate({ width: progressX[i]+2}, 1200, 'swing'
+                    , function(){
+                        $(this).parent().children('.total').text(points[i]);
+                    }
+                );
+
+            });
+        }
+
+        
+
+    })
 
     // render the bezier curves
     function drawCanvas() {
@@ -38,7 +73,6 @@ $(function(){
             var meterH = 20;
             var marginY = 50;
             var handleY = marginY * .5;
-            var pixelAdjust = 600 / roundMax;
 
             var x = [];
 
@@ -53,10 +87,7 @@ $(function(){
             for ( j=1; j <= raceCount; j++) {
                 var hue = (360 / raceCount) * j;
                 hue = parseInt(hue);
-                // ctx.strokeStyle = 'hsla('+hue+',100%, 50%, .8)';
-                // ctx.strokeStyle = '#DDD';
                 ctx.strokeStyle = $('meter.race:eq('+(j-1)+')').css('border-right-color');
-                // debug( ctx.strokeStyle );
 
                 var player1points = playerPoints[1][j] * pixelAdjust;
 
