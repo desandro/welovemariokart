@@ -41,12 +41,14 @@ $(function(){
 
         var progressX = [];
         var points = [];
+		var k = [];
         for (var i=0; i < playerCount; i++) {
             progressX[i] = 0;
             points[i] = 0;
         };
 
 
+		/*
 		var jcount = 0;
         for(j=1; j <= raceCount; j++) {
             $('#graph .player').each(function(i){
@@ -61,7 +63,7 @@ $(function(){
 						for(var p=0; p < addPoints; p++ ) {
 		                    roundTotal.animate({opacity: 1}, 50, 'linear', function(){
 		                        $(this).text( points[i] );
-								debug('jcount: '+ jcount, 'player: ' + i, 'p: ' + p)
+								// debug('jcount: '+ jcount, 'player: ' + i, 'p: ' + p)
 		                    });
 						}
 
@@ -74,6 +76,56 @@ $(function(){
 				// debug(points[i]);
             });
         }
+		*/
+
+		var aniSpeed = 1200;
+
+		function animateRace() {
+			$('#graph .player').each(function(i){
+
+
+                var addPoints =  playerPoints[i+1][j];
+
+				var tallyCount = 0;
+
+				var roundMeter = $(this).children('meter.round');
+				var roundTotal = $(this).children('.total');
+                progressX[i] += addPoints * pixelAdjust;
+                roundMeter.animate({ width: progressX[i]+2}, aniSpeed, 'swing'
+                    , function(){
+
+
+
+						for(var p=0; p < 10; p++ ) {
+		                    roundTotal.animate({opacity: 1}, 50, 'linear', function(){
+		                        $(this).text( points[i] );
+								debug('j: '+ j, 'player: ' + i, 'p: ' + p)
+		                    });
+						}
+
+					
+						
+						debug('j: '+ j, 'player: ' + i, 'addPoints: ' + addPoints);
+						
+						if(i == playerCount-1 && j < raceCount ) {
+							// j++;
+							// animateRace();
+							// debug(j);
+							
+						}
+
+
+		                points[i] += addPoints;
+                    }
+                );	
+
+
+            });
+		}
+
+		var j = 1;
+		animateRace();
+
 
         $('#curves').animate({opacity: 1}, 1200 * raceCount).fadeIn();        
 
