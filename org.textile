@@ -49,3 +49,12 @@ Dry Bowser
 Legend
 id
 array
+
+
+h3. Animate process
+
+extend meter AND tally up points
+
+
+
+

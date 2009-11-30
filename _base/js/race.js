@@ -47,6 +47,7 @@ $(function(){
         };
 
 
+		var jcount = 0;
         for(j=1; j <= raceCount; j++) {
             $('#graph .player').each(function(i){
                 var addPoints =  playerPoints[i+1][j];
@@ -55,17 +56,21 @@ $(function(){
                 progressX[i] += addPoints * pixelAdjust;
                 roundMeter.animate({ width: progressX[i]+2}, 1200, 'swing'
                     , function(){
+						
+						jcount ++;
 						for(var p=0; p < addPoints; p++ ) {
 		                    roundTotal.animate({opacity: 1}, 50, 'linear', function(){
-		                        $(this).text( points[i] + p );
-								debug('race: '+ j, 'player: ' + i, 'p: ' + p)
+		                        $(this).text( points[i] );
+								debug('jcount: '+ jcount, 'player: ' + i, 'p: ' + p)
 		                    });
 						}
+
+						
+		                points[i] += addPoints;
                     }
-                );
+                );	
 
 				
-                points[i] += addPoints;
 				// debug(points[i]);
             });
         }
