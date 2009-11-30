@@ -24,7 +24,9 @@ $(function(){
         for (j=1; j <= raceCount; j++ ) {
             var points = $('#graph .player:eq('+(i-1)+') meter.race:eq('+(j-1)+')')
                             .attr('value');
+			points = parseInt(points);
             playerPoints[i][j] = points;
+			// debug(points);
         }
     }
     
@@ -48,18 +50,27 @@ $(function(){
         for(j=1; j <= raceCount; j++) {
             $('#graph .player').each(function(i){
                 var addPoints =  playerPoints[i+1][j];
-                points[i] += addPoints * 1;
+				var roundMeter = $(this).children('meter.round');
+				var roundTotal = $(this).children('.total');
                 progressX[i] += addPoints * pixelAdjust;
-                $(this).children('meter.round').animate({ width: progressX[i]+2}, 1200, 'swing'
+                roundMeter.animate({ width: progressX[i]+2}, 1200, 'swing'
                     , function(){
-                        $(this).parent().children('.total').text(points[i]);
+						for(var p=0; p < addPoints; p++ ) {
+		                    roundTotal.animate({opacity: 1}, 50, 'linear', function(){
+		                        $(this).text( points[i] + p );
+								debug('race: '+ j, 'player: ' + i, 'p: ' + p)
+		                    });
+						}
                     }
                 );
 
+				
+                points[i] += addPoints;
+				// debug(points[i]);
             });
         }
 
-        
+        $('#curves').animate({opacity: 1}, 1200 * raceCount).fadeIn();        
 
     })
 
