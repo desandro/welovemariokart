@@ -18,19 +18,11 @@ $(function(){
     debug('raceCount', raceCount);
 
     var playerPoints = [];
-    var table = $('<table />');
     for (i=1; i <= playerCount; i++) {
-        row = $('<tr />');
-        cells = '';
         playerPoints[i] = [];
         for (j=1; j <= raceCount; j++ ) {
-            // var place = Math.ceil( Math.random() * 12);
             var points = $('#graph .player:eq('+(i-1)+') meter.race:eq('+(j-1)+')')
                             .attr('value');
-            // place = parseInt(place);
-            // var points = placePoints[place-1];
-            // debug( points );
-            cells += '<td>'+points+'</td>';
             playerPoints[i][j] = points;
         }
         row.append( cells );
@@ -38,9 +30,8 @@ $(function(){
         table.append(row);
     }
     
-    // append table of point values
-    // var table = $('body').append( table );
 
+    // render the bezier curves
     function drawCanvas() {
 		var canvas = document.getElementById("curves");
 		if (canvas.getContext) {
@@ -65,10 +56,7 @@ $(function(){
             for ( j=1; j <= raceCount; j++) {
                 var hue = (360 / raceCount) * j;
                 hue = parseInt(hue);
-                // ctx.strokeStyle = 'hsla('+hue+',100%, 50%, .8)';
-                // ctx.strokeStyle = '#DDD';
                 ctx.strokeStyle = $('meter.race:eq('+(j-1)+')').css('border-right-color');
-                // debug( ctx.strokeStyle );
 
                 var player1points = playerPoints[1][j] * pixelAdjust;
 
