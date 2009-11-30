@@ -25,9 +25,6 @@ $(function(){
                             .attr('value');
             playerPoints[i][j] = points;
         }
-        row.append( cells );
-        
-        table.append(row);
     }
     
 
@@ -39,7 +36,7 @@ $(function(){
 			// begin canvas code
 
             var meterH = 20;
-            var marginY = 52;
+            var marginY = 50;
             var handleY = marginY * .5;
             var pixelAdjust = 600 / roundMax;
 
@@ -56,7 +53,10 @@ $(function(){
             for ( j=1; j <= raceCount; j++) {
                 var hue = (360 / raceCount) * j;
                 hue = parseInt(hue);
+                // ctx.strokeStyle = 'hsla('+hue+',100%, 50%, .8)';
+                // ctx.strokeStyle = '#DDD';
                 ctx.strokeStyle = $('meter.race:eq('+(j-1)+')').css('border-right-color');
+                // debug( ctx.strokeStyle );
 
                 var player1points = playerPoints[1][j] * pixelAdjust;
 
