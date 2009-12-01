@@ -20,8 +20,14 @@ select.race {
     font-size: 15px;
 }
 
-select.course {
-    width: 80px;
+select.course, 
+select.vehicle {
+    width: 120px;
+}
+
+select.place,
+select.person {
+    font-size: 16px;
 }
 
 .hidden {
