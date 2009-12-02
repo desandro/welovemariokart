@@ -35,12 +35,13 @@ $(function(){
     $('#graph').after('<button id="animate_graph">Animate Graph</button>');
 
     $('#animate_graph').click(function(){
-        $('#graph .player meter.round').animate({ width: 0 });
         $('#curves').fadeOut();
+        $('#graph .player meter.round').animate({ width: 0 });
         $('#graph .player .total').text('0');
 
         var progressX = [];
         var points = [];
+        var pointCount = [];
 		var k = [];
         for (var i=0; i < playerCount; i++) {
             progressX[i] = 0;
@@ -48,41 +49,10 @@ $(function(){
         };
 
 
-		/*
-		var jcount = 0;
-        for(j=1; j <= raceCount; j++) {
-            $('#graph .player').each(function(i){
-                var addPoints =  playerPoints[i+1][j];
-				var roundMeter = $(this).children('meter.round');
-				var roundTotal = $(this).children('.total');
-                progressX[i] += addPoints * pixelAdjust;
-                roundMeter.animate({ width: progressX[i]+2}, 1200, 'swing'
-                    , function(){
-						
-						jcount ++;
-						for(var p=0; p < addPoints; p++ ) {
-		                    roundTotal.animate({opacity: 1}, 50, 'linear', function(){
-		                        $(this).text( points[i] );
-								// debug('jcount: '+ jcount, 'player: ' + i, 'p: ' + p)
-		                    });
-						}
-
-						
-		                points[i] += addPoints;
-                    }
-                );	
-
-				
-				// debug(points[i]);
-            });
-        }
-		*/
-
 		var aniSpeed = 1200;
 
 		function animateRace() {
 			$('#graph .player').each(function(i){
-
 
                 var addPoints =  playerPoints[i+1][j];
 
@@ -90,36 +60,30 @@ $(function(){
 
 				var roundMeter = $(this).children('meter.round');
 				var roundTotal = $(this).children('.total');
+                
+				for(var p=0; p < addPoints; p++ ) {
+                    roundTotal.animate({opacity: 1}, 50, 'linear', function(){
+                        points[i] ++;
+                        $(this).text( points[i] );
+                        // debug('race '+ j, 'player ' + i, 'points[i]: ' + points[i] );
+                    });
+				}
+
                 progressX[i] += addPoints * pixelAdjust;
-                roundMeter.animate({ width: progressX[i]+2}, aniSpeed, 'swing'
+                roundMeter.animate({ width: progressX[i] + 2 }, aniSpeed, 'swing'
                     , function(){
 
-
-
-						for(var p=0; p < 10; p++ ) {
-		                    roundTotal.animate({opacity: 1}, 50, 'linear', function(){
-		                        $(this).text( points[i] );
-								debug('j: '+ j, 'player: ' + i, 'p: ' + p)
-		                    });
-						}
-
-					
-						
-						debug('j: '+ j, 'player: ' + i, 'addPoints: ' + addPoints);
-						
-						if(i == playerCount-1 && j < raceCount ) {
-							// j++;
-							// animateRace();
-							// debug(j);
+ 						if(i == playerCount-1 && j < raceCount ) {
+                            j++;
+                            animateRace();
+                            debug(j);
 							
+						} else if (i == playerCount-1 && j == raceCount ) {
+						    // animation is complete
+						    debug('animation complete')
 						}
-
-
-		                points[i] += addPoints;
                     }
                 );	
-
-
             });
 		}
 
