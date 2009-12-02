@@ -35,23 +35,33 @@ $(function(){
     $('#graph').after('<button id="animate_graph">Animate Graph</button>');
 
     $('#animate_graph').click(function(){
-        $('#curves').fadeOut();
-        $('#graph .player meter.round').animate({ width: 0 });
+        var ajaxing = false;
+        var aniSpeed = 1500;
+
         $('#graph .player .total').text('0');
 
         var progressX = [];
         var points = [];
         var pointCount = [];
-		var k = [];
+        var k = [];
         for (var i=0; i < playerCount; i++) {
             progressX[i] = 0;
             points[i] = 0;
-        };
+        }
+
+   		var j = 1;
 
 
-		var aniSpeed = 1200;
+        $('#curves').fadeOut();
+        $('#graph .player meter.round').animate({ width: 0 }, 'normal', 'swing', function(){
+            if( !ajaxing ) {
+        		animateRace();
+            }
+            ajaxing = true;
+        });
 
-		function animateRace() {
+
+        function animateRace() {
 			$('#graph .player').each(function(i){
 
                 var addPoints =  playerPoints[i+1][j];
@@ -60,7 +70,7 @@ $(function(){
 
 				var roundMeter = $(this).children('meter.round');
 				var roundTotal = $(this).children('.total');
-                
+
 				for(var p=0; p < addPoints; p++ ) {
                     roundTotal.animate({opacity: 1}, 50, 'linear', function(){
                         points[i] ++;
@@ -72,26 +82,22 @@ $(function(){
                 progressX[i] += addPoints * pixelAdjust;
                 roundMeter.animate({ width: progressX[i] + 2 }, aniSpeed, 'swing'
                     , function(){
-
  						if(i == playerCount-1 && j < raceCount ) {
                             j++;
                             animateRace();
                             debug(j);
-							
+
 						} else if (i == playerCount-1 && j == raceCount ) {
 						    // animation is complete
-						    debug('animation complete')
+						    debug('animation complete');
+						    ajaxing = false;
 						}
                     }
                 );	
             });
 		}
 
-		var j = 1;
-		animateRace();
-
-
-        $('#curves').animate({opacity: 1}, 1200 * raceCount).fadeIn();        
+        $('#curves').animate({opacity: 1}, aniSpeed * raceCount).fadeIn();
 
     })
 
@@ -165,10 +171,8 @@ $(function(){
 
             }
 
-
-
-		}
-	}
+        }
+    }
 
 
 
