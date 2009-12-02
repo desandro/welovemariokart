@@ -90,14 +90,12 @@ $(function(){
         debug('playerCount', playerCount );
         $('tr:gt('+(playerCount+1)+'):visible').hide();
         $('tr:lt('+(playerCount+2)+'):hidden').show();
-        $('#race_entry input[name="player_count"]').val( playerCount );
     });
 
     // initiate change so table is properly sized on window.load
     $('#race_setup input:checked').change();
 
     // hide revise round button
-    // $('#revise_round').hide();
     $('#revise_round').attr('disabled', 'disabled').hide();
     
 

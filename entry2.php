@@ -76,7 +76,7 @@
                 <?php endfor; ?>                
             </tr>
             <?php for ($j=1; $j <= 10; $j++): ?>
-                <tr>
+                <tr class="race">
                     <th scope="row">Race <?= $j ?></th>
                     <td>
                         <?php include('_base/includes/templates/select_courses2.php'); ?>
