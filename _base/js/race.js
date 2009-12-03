@@ -32,21 +32,26 @@ $(function(){
     
 
     // ranking function for sorting players when animated
-    function getRank(i, currentPoints) {
-    	var sortedPoints = [];
-    	var ranks = [];
-    	for(j=0; j< currentPoints.length ; j++){
-    		sortedPoints[j] = currentPoints[j];
-    	}
+    function getRank(s, currentScores) {
+        var scores = [];
+        var ranks = [];
 
-    	sortedPoints.sort(function(a,b){return b - a});
+        for ( ii=0; ii < currentScores.length; ii++) {
+            scores[ii] = {
+                score: currentScores[ii],
+                ident: ii
+            };
+        }
 
-    	for(j=0; j< currentPoints.length ; j++){
-    		var s = sortedPoints[j];
-    		ranks[s] = j;
-    	}
-    	var p = currentPoints[i];
-    	return ranks[p];      
+        scores.sort(function(a,b){return b.score - a.score});
+
+        for ( ii=0; ii < scores.length; ii++) {
+            var identI = scores[ii].ident;
+            ranks[identI] = ii;
+        }
+        
+        return ranks[s];
+        
     }
     
 
@@ -55,6 +60,7 @@ $(function(){
     $('#animate_graph').click(function(){
         var ajaxing = false;
         var aniSpeed = 1500;
+        var switchSpeed = 500;
 
         $('#graph .player .total').text('0');
 
@@ -104,34 +110,37 @@ $(function(){
                     , function(){
 
                         ranks[i] = getRank(i, points);
-
-
-                        if( ranks[i] != previousRanks[i] ) {
-                            var newRank = 'switch!';
-                        } else {
-                            var newRank = '';
-                        }
-
-                        debug('prev:' + previousRanks[i], 'current: ' + ranks[i], newRank);
-
                         
-                        previousRanks[i] = ranks[i];
+                        var player = $(this).parents('.player');
 
-                        // if this is the last player
-                        if(i == playerCount-1) {
+                        player.animate({top: ranks[i]*70}, switchSpeed, 'swing')
+                        .animate({opacity: 1}, 250, 'linear',
+                         function(){
+                            previousRanks[i] = ranks[i];
 
-                            if ( j >= raceCount) {
-    						    // animation is complete
-    						    debug('animation complete');
-    						    ajaxing = false;
-                            } else {
-                                // do another race animation
-                                j++;
-                                debug(j);
-                                animateRace();
-                            }
-                        }
-                        
+                            // if this is the last player
+                            if(i == playerCount-1) {
+
+                                if ( j >= raceCount) {
+        						    // animation is complete
+
+                                    $('#curves').fadeIn();
+        						    debug('animation complete');
+        						    $('#graph .player').each(function(iii){
+        						        $(this).animate({top: iii*70}, switchSpeed, 'swing');
+        						    })
+        						    ajaxing = false;
+
+                                } else {
+                                    // do another race animation
+                                    j++;
+                                    debug(j);
+                                    animateRace();
+                                }
+                            }                            
+                        });
+
+                        // debug('prev:' + previousRanks[i], 'current: ' + ranks[i], newRank);
  
                     }
                 );	
@@ -140,7 +149,6 @@ $(function(){
 
 		}
 
-        $('#curves').animate({opacity: 1}, aniSpeed * raceCount).fadeIn();
 
     })
 

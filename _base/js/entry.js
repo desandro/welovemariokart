@@ -112,9 +112,9 @@ $(function(){
 		})
 
 		if ( !validateSelects && !submitDisabled ) {
-			$('#submit_round').attr('disabled', 'disabled');
+            $('#submit_round').attr('disabled', 'disabled');
 		} else if ( validateSelects && submitDisabled  ) {
-			$('#submit_round').removeAttr('disabled');
+            $('#submit_round').removeAttr('disabled');
 		}
 		
 	});

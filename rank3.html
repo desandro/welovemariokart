@@ -26,23 +26,22 @@
                 $('table').append( row );                
             }
             
-            function getRank(s, origScores) {
+            function getRank(s, currentScores) {
                 var scores = [];
+                var ranks = [];
 
-                for ( i=0; i < origScores.length; i++) {
-                    scores[i] = {
-                        score: origScores[i],
-                        ident: i
+                for ( ii=0; ii < currentScores.length; ii++) {
+                    scores[ii] = {
+                        score: currentScores[ii],
+                        ident: ii
                     };
                 }
 
                 scores.sort(function(a,b){return b.score - a.score});
 
-                var ranks = [];
-
-                for ( i=0; i < scores.length; i++) {
-                    var identI = scores[i].ident;
-                    ranks[identI] = i;
+                for ( ii=0; ii < scores.length; ii++) {
+                    var identI = scores[ii].ident;
+                    ranks[identI] = ii;
                 }
                 
                 return ranks[s];
@@ -54,18 +53,11 @@
             
             addRow(originalScores);
     
-            // addRow(ranks);
-            
-            // console.log( getRank(0, originalScores) );
-            // console.log( getRank(1, originalScores) );
 
             var theseRanks = [];
             for (i=0; i < originalScores.length; i++) {
                 var r = getRank(i, originalScores);
                 theseRanks[i] = r;
-                // console.log( getRank(i, originalScores) );
-                console.log( i );
-
             }
 
             addRow(theseRanks);
