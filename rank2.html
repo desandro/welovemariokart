@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+	<title>rank2.html</title>
+
+    <style type="text/css" media="screen">
+        td {
+            border: 1px solid #CCC;
+        }
+    </style>
+
+    <script type="text/javascript" src ="_base/js/jquery-1.3.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function(){
+            // var scores = [120, 150, 30, 290, 150, 100, 340, 150];
+            
+            // var scores = {
+            //     score: 
+            // }
+            
+        
+            function addRow(items) {
+                var cells = '';
+                for ( i=0; i < items.length; i++) {
+                    cells += '<td>' + items[i] + '</td>';
+                }
+                var row = $('<tr />');
+                row.append( cells );
+                $('table').append( row );                
+            }
+            
+            
+            var originalScores = [120, 150, 30, 290, 150, 100, 340, 150];
+            
+            // addRow(originalScores);
+    
+            var scores = []
+            
+            for ( i=0; i < originalScores.length; i++) {
+                scores[i] = {
+                    score: originalScores[i],
+                    ident: i
+                };
+            }
+    
+            var idents = [];
+            var scoresScores = [];
+            for ( i=0; i < scores.length; i++) {
+                scoresScores[i] = scores[i].score;
+                idents[i] = scores[i].ident;
+            }            
+            
+            addRow(scoresScores);
+            addRow(idents);
+    
+            scores.sort(function(a,b){return b.score - a.score});
+
+            for ( i=0; i < scores.length; i++) {
+                scoresScores[i] = scores[i].score;
+                idents[i] = scores[i].ident;
+            }
+            
+            addRow(scoresScores);
+            addRow(idents);
+            
+            var ranks = [];
+            
+            for ( i=0; i < scores.length; i++) {
+                var identI = scores[i].ident;
+                ranks[identI] = i;
+            }
+            
+            addRow(ranks);
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+
+	<h1>rank2.html</h1>
+
+    <hr />
+
+    <table></table>
+
+</body>
+
+</html>

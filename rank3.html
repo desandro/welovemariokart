@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+	<title>rank3.html</title>
+
+    <style type="text/css" media="screen">
+        td {
+            border: 1px solid #CCC;
+        }
+    </style>
+
+    <script type="text/javascript" src ="_base/js/jquery-1.3.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function(){
+        
+            function addRow(items) {
+                var cells = '';
+                for ( i=0; i < items.length; i++) {
+                    cells += '<td>' + items[i] + '</td>';
+                }
+                var row = $('<tr />');
+                row.append( cells );
+                $('table').append( row );                
+            }
+            
+            function getRank(s, origScores) {
+                var scores = [];
+
+                for ( i=0; i < origScores.length; i++) {
+                    scores[i] = {
+                        score: origScores[i],
+                        ident: i
+                    };
+                }
+
+                scores.sort(function(a,b){return b.score - a.score});
+
+                var ranks = [];
+
+                for ( i=0; i < scores.length; i++) {
+                    var identI = scores[i].ident;
+                    ranks[identI] = i;
+                }
+                
+                return ranks[s];
+                
+            }
+            
+            
+            var originalScores = [120, 150, 30, 290, 150, 100, 340, 150];
+            
+            addRow(originalScores);
+    
+            // addRow(ranks);
+            
+            // console.log( getRank(0, originalScores) );
+            // console.log( getRank(1, originalScores) );
+
+            var theseRanks = [];
+            for (i=0; i < originalScores.length; i++) {
+                var r = getRank(i, originalScores);
+                theseRanks[i] = r;
+                // console.log( getRank(i, originalScores) );
+                console.log( i );
+
+            }
+
+            addRow(theseRanks);
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+
+	<h1>rank3.html</h1>
+
+    <hr />
+
+    <table></table>
+
+</body>
+
+</html>
