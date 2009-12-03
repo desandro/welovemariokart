@@ -30,6 +30,24 @@ $(function(){
         }
     }
     
+
+    // ranking function for sorting players when animated
+    function getRank(i, currentPoints) {
+    	var sortedPoints = [];
+    	var ranks = [];
+    	for(j=0; j< currentPoints.length ; j++){
+    		sortedPoints[j] = currentPoints[j];
+    	}
+
+    	sortedPoints.sort(function(a,b){return b - a});
+
+    	for(j=0; j< currentPoints.length ; j++){
+    		var s = sortedPoints[j];
+    		ranks[s] = j;
+    	}
+    	var p = currentPoints[i];
+    	return ranks[p];      
+    }
     
 
     $('#graph').after('<button id="animate_graph">Animate Graph</button>');
@@ -44,9 +62,12 @@ $(function(){
         var points = [];
         var pointCount = [];
         var k = [];
+		var ranks = [];
+		var previousRanks = [];
         for (var i=0; i < playerCount; i++) {
             progressX[i] = 0;
             points[i] = 0;
+            previousRanks[i] = i;
         }
 
    		var j = 1;
@@ -66,10 +87,9 @@ $(function(){
 
                 var addPoints =  playerPoints[i+1][j];
 
-				var tallyCount = 0;
-
 				var roundMeter = $(this).children('meter.round');
 				var roundTotal = $(this).children('.total');
+
 
 				for(var p=0; p < addPoints; p++ ) {
                     roundTotal.animate({opacity: 1}, 50, 'linear', function(){
@@ -82,19 +102,42 @@ $(function(){
                 progressX[i] += addPoints * pixelAdjust;
                 roundMeter.animate({ width: progressX[i] + 2 }, aniSpeed, 'swing'
                     , function(){
- 						if(i == playerCount-1 && j < raceCount ) {
-                            j++;
-                            animateRace();
-                            debug(j);
 
-						} else if (i == playerCount-1 && j == raceCount ) {
-						    // animation is complete
-						    debug('animation complete');
-						    ajaxing = false;
-						}
+                        ranks[i] = getRank(i, points);
+
+
+                        if( ranks[i] != previousRanks[i] ) {
+                            var newRank = 'switch!';
+                        } else {
+                            var newRank = '';
+                        }
+
+                        debug('prev:' + previousRanks[i], 'current: ' + ranks[i], newRank);
+
+                        
+                        previousRanks[i] = ranks[i];
+
+                        // if this is the last player
+                        if(i == playerCount-1) {
+
+                            if ( j >= raceCount) {
+    						    // animation is complete
+    						    debug('animation complete');
+    						    ajaxing = false;
+                            } else {
+                                // do another race animation
+                                j++;
+                                debug(j);
+                                animateRace();
+                            }
+                        }
+                        
+ 
                     }
                 );	
             });
+            
+
 		}
 
         $('#curves').animate({opacity: 1}, aniSpeed * raceCount).fadeIn();

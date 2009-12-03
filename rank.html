@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+	<title>rank.html</title>
+
+</head>
+
+<body>
+
+
+	<h1>rank.html</h1>
+
+    <hr />
+
+    <script type="text/javascript">
+        
+    	var points = new Array (12, 3, 29, 15, 10, 34, 15);
+
+        /**/
+        function getRanks(currentPoints) {
+        	var sortedPoints = [];
+        	var ranks = [];
+        	for(i=0; i< currentPoints.length ; i++){
+        		sortedPoints[i] = currentPoints[i];
+        	}
+
+        	sortedPoints.sort(function(a,b){return b - a});
+
+        	for(i=0; i< currentPoints.length ; i++){
+        		var s = sortedPoints[i];
+        		ranks[s] = i;
+        	}
+        	return sortedPoints;      
+        }
+    
+        var ranks = getRanks(points);
+
+    	for(i=0; i< points.length ; i++) {
+    	    var p = points[i];
+    		document.write( p + ': ' + '<br />');
+    	}
+    	
+    		document.write('<hr />');    	
+    	for(i=0; i< points.length ; i++) {
+            var r = ranks[i];
+    		document.write( r + ': ' + i + '<br />');
+    	}
+    	
+    	/**/
+
+        /*
+        function getRank(i, currentPoints) {
+        	var sortedPoints = [];
+        	var ranks = [];
+        	for(j=0; j< currentPoints.length ; j++){
+        		sortedPoints[j] = currentPoints[j];
+        	}
+
+        	sortedPoints.sort(function(a,b){return b - a});
+
+        	for(j=0; j< currentPoints.length ; j++){
+        		var s = sortedPoints[j];
+        		ranks[s] = j;
+        	}
+        	var p = currentPoints[i];
+        	return ranks[p];      
+        }
+    
+        // var ranks = getRanks(points);
+
+    	for(i=0; i< points.length ; i++) {
+    	    var p = points[i];
+    	    var r = getRank(i, points);
+    		document.write( p + ': '+ r + '<br />');
+    	}
+    	*/
+
+
+    </script>
+
+</body>
+
+</html>
