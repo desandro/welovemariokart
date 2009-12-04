@@ -191,24 +191,30 @@ $(function(){
             }
 
             for ( j=1; j <= raceCount; j++) {
-                var hue = (360 / raceCount) * j;
+                var points, hue,
+                    x1, y2, x2, y2, cp2x, cp2y, 
+                    x3, y3, cp3x, cp3y, x4, y4;
+                
+                hue = (360 / raceCount) * j;
                 hue = parseInt(hue);
                 ctx.strokeStyle = $('meter.race:eq('+(j-1)+')').css('border-right-color');
 
-                var player1points = playerPoints[1][j] * pixelAdjust;
+                player1points = playerPoints[1][j] * pixelAdjust;
 
-                var x1 = x[1] + player1points;
-                var y1 = 0;
+                x1 = x[1] + player1points;
+                y1 = 0;
+
+                x2 = x1;
+                y2 = meterH;
 
                 x[1] += player1points;
 
 
                 ctx.beginPath();
                     ctx.moveTo(x1,y1);
+                    ctx.lineTo(x2,y2);
 
                     for (i=2; i <= playerCount; i++) {
-                        var points, x2, y2, cp2x, cp2y, 
-                            x3, y3, cp3x, cp3y, x4, y4;
 
                         points = playerPoints[i][j] * pixelAdjust;
 
@@ -227,7 +233,7 @@ $(function(){
                         x4 = x3;
                         y4 = y3 + meterH;
 
-                        ctx.lineTo(x2,y2);
+                        // ctx.lineTo(x2,y2);
                         ctx.bezierCurveTo(cp2x, cp2y, cp3x, cp3y, x3, y3);  
                         ctx.lineTo(x4,y4);
 

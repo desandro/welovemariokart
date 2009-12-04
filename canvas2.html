@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>canvas2</title>
+	
+	<style type="text/css" media="screen">
+		body {
+			font-family: 'Helvetica Neue', Arial, sans-serif;
+			padding: 0px 40px;
+		}
+		
+		h1 {
+			font-weight: 100;
+		}
+		
+		#cnvs {
+            border: 1px solid #CCC;
+		}
+		
+		td {
+		    border: 1px solid #CCC;
+		}
+		
+	</style>
+	
+	<script type="text/javascript" src="_base/js/jquery-1.3.2.min.js" charset="utf-8"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+	
+	    
+	    var raceCount = 10;
+	    var playerCount = 4;
+	
+		$(function(){
+
+        	// console log wrapper.
+        	function debug(){
+        	    window.console && console.log.call(console,arguments);
+        	}
+
+		    var playerPlaces = []
+		    for (i=1; i <= playerCount; i++) {
+    	        row = $('<tr><td>Player '+i+'</td></tr>');
+    	        cells = '';
+    	        playerPlaces[i] = [];
+    	        for (j=1; j <= raceCount; j++ ) {
+    	            var place = Math.ceil( Math.random() * 12);
+    	            cells += '<td>'+place+'</td>';
+                    playerPlaces[i][j] = place;
+    	        }
+    	        row.append( cells );
+    	        
+    	        $('table').append(row);
+    	    }
+
+
+            function drawCanvas() {
+    			var canvas = document.getElementById("cnvs");
+    			if (canvas.getContext) {
+    				var ctx = canvas.getContext("2d");
+    				// begin canvas code
+
+                    var avatarW = 47;
+                    var marginX = 240;
+                    var handleX = marginX * .5;
+                    var sizeY = 26;
+
+                    var y = [];
+
+
+                    ctx.lineWidth = 25;
+
+        		    for (i=1; i <= playerCount; i++) {
+                        var points, hue,
+                            x1, y2, x2, y2, cp2x, cp2y, 
+                            x3, y3, cp3x, cp3y, x4, y4;
+        		        
+                        hue = (360 / playerCount) * i;
+                        hue = parseInt(hue);
+                        ctx.strokeStyle = 'hsla('+hue+',100%, 50%, .5)';
+                        
+                        x1 = 0;
+                        y1 = playerPlaces[i][1]*sizeY;
+                        x2 = avatarW;
+                        y2 = y1;
+
+
+                        ctx.beginPath();
+                            ctx.moveTo(x1, y1);
+                            ctx.lineTo(x2, y2);
+
+                            for(j=2; j<= raceCount; j++) {
+
+                                x2 = avatarW*(j-1) + marginX*(j-2);
+                                y2 = playerPlaces[i][j-1]*sizeY;
+                                cp2x = x2  + handleX;
+                                cp2y = y2
+
+                                x3 = x2 + marginX;
+                                y3 = playerPlaces[i][j]*sizeY;
+                                cp3x = x3 - handleX;
+                                cp3y = y3;
+
+                                x4 = x3 + avatarW;
+                                y4 = y3;
+
+                                ctx.bezierCurveTo(cp2x, cp2y, cp3x, cp3y, x3, y3);
+                                ctx.lineTo(x4, y4);
+                            }
+                            ctx.stroke();
+                        ctx.closePath;
+            	    }
+
+    			}
+    		}
+
+
+
+
+            drawCanvas();
+		})
+		
+		
+	</script>
+	
+</head>
+
+<body>
+
+	<h1>canvas2</h1>
+	
+	<canvas id="cnvs" width="3000" height="400"></canvas>
+    
+    <table>
+        
+    </table>
+
+</body>
+</html>

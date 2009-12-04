@@ -300,39 +300,47 @@ meter.race {
 
 /**** Round Races ****/
 
+#round_races {
+    border: 1px solid #CCC;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+#round_races .slider {
+    width: 2530px;
+}
+
 #round_races .race {
-    width: 220px;
+    width: 240px;
     float: left;
     border: 1px solid #CCC;
-    margin-bottom: 20px;
-    margin-right: 10px;
+    margin: 10px 5px;
 }
 
 #round_races li {
-    height: 20px;
+    height: 25px;
     border-top: 1px solid #CCC;
+    line-height: 25px;
 }
 
 #round_races .place {
     float: left;
-    width: 40px;
+    width: 18px;
     text-align: right;
     line-height: 20px;
+    letter-spacing: -0.1em;
+    font-size: 17px;
+    color: #AAA;
+    line-height: 25px;
 }
 
 #round_races .player {
-    font-size: 40px;
-    font-size: 18px;
-    height: 50px;
+
 }
 
 #round_races .player .place {
-    font-size: 40px;
-    letter-spacing: -0.1em;
-    width: 40px;
-    text-align: right;
-    line-height: 42px;
-    padding-top: 5px;
+    font-weight: bold;
+    color: #111;
 }
 
 #round_races figure {
@@ -341,36 +349,42 @@ meter.race {
 
 #round_races .avatar {
     position: absolute;
-    top: 5px;
-    left: 50px;
+    top: 0px;
+    left: 30px;
+    border-top: none;
+    border-bottom: none;
+    height: 25px;
+}
+
+#round_races .avatar div {
+    height: 35px;
 }
 
 #round_races .name {
     position: absolute;
-    top: 5px;
-    left: 98px;
+    top: 0px;
+    left: 78px;
     font-size: 19px;
-    line-height: 20px;
     letter-spacing: -0.03em;
     font-weight: bold;
 }
 
 #round_races .points {
     position: absolute;
-    top: 28px;
-    left: 98px;
+    top: 0;
+    right: 38px;
     font-size: 14px;
     background: #111;
     color: #FFF;
-    padding: 1px 4px;
+    padding: 0px 4px;
     font-weight: bold;
 
 }
 
 #round_races .score {
     position: absolute;
-    top: 26px;
-    right: 3px;
+    top: 0px;
+    right: 2px;
     letter-spacing: -0.03em;
     font-size: 18px;
     padding: 1px 4px;

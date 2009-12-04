@@ -131,33 +131,36 @@
 
             <h2>Round Races</h2>
             
-            <?php for ($j=1; $j <= $raceCount; $j++): ?>
-                <div class="race">
-                    <h3>Race <?= $j ?> <strong><?= $raceCourses[$j] ?></strong></h3>
-                    <ol>
-                        <?php for ($k=1; $k <= 12; $k++): ?>
-                            <?php if( isset($placePlayers[$j][$k])): 
-                                $player = $placePlayers[$j][$k];
-                            ?>
-                                <li class="player">
-                                    <span class="place"><?= $k ?></span>
-                                    <figure class="identity">
+            <div class="slider">
+                <?php for ($j=1; $j <= $raceCount; $j++): ?>
+                    <div class="race race<?= $j ?>">
+                        <h3>Race <?= $j ?> <strong><?= $raceCourses[$j] ?></strong></h3>
+                        <ol>
+                            <?php for ($k=1; $k <= 12; $k++): ?>
+                                <?php if( isset($placePlayers[$j][$k])): 
+                                    $player = $placePlayers[$j][$k];
+                                ?>
+                                    <li class="player">
+                                        <span class="place"><?= $k ?></span>
+                                        <figure class="identity">
                                         
-                                        <dd class="name"><?= $player->name ?></dd>
-                                        <dt class="avatar character <?= cleanURL($player->character) ?>">
-                                            <div><img src="_base/img/character_avatars.png" alt="<?= $player->character ?>" /></div>
-                                        </dt>
-                                        <dt class="points">+<?= $player->points[$j] ?></dt>
-                                        <dt class="score"><?= $player->scores[$j] ?></dt>
-                                    </figure>
-                                </li>
-                            <?php else: ?>
-                                <li><span class="place"><?= $k ?></span></li>
-                            <?php endif; ?>
-                        <?php endfor; ?>
-                    </ol>
-                </div>
-            <?php endfor; ?>
+                                            <dd class="name"><?= $player->name ?></dd>
+                                            <dt class="avatar character <?= cleanURL($player->character) ?>">
+                                                <div><img src="_base/img/character_avatars.png" alt="<?= $player->character ?>" /></div>
+                                            </dt>
+                                            <dt class="points">+<?= $player->points[$j] ?></dt>
+                                            <dt class="score"><?= $player->scores[$j] ?></dt>
+                                        </figure>
+                                    </li>
+                                <?php else: ?>
+                                    <li><span class="place"><?= $k ?></span></li>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+                        </ol>
+                    </div>
+                <?php endfor; ?>
+                
+            </div><!-- .slider -->
 
         </section>
         
