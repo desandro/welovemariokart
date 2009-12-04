@@ -54,7 +54,7 @@
     include('_base/includes/templates/html_head.php');
 ?>
 
-    <script type="text/javascript" src="_base/js/race.js" charset="utf-8"></script>
+    <script type="text/javascript" src="_base/js/race2.js" charset="utf-8"></script>
 
     <title>race</title>
     
@@ -99,7 +99,7 @@
                     ?>
                 </meter>
                 <p class="identity">
-                    <em class="avatar"><?= $player->character ?></em>
+                    <em class="avatar <?= cleanURL($player->character) ?>"><?= $player->character ?></em>
                     <strong class="name"><?= $player->name ?></strong>
                 </p>
 
