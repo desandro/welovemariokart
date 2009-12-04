@@ -1,16 +1,16 @@
 <?php
     include('_base/includes/config.php');
 
-    $raceCountPosted = $_POST['race_count'];
-    $playerCountPosted = $_POST['player_count'];
+    // $raceCountPosted = $_POST['race_count'];
+    // $playerCountPosted = $_POST['player_count'];
 
-    if ( isset($raceCountPosted) ) {
+    if ( isset($_POST['race_count']) ) {
         $raceCount = intval($raceCountPosted);
     } else {
         $raceCount = 10;
     }
 
-    if ( isset($playerCountPosted) ) {
+    if ( isset($_POST['player_count']) ) {
         $playerCount = intval($playerCountPosted);
     } else {
         $playerCount = 4;
@@ -53,7 +53,7 @@
                 <td></td>
                 <?php for ($i=1; $i <= 4; $i++): ?>
                     <td>
-                        <?php selectOptions($i, $people, 'person'); ?>
+                        <?php selectOptions($i, $people, 'person', ''); ?>
                     </td>
                 <?php endfor; ?>
             </tr>
@@ -62,7 +62,7 @@
                 <td></td>
                 <?php for ($i=1; $i <= 4; $i++): ?>
                     <td>
-                        <?php selectOptions($i,  $characters, 'character'); ?>
+                        <?php selectOptions($i,  $characters, 'character', ''); ?>
                     </td>
                 <?php endfor; ?>                
             </tr>
@@ -71,7 +71,7 @@
                 <td></td>
                 <?php for ($i=1; $i <= 4; $i++): ?>
                     <td>
-                        <?php selectOptions($i, $vehicles, 'vehicle'); ?>
+                        <?php selectOptions($i, $vehicles, 'vehicle', ''); ?>
                     </td>
                 <?php endfor; ?>                
             </tr>

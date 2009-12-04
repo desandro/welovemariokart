@@ -51,6 +51,15 @@
         $players[$i] = $player;
     }
 
+    $racePlaces = array();
+    for ($j=1; $j <= $raceCount; $j++) { 
+        $racePlaces[$j] = array();
+    }
+    
+    
+    
+    
+
     include('_base/includes/templates/html_head.php');
 ?>
 
@@ -61,94 +70,96 @@
 
 </head>
 <body class="race">
+    <div id="wrap">    
+        <h1>race</h1>
     
-    <h1>race</h1>
-    
-    <section id="graph">
-        <div class="graph_lines">
-            <label class="zero">0</label>
-            <?php for ($i=1; $i <= 6; $i++): 
-                $lineValue = ($roundMax / 6) * $i;
-            ?>
-                <div><label><?= $lineValue ?></label></div>
-            <?php endfor; ?>
-        </div>
-        
-    	<canvas id="curves" width="600" height="300"></canvas>
-        
-        <?php foreach( $players as $player): 
-            $roundW = ($player->total / $roundMax) * 600;
-            $roundW = intval($roundW);
-        
-        ?>
-            <div id="player_<?= $player->id ?>" class="player">
-                <p class="total"><?= $player->total ?></p>
-                <meter class="round" value="<?= $player->total ?>" min="0" max="<?= $roundMax ?>" style="width: <?= pixelWidth($player->total)+2 ?>px;">
-                    <?php 
-                        $x = 0;
-                        for ($j=1; $j <= $raceCount; $j++): 
-                            $w = pixelWidth($player->points[$j]);
-                            $points = $player->points[$j];
-                    ?>
-                        <meter class="race race<?= $j ?>" value="<?= $points ?>" min="0" max="15" style="width: <?= $w ?>px; left: <?= $x ?>px;">
-                            <?= $points ?>
-                        </meter>
-                    <?php 
-                        $x += $w; 
-                        endfor; 
-                    ?>
-                </meter>
-                <p class="identity">
-                    <em class="avatar <?= cleanURL($player->character) ?>"><?= $player->character ?></em>
-                    <strong class="name"><?= $player->name ?></strong>
-                </p>
-
-            </div>
-        <?php endforeach; ?>
-        
-    </section>
-
-    
-    <section>    
-        <p>Race count: <?= $raceCount ?></p>        
-        <p>Player count: <?= $playerCount ?></p>
-    
-    
-        <table>
-            <tr>
-                <th>Player</th>
-                <th>Character</th>
-                <th>Vehicle</th>
-                <?php for ($i=1; $i <= $raceCount; $i++): ?>
-                    <th>Race <?= $i ?></th>
+        <section id="graph">
+            <div class="graph_lines">
+                <label class="zero">0</label>
+                <?php for ($i=1; $i <= 6; $i++): 
+                    $lineValue = ($roundMax / 6) * $i;
+                ?>
+                    <div><label><?= $lineValue ?></label></div>
                 <?php endfor; ?>
-                <th>Total</th>
-            </tr>
-            <tr id="courses">
-                <td>&nbsp;</td>
-                <td></td>
-                <td></td>
-                <?php foreach($raceCourses as $course): ?>
-                    <td><?= $course ?></td>
-                <?php endforeach; ?>
-                <td></td>
-            </tr>
-    
-            <?php foreach($players as $player): ?>
-                <tr>
-                    <td><?= $player->name ?></td>
-                    <td><?= $player->character ?></td>
-                    <td><?= $player->vehicle ?></td>
-                    <?php for ($j=1; $j < $raceCount+1; $j++): ?>
-                        <td><?= $player->places[$j] ?></td>
-                    <?php endfor; ?>
-                    <td><?= $player->total ?></td>
-                </tr>
+            </div>
+        
+        	<canvas id="curves" width="600" height="300"></canvas>
+        
+            <?php foreach( $players as $player): 
+                $roundW = ($player->total / $roundMax) * 600;
+                $roundW = intval($roundW);
+        
+            ?>
+                <div id="player_<?= $player->id ?>" class="player">
+                    <p class="total"><?= $player->total ?></p>
+                    <meter class="round" value="<?= $player->total ?>" min="0" max="<?= $roundMax ?>" style="width: <?= pixelWidth($player->total)+2 ?>px;">
+                        <?php 
+                            $x = 0;
+                            for ($j=1; $j <= $raceCount; $j++): 
+                                $w = pixelWidth($player->points[$j]);
+                                $points = $player->points[$j];
+                        ?>
+                            <meter class="race race<?= $j ?> <?= cleanURL($raceCourses[$j]) ?>" value="<?= $points ?>" min="0" max="15" style="width: <?= $w ?>px; left: <?= $x ?>px;">
+                                <?= $points ?>
+                            </meter>
+                        <?php 
+                            $x += $w; 
+                            endfor; 
+                        ?>
+                    </meter>
+                    <figure class="identity">
+                        <dd class="name"><?= $player->name ?></dd>
+                        <dt class="avatar <?= cleanURL($player->character) ?>"><?= $player->character ?></dt>
+                    </figure>
+
+                </div>
             <?php endforeach; ?>
-        </table>
+        
+        </section>
+
     
-        <p>Maximum points for a round of <?= $raceCount ?>: <?= $roundMax ?></p>
-    </section>
+        <section>    
+            <p>Race count: <?= $raceCount ?></p>        
+            <p>Player count: <?= $playerCount ?></p>
+    
+    
+            <table>
+                <tr>
+                    <th>Player</th>
+                    <th>Character</th>
+                    <th>Vehicle</th>
+                    <?php for ($i=1; $i <= $raceCount; $i++): ?>
+                        <th>Race <?= $i ?></th>
+                    <?php endfor; ?>
+                    <th>Total</th>
+                </tr>
+                <tr id="courses">
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <?php foreach($raceCourses as $course): ?>
+                        <td><?= $course ?></td>
+                    <?php endforeach; ?>
+                    <td></td>
+                </tr>
+    
+                <?php foreach($players as $player): ?>
+                    <tr>
+                        <td><?= $player->name ?></td>
+                        <td><?= $player->character ?></td>
+                        <td><?= $player->vehicle ?></td>
+                        <?php for ($j=1; $j < $raceCount+1; $j++): ?>
+                            <td><?= $player->places[$j] ?></td>
+                        <?php endfor; ?>
+                        <td><?= $player->total ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+    
+            <p>Maximum points for a round of <?= $raceCount ?>: <?= $roundMax ?></p>
+        </section>
+
+    </div> <!-- /#wrap -->
     
 </body>
 </html>

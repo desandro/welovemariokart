@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    <link rel="stylesheet" href="_base/css/yui_reset.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="_base/css/welovemariokart.css" type="text/css" media="screen" charset="utf-8" />
+    
+    <script type="text/javascript" src="_base/js/jquery-1.3.2.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="_base/js/race2.js" charset="utf-8"></script>
+
+    <title>race</title>
+    
+
+</head>
+<body class="race">
+    
+    <h1>race</h1>
+    
+    <section id="graph">
+        <div class="graph_lines">
+            <label class="zero">0</label>
+                            <div><label>25</label></div>
+                            <div><label>50</label></div>
+                            <div><label>75</label></div>
+                            <div><label>100</label></div>
+                            <div><label>125</label></div>
+                            <div><label>150</label></div>
+                    </div>
+        
+    	<canvas id="curves" width="600" height="300"></canvas>
+        
+                    <div id="player_1" class="player">
+                <p class="total">79</p>
+                <meter class="round" value="79" min="0" max="150" style="width: 317px;">
+                                            <meter class="race race1" value="7" min="0" max="15" style="width: 28px; left: 0px;">
+                            7                        </meter>
+                                            <meter class="race race2" value="3" min="0" max="15" style="width: 12px; left: 28px;">
+                            3                        </meter>
+                                            <meter class="race race3" value="5" min="0" max="15" style="width: 20px; left: 40px;">
+                            5                        </meter>
+                                            <meter class="race race4" value="10" min="0" max="15" style="width: 40px; left: 60px;">
+                            10                        </meter>
+                                            <meter class="race race5" value="15" min="0" max="15" style="width: 60px; left: 100px;">
+                            15                        </meter>
+                                            <meter class="race race6" value="12" min="0" max="15" style="width: 48px; left: 160px;">
+                            12                        </meter>
+                                            <meter class="race race7" value="3" min="0" max="15" style="width: 12px; left: 208px;">
+                            3                        </meter>
+                                            <meter class="race race8" value="6" min="0" max="15" style="width: 24px; left: 220px;">
+                            6                        </meter>
+                                            <meter class="race race9" value="10" min="0" max="15" style="width: 40px; left: 244px;">
+                            10                        </meter>
+                                            <meter class="race race10" value="8" min="0" max="15" style="width: 32px; left: 284px;">
+                            8                        </meter>
+                                    </meter>
+                <p class="identity">
+                    <em class="avatar koopa_troopa">Koopa Troopa</em>
+                    <strong class="name">Alex</strong>
+                </p>
+
+            </div>
+                    <div id="player_2" class="player">
+                <p class="total">97</p>
+                <meter class="round" value="97" min="0" max="150" style="width: 389px;">
+                                            <meter class="race race1" value="12" min="0" max="15" style="width: 48px; left: 0px;">
+                            12                        </meter>
+                                            <meter class="race race2" value="7" min="0" max="15" style="width: 28px; left: 48px;">
+                            7                        </meter>
+                                            <meter class="race race3" value="15" min="0" max="15" style="width: 60px; left: 76px;">
+                            15                        </meter>
+                                            <meter class="race race4" value="4" min="0" max="15" style="width: 16px; left: 136px;">
+                            4                        </meter>
+                                            <meter class="race race5" value="4" min="0" max="15" style="width: 16px; left: 152px;">
+                            4                        </meter>
+                                            <meter class="race race6" value="7" min="0" max="15" style="width: 28px; left: 168px;">
+                            7                        </meter>
+                                            <meter class="race race7" value="15" min="0" max="15" style="width: 60px; left: 196px;">
+                            15                        </meter>
+                                            <meter class="race race8" value="15" min="0" max="15" style="width: 60px; left: 256px;">
+                            15                        </meter>
+                                            <meter class="race race9" value="8" min="0" max="15" style="width: 32px; left: 316px;">
+                            8                        </meter>
+                                            <meter class="race race10" value="10" min="0" max="15" style="width: 40px; left: 348px;">
+                            10                        </meter>
+                                    </meter>
+                <p class="identity">
+                    <em class="avatar peach">Peach</em>
+                    <strong class="name">Dave</strong>
+                </p>
+
+            </div>
+                    <div id="player_3" class="player">
+                <p class="total">88</p>
+                <meter class="round" value="88" min="0" max="150" style="width: 354px;">
+                                            <meter class="race race1" value="15" min="0" max="15" style="width: 60px; left: 0px;">
+                            15                        </meter>
+                                            <meter class="race race2" value="12" min="0" max="15" style="width: 48px; left: 60px;">
+                            12                        </meter>
+                                            <meter class="race race3" value="4" min="0" max="15" style="width: 16px; left: 108px;">
+                            4                        </meter>
+                                            <meter class="race race4" value="7" min="0" max="15" style="width: 28px; left: 124px;">
+                            7                        </meter>
+                                            <meter class="race race5" value="6" min="0" max="15" style="width: 24px; left: 152px;">
+                            6                        </meter>
+                                            <meter class="race race6" value="10" min="0" max="15" style="width: 40px; left: 176px;">
+                            10                        </meter>
+                                            <meter class="race race7" value="5" min="0" max="15" style="width: 20px; left: 216px;">
+                            5                        </meter>
+                                            <meter class="race race8" value="12" min="0" max="15" style="width: 48px; left: 236px;">
+                            12                        </meter>
+                                            <meter class="race race9" value="5" min="0" max="15" style="width: 20px; left: 284px;">
+                            5                        </meter>
+                                            <meter class="race race10" value="12" min="0" max="15" style="width: 48px; left: 304px;">
+                            12                        </meter>
+                                    </meter>
+                <p class="identity">
+                    <em class="avatar baby_daisy">Baby Daisy</em>
+                    <strong class="name">Martin</strong>
+                </p>
+
+            </div>
+                    <div id="player_4" class="player">
+                <p class="total">86</p>
+                <meter class="round" value="86" min="0" max="150" style="width: 346px;">
+                                            <meter class="race race1" value="10" min="0" max="15" style="width: 40px; left: 0px;">
+                            10                        </meter>
+                                            <meter class="race race2" value="10" min="0" max="15" style="width: 40px; left: 40px;">
+                            10                        </meter>
+                                            <meter class="race race3" value="2" min="0" max="15" style="width: 8px; left: 80px;">
+                            2                        </meter>
+                                            <meter class="race race4" value="8" min="0" max="15" style="width: 32px; left: 88px;">
+                            8                        </meter>
+                                            <meter class="race race5" value="10" min="0" max="15" style="width: 40px; left: 120px;">
+                            10                        </meter>
+                                            <meter class="race race6" value="2" min="0" max="15" style="width: 8px; left: 160px;">
+                            2                        </meter>
+                                            <meter class="race race7" value="7" min="0" max="15" style="width: 28px; left: 168px;">
+                            7                        </meter>
+                                            <meter class="race race8" value="7" min="0" max="15" style="width: 28px; left: 196px;">
+                            7                        </meter>
+                                            <meter class="race race9" value="15" min="0" max="15" style="width: 60px; left: 224px;">
+                            15                        </meter>
+                                            <meter class="race race10" value="15" min="0" max="15" style="width: 60px; left: 284px;">
+                            15                        </meter>
+                                    </meter>
+                <p class="identity">
+                    <em class="avatar bowser_jr">Bowser Jr.</em>
+                    <strong class="name">Lauren</strong>
+                </p>
+
+            </div>
+                
+    </section>
+
+    
+    <section>    
+        <p>Race count: 10</p>        
+        <p>Player count: 4</p>
+    
+    
+        <table>
+            <tr>
+                <th>Player</th>
+                <th>Character</th>
+                <th>Vehicle</th>
+                                    <th>Race 1</th>
+                                    <th>Race 2</th>
+                                    <th>Race 3</th>
+                                    <th>Race 4</th>
+                                    <th>Race 5</th>
+                                    <th>Race 6</th>
+                                    <th>Race 7</th>
+                                    <th>Race 8</th>
+                                    <th>Race 9</th>
+                                    <th>Race 10</th>
+                                <th>Total</th>
+            </tr>
+            <tr id="courses">
+                <td>&nbsp;</td>
+                <td></td>
+                <td></td>
+                                    <td>Coconut Mall</td>
+                                    <td>Mushroom Gorge</td>
+                                    <td>Moonview Highway</td>
+                                    <td>Bowsers Castle</td>
+                                    <td>SNES Ghost Valley 2</td>
+                                    <td>GCN Peach Beach</td>
+                                    <td>DS Yoshi Falls</td>
+                                    <td>Toads Factory</td>
+                                    <td>DS Peach Gardens</td>
+                                    <td>GBA Bowser Castle 3</td>
+                                <td></td>
+            </tr>
+    
+                            <tr>
+                    <td>Alex</td>
+                    <td>Koopa Troopa</td>
+                    <td>Concerto</td>
+                                            <td>5</td>
+                                            <td>9</td>
+                                            <td>7</td>
+                                            <td>3</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>9</td>
+                                            <td>6</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                        <td>79</td>
+                </tr>
+                            <tr>
+                    <td>Dave</td>
+                    <td>Peach</td>
+                    <td>Baby Booster</td>
+                                            <td>2</td>
+                                            <td>5</td>
+                                            <td>1</td>
+                                            <td>8</td>
+                                            <td>8</td>
+                                            <td>5</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>4</td>
+                                            <td>3</td>
+                                        <td>97</td>
+                </tr>
+                            <tr>
+                    <td>Martin</td>
+                    <td>Baby Daisy</td>
+                    <td>Concerto</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>8</td>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>3</td>
+                                            <td>7</td>
+                                            <td>2</td>
+                                            <td>7</td>
+                                            <td>2</td>
+                                        <td>88</td>
+                </tr>
+                            <tr>
+                    <td>Lauren</td>
+                    <td>Bowser Jr.</td>
+                    <td>Standard Kart Large</td>
+                                            <td>3</td>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>4</td>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>5</td>
+                                            <td>5</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                        <td>86</td>
+                </tr>
+                    </table>
+    
+        <p>Maximum points for a round of 10: 150</p>
+    </section>
+    
+</body>
+</html>

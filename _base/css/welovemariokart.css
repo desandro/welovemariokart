@@ -1,5 +1,5 @@
 /* HTML5 styles */
-section, header, meter {
+section, header, meter, figure {
 	display: block;
 }
 
@@ -7,8 +7,13 @@ section, header, meter {
 body {
     font-size: 13px;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    padding: 40px;
     color: #111;
+}
+
+#wrap {
+    width: 940px;
+    padding: 20px 10px;
+    margin: 0 auto;
 }
 
 th, td {
@@ -107,6 +112,7 @@ select.person {
     width: 640px;
     position: relative;
     overflow: hidden;
+    background: hsla(0,0%,50%, .05);
 }
 
 #graph meter.race {
@@ -140,6 +146,8 @@ select.person {
     font-size: 48px;
     line-height: 40px;
     letter-spacing: -0.04em;
+    display: inline;
+    font-weight: bold;
 }
 
 #graph .total {
@@ -156,13 +164,60 @@ select.person {
     font-weight: 100;
 }
 
-#graph meter.race.race1 { border-color: #E33; }
-#graph meter.race.race2 { border-color: #3EE; }
-#graph meter.race.race3 { border-color: #3E3; }
-#graph meter.race.race4 { border-color: #E3E; }
-#graph meter.race.race5 { border-color: #33E; }
-#graph meter.race.race6 { border-color: #EE3; }
-#graph meter.race.race7 { border-color: #E83; }
-#graph meter.race.race8 { border-color: #38E; }
-#graph meter.race.race9 { border-color: #83E; }
-#graph meter.race.race10 { border-color: #E83; }
+/*
+#graph #graph meter.race.race1 { border-color: #E33; }
+#graph #graph meter.race.race2 { border-color: #3EE; }
+#graph #graph meter.race.race3 { border-color: #3E3; }
+#graph #graph meter.race.race4 { border-color: #E3E; }
+#graph #graph meter.race.race5 { border-color: #33E; }
+#graph #graph meter.race.race6 { border-color: #EE3; }
+#graph #graph meter.race.race7 { border-color: #E83; }
+#graph #graph meter.race.race8 { border-color: #38E; }
+#graph #graph meter.race.race9 { border-color: #83E; }
+#graph #graph meter.race.race10 { border-color: #E83; }
+
+
+
+meter.race {
+    border: 2px solid;
+    padding: 2px;
+    width: 200px;
+    margin-bottom: 4px;
+}
+
+*/
+
+/**** Colors ****/
+#graph meter.race.luigi_circuit { border-color: #3C5; }
+#graph meter.race.moo_moo_meadows { border-color: #882; }
+#graph meter.race.mushroom_gorge { border-color: #F22; }
+#graph meter.race.toads_factory { border-color: #D6D; }
+#graph meter.race.mario_circuit { border-color: #D55; }
+#graph meter.race.coconut_mall { border-color: #AAA; }
+#graph meter.race.dks_snowboard_cross { border-color: #CCD; }
+#graph meter.race.warios_gold_mine { border-color: #EE2; }
+#graph meter.race.daisy_circuit { border-color: #F93; }
+#graph meter.race.koopa_cape { border-color: #779; }
+#graph meter.race.maple_treeway { border-color: #C94; }
+#graph meter.race.grumble_volcano { border-color: #963; }
+#graph meter.race.dry_dry_ruins { border-color: #EC2; }
+#graph meter.race.moonview_highway { border-color: #222; }
+#graph meter.race.bowsers_castle { border-color: #116; }
+#graph meter.race.rainbow_road { border-color: #000; }
+#graph meter.race.gcn_peach_beach { border-color: #66E; }
+#graph meter.race.ds_yoshi_falls { border-color: #2D2; }
+#graph meter.race.snes_ghost_valley_2 { border-color: #442; }
+#graph meter.race.n64_mario_raceway { border-color: #C22; }
+#graph meter.race.n64_sherbet_land { border-color: #CCE; }
+#graph meter.race.gba_shy_guy_beach { border-color: #EE8; }
+#graph meter.race.ds_delfino_square { border-color: #AAA; }
+#graph meter.race.gcn_waluigi_stadium { border-color: #963; }
+#graph meter.race.ds_desert_hills { border-color: #FA0; }
+#graph meter.race.gba_bowser_castle_3 { border-color: #F63; }
+#graph meter.race.n64_dks_jungle_parkway { border-color: #FB6; }
+#graph meter.race.gcn_mario_circuit { border-color: #292; }
+#graph meter.race.snes_mario_circuit_3 { border-color: #EE2; }
+#graph meter.race.ds_peach_gardens { border-color: #8A8; }
+#graph meter.race.gcn_dk_mountain { border-color: #89A; }
+#graph meter.race.n64_bowsers_castle { border-color: #33A; }
+
