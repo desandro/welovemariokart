@@ -14,6 +14,11 @@ $(function(){
     var playerCount = $('#graph .player').length;
     var roundMax = raceCount * 15;
     var pixelAdjust = 600 / roundMax;
+    
+    
+    var meterSpeed = 1500;
+    var switchSpeed = 500;
+    var playerY = 70;
 
     debug('playerCount', playerCount);
     debug('raceCount', raceCount);
@@ -59,8 +64,6 @@ $(function(){
 
     $('#animate_graph').click(function(){
         var ajaxing = false;
-        var aniSpeed = 1500;
-        var switchSpeed = 500;
 
         $('#graph .player .total').text('0');
 
@@ -87,6 +90,22 @@ $(function(){
             ajaxing = true;
         });
 
+        function finishSortRank() {
+		    $('#graph .player')
+    		    // wait before resorting to original order
+    		    .animate({opacity: 1}, 2000)
+    		    .each(function(iii){
+    		        $(this).animate({top: iii*playerY}, switchSpeed, 'swing'
+    		            , function(){
+    		                if (iii == 0 ) { 
+    		                    $('#curves').fadeIn();
+    		                    debug('animation complete'); 
+    		                }
+    		        });
+    		    })
+		    ;
+		    ajaxing = false;
+        }
 
         function animateSortRank(i, player) {
             
@@ -95,7 +114,7 @@ $(function(){
             debug(i, 'rank: ' + rank, 'score: ' +  scores[i] );
             
             /**/
-            player.animate({top: rank*70}, switchSpeed, 'swing')
+            player.animate({top: rank*playerY}, switchSpeed, 'swing')
             .animate({opacity: 1}, 250, 'linear',
              function(){
                  // debug(i);
@@ -104,13 +123,8 @@ $(function(){
 
                     if ( j >= raceCount) {
 					    // animation is complete
+                        finishSortRank();
 
-                        $('#curves').fadeIn();
-					    debug('animation complete');
-					    $('#graph .player').each(function(iii){
-					        $(this).animate({top: iii*70}, switchSpeed, 'swing');
-					    })
-					    ajaxing = false;
 
                     } else {
                         // do another race animation
@@ -140,7 +154,7 @@ $(function(){
 				}
 
                 progressX[i] += addPoints * pixelAdjust;
-                roundMeter.animate({ width: progressX[i] + 2 }, aniSpeed, 'swing'
+                roundMeter.animate({ width: progressX[i] + 2 }, meterSpeed, 'swing'
                     , function() {
                         var player = $(this).parents('.player');
                         animateSortRank(i, player);

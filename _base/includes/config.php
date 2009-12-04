@@ -2,7 +2,7 @@
 
     ini_set('display_errors', 'On');
 
-    $characters = array('Baby Mario', 'Baby Peach', 'Toad', 'Koopa Troopa', 'Baby Luigi', 'Baby Daisy', 'Toadette', 'Dry Bones', 'Mario', 'Luigi', 'Peach', 'Yoshi', 'Daisy', 'Birdo', 'Bowser Jr.', 'Diddy Kong', 'Wario', 'Waluigi', 'Donkey Kong', 'Bowser', 'Funky Kong', 'King Boo', 'Rosalina', 'Dry Bowser');
+    $characters = array('Baby Mario', 'Baby Luigi', 'Baby Peach', 'Baby Daisy', 'Toad', 'Toadette', 'Koopa Troopa',  'Dry Bones', 'Mario', 'Luigi', 'Peach', 'Daisy', 'Yoshi',  'Birdo',  'Diddy Kong', 'Bowser Jr.', 'Wario', 'Waluigi', 'Donkey Kong', 'Bowser',  'King Boo', 'Rosalina', 'Funky Kong', 'Dry Bowser');
     
     $people = array('Martin', 'Alex', 'Dan', 'Lauren', 'Dave', 'Mike', 'Doris');
     

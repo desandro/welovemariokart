@@ -14,6 +14,7 @@ body {
     width: 940px;
     padding: 20px 10px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 th, td {
@@ -45,7 +46,7 @@ select.person {
 
 #graph {
     margin-top: 40px;
-    margin-left: 100px;
+    margin-left: 80px;
     background: #FFF;
     position: relative;
     height: 280px;
@@ -107,12 +108,12 @@ select.person {
 #graph #player_4 { top: 210px; }
 
 #graph meter.round {
-    border: 1px solid #111;
+    border: 1px solid #AAA;
     height: 20px;
     width: 640px;
     position: relative;
     overflow: hidden;
-    background: hsla(0,0%,50%, .05);
+    background: hsla(0,0%,70%, .2);
 }
 
 #graph meter.race {
@@ -132,13 +133,7 @@ select.person {
 }
 
 #graph .identity .avatar {
-    display: block;
     float: left;
-    width: 40px;
-    height: 40px;
-    background: #CCC;
-    color: #FFF;
-    border: 1px solid #888;
 }
 
 #graph .identity .name {
@@ -221,3 +216,164 @@ meter.race {
 #graph meter.race.gcn_dk_mountain { border-color: #89A; }
 #graph meter.race.n64_bowsers_castle { border-color: #33A; }
 
+/**** Character Avatars ****/
+
+.avatar.character {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #CCC;
+    overflow: visible;
+    position: relative;
+    background: #FFF;
+}
+
+.avatar.character div {
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+}
+
+.avatar.character img {
+    position: absolute;
+}
+
+
+.avatar.character.baby_mario div,
+.avatar.character.baby_daisy div,
+.avatar.character.toadette div,
+.avatar.character.daisy div,
+.avatar.character.yoshi div,
+.avatar.character.birdo div,
+.avatar.character.diddy_kong div,
+.avatar.character.bowser div {
+    left: 0;
+}
+
+.avatar.character.baby_luigi div,
+.avatar.character.baby_peach div,
+.avatar.character.toad div,
+.avatar.character.koopa_troopa div,
+.avatar.character.dry_bones div,
+.avatar.character.mario div,
+.avatar.character.luigi div,
+.avatar.character.peach div,
+.avatar.character.bowser_jr div,
+.avatar.character.wario div,
+.avatar.character.waluigi div,
+.avatar.character.donkey_kong div,
+.avatar.character.king_boo div,
+.avatar.character.rosalina div,
+.avatar.character.funky_kong div,
+.avatar.character.dry_bowser div {
+    right: 0;
+}
+
+.avatar.character.baby_mario img { top: -0px; left: 0px; }
+.avatar.character.baby_luigi img { top: -0px; left: -45px; }
+.avatar.character.baby_peach img { top: -0px; left: -90px; }
+.avatar.character.baby_daisy img { top: -0px; left: -135px; }
+.avatar.character.toad img { top: -45px; left: 0px; }
+.avatar.character.toadette img { top: -45px; left: -45px; }
+.avatar.character.koopa_troopa img { top: -45px; left: -90px; }
+.avatar.character.dry_bones img { top: -45px; left: -135px; }
+.avatar.character.mario img { top: -90px; left: 0px; }
+.avatar.character.luigi img { top: -90px; left: -45px; }
+.avatar.character.peach img { top: -90px; left: -90px; }
+.avatar.character.daisy img { top: -90px; left: -135px; }
+.avatar.character.yoshi img { top: -135px; left: 0px; }
+.avatar.character.birdo img { top: -135px; left: -45px; }
+.avatar.character.diddy_kong img { top: -135px; left: -90px; }
+.avatar.character.bowser_jr img { top: -135px; left: -135px; }
+.avatar.character.wario img { top: -180px; left: 0px; }
+.avatar.character.waluigi img { top: -180px; left: -45px; }
+.avatar.character.donkey_kong img { top: -180px; left: -90px; }
+.avatar.character.bowser img { top: -180px; left: -135px; }
+.avatar.character.king_boo img { top: -225px; left: 0px; }
+.avatar.character.rosalina img { top: -225px; left: -45px; }
+.avatar.character.funky_kong img { top: -225px; left: -90px; }
+.avatar.character.dry_bowser img { top: -225px; left: -135px; }
+
+
+
+
+/**** Round Races ****/
+
+#round_races .race {
+    width: 220px;
+    float: left;
+    border: 1px solid #CCC;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+#round_races li {
+    height: 20px;
+    border-top: 1px solid #CCC;
+}
+
+#round_races .place {
+    float: left;
+    width: 40px;
+    text-align: right;
+    line-height: 20px;
+}
+
+#round_races .player {
+    font-size: 40px;
+    font-size: 18px;
+    height: 50px;
+}
+
+#round_races .player .place {
+    font-size: 40px;
+    letter-spacing: -0.1em;
+    width: 40px;
+    text-align: right;
+    line-height: 42px;
+    padding-top: 5px;
+}
+
+#round_races figure {
+    position: relative;
+}
+
+#round_races .avatar {
+    position: absolute;
+    top: 5px;
+    left: 50px;
+}
+
+#round_races .name {
+    position: absolute;
+    top: 5px;
+    left: 98px;
+    font-size: 19px;
+    line-height: 20px;
+    letter-spacing: -0.03em;
+    font-weight: bold;
+}
+
+#round_races .points {
+    position: absolute;
+    top: 28px;
+    left: 98px;
+    font-size: 14px;
+    background: #111;
+    color: #FFF;
+    padding: 1px 4px;
+    font-weight: bold;
+
+}
+
+#round_races .score {
+    position: absolute;
+    top: 26px;
+    right: 3px;
+    letter-spacing: -0.03em;
+    font-size: 18px;
+    padding: 1px 4px;
+    font-weight: 100;
+
+}

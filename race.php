@@ -24,7 +24,8 @@
         public $character;
         public $vehicle;
         public $places = array();
-        public $points;
+        public $points = array();
+        public $scores = array();
         public $total = 0;
         public $id;
     }
@@ -45,19 +46,24 @@
             $point = $placePoints[ intval($place)-1 ];
             $player->points[$j] = $point;
             $player->total += $point;
+            $player->scores[$j] = $player->total;
         }
         
         
         $players[$i] = $player;
     }
 
-    $racePlaces = array();
+    $placePlayers = array();
     for ($j=1; $j <= $raceCount; $j++) { 
-        $racePlaces[$j] = array();
+        $placePlayers[$j] = array();
+        foreach ($players as $player) {
+            $place = $player->places[$j];
+            $placePlayers[$j][$place] = $player;
+        }
     }
     
     
-    
+
     
 
     include('_base/includes/templates/html_head.php');
@@ -109,7 +115,9 @@
                     </meter>
                     <figure class="identity">
                         <dd class="name"><?= $player->name ?></dd>
-                        <dt class="avatar <?= cleanURL($player->character) ?>"><?= $player->character ?></dt>
+                        <dt class="avatar character <?= cleanURL($player->character) ?>">
+                            <div><img src="_base/img/character_avatars.png" alt="<?= $player->character ?>" /></div>
+                        </dt>
                     </figure>
 
                 </div>
@@ -117,11 +125,46 @@
         
         </section>
 
+        
+
+        <section id="round_races">
+
+            <h2>Round Races</h2>
+            
+            <?php for ($j=1; $j <= $raceCount; $j++): ?>
+                <div class="race">
+                    <h3>Race <?= $j ?> <strong><?= $raceCourses[$j] ?></strong></h3>
+                    <ol>
+                        <?php for ($k=1; $k <= 12; $k++): ?>
+                            <?php if( isset($placePlayers[$j][$k])): 
+                                $player = $placePlayers[$j][$k];
+                            ?>
+                                <li class="player">
+                                    <span class="place"><?= $k ?></span>
+                                    <figure class="identity">
+                                        
+                                        <dd class="name"><?= $player->name ?></dd>
+                                        <dt class="avatar character <?= cleanURL($player->character) ?>">
+                                            <div><img src="_base/img/character_avatars.png" alt="<?= $player->character ?>" /></div>
+                                        </dt>
+                                        <dt class="points">+<?= $player->points[$j] ?></dt>
+                                        <dt class="score"><?= $player->scores[$j] ?></dt>
+                                    </figure>
+                                </li>
+                            <?php else: ?>
+                                <li><span class="place"><?= $k ?></span></li>
+                            <?php endif; ?>
+                        <?php endfor; ?>
+                    </ol>
+                </div>
+            <?php endfor; ?>
+
+        </section>
+        
     
         <section>    
-            <p>Race count: <?= $raceCount ?></p>        
-            <p>Player count: <?= $playerCount ?></p>
-    
+            <p>Race count: <?= $_POST['race_count'] ?></p>        
+            <p>Player count: <?= $_POST['player_count'] ?></p>
     
             <table>
                 <tr>

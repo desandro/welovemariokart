@@ -77,6 +77,7 @@ $(function(){
     // change race_entry table dynamically
     $('#race_setup input[name="race_count"]').change(function(){
         var raceCount = parseInt( $(this).val() );
+        $('#race_entry input[name="race_count"]').val(raceCount);
         debug('raceCount', raceCount );
 
         $('tr.race:gt('+(raceCount-1)+'):visible').hide();
@@ -91,6 +92,7 @@ $(function(){
     // change race_entry table dynamically
     $('#race_setup input[name="player_count"]').change(function(){
         var playerCount = parseInt( $(this).val() );
+        $('#race_entry input[name="player_count"]').val(playerCount);
         debug('playerCount', playerCount );
         $('tr').each(function(){
             $(this).children(':gt('+(playerCount+1)+')').hide();

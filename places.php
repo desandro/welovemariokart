@@ -1,6 +1,5 @@
 <?php
 
-
     ini_set('display_errors', 'On');
 
     $finishes = array(4,1,7,10);
