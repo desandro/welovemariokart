@@ -6,10 +6,10 @@
 
     $roundMax = $raceCount * 15;
 
-    $raceCourses = array();
+    $roundCourses = array();
 
     for ($i=1; $i < $raceCount + 1; $i++) { 
-        $raceCourses[$i] = $_POST['course_' . $i];
+        $roundCourses[$i] = $_POST['course_' . $i];
     }
 
     function pixelWidth($var) {
@@ -69,7 +69,7 @@
     include('_base/includes/templates/html_head.php');
 ?>
 
-    <script type="text/javascript" src="_base/js/race2.js" charset="utf-8"></script>
+    <script type="text/javascript" src="_base/js/race.js" charset="utf-8"></script>
 
     <title>race</title>
     
@@ -105,7 +105,7 @@
                                 $w = pixelWidth($player->points[$j]);
                                 $points = $player->points[$j];
                         ?>
-                            <meter class="race race<?= $j ?> <?= cleanURL($raceCourses[$j]) ?>" value="<?= $points ?>" min="0" max="15" style="width: <?= $w ?>px; left: <?= $x ?>px;">
+                            <meter class="race race<?= $j ?> <?= cleanURL($roundCourses[$j]) ?>" value="<?= $points ?>" min="0" max="15" style="width: <?= $w ?>px; left: <?= $x ?>px;">
                                 <?= $points ?>
                             </meter>
                         <?php 
@@ -132,9 +132,13 @@
             <h2>Round Races</h2>
             
             <div class="slider">
-                <?php for ($j=1; $j <= $raceCount; $j++): ?>
-                    <div class="race race<?= $j ?>">
-                        <h3>Race <?= $j ?> <strong><?= $raceCourses[$j] ?></strong></h3>
+            	<canvas id="round_races_curves" width="2600" height="312"></canvas>
+                
+                <?php for ($j=1; $j <= $raceCount; $j++): 
+                    $course = $roundCourses[$j];
+                ?>
+                    <div class="race race<?= $j . ' ' . cleanURL($course) ?> ">
+                        <h3>Race <?= $j ?> <strong><?= $course ?></strong></h3>
                         <ol>
                             <?php for ($k=1; $k <= 12; $k++): ?>
                                 <?php if( isset($placePlayers[$j][$k])): 
@@ -165,7 +169,7 @@
         </section>
         
     
-        <section>    
+        <section id="output">    
             <p>Race count: <?= $_POST['race_count'] ?></p>        
             <p>Player count: <?= $_POST['player_count'] ?></p>
     
@@ -183,7 +187,7 @@
                     <td>&nbsp;</td>
                     <td></td>
                     <td></td>
-                    <?php foreach($raceCourses as $course): ?>
+                    <?php foreach($roundCourses as $course): ?>
                         <td><?= $course ?></td>
                     <?php endforeach; ?>
                     <td></td>

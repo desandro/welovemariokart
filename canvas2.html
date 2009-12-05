@@ -74,6 +74,7 @@
 
                     ctx.lineWidth = 25;
 
+                    /* * /
         		    for (i=1; i <= playerCount; i++) {
                         var points, hue,
                             x1, y2, x2, y2, cp2x, cp2y, 
@@ -81,7 +82,7 @@
         		        
                         hue = (360 / playerCount) * i;
                         hue = parseInt(hue);
-                        ctx.strokeStyle = 'hsla('+hue+',100%, 50%, .5)';
+                        ctx.strokeStyle = 'hsla('+hue+',100%, 50%, .3)';
                         
                         x1 = 0;
                         y1 = playerPlaces[i][1]*sizeY;
@@ -114,6 +115,87 @@
                             ctx.stroke();
                         ctx.closePath;
             	    }
+            	   /* */
+
+                    
+                    /**/
+        		    for (i=1; i <= playerCount; i++) {
+                        var points, hue,
+                            x1, y2, x2, y2, cp2x, cp2y, 
+                            x3, y3, cp3x, cp3y, x4, y4;
+        		        
+                        hue = (360 / playerCount) * i;
+                        hue = parseInt(hue);
+                        ctx.fillStyle = 'hsla('+hue+',100%, 50%, .15)';
+                        
+                        x1 = 0;
+                        y1 = playerPlaces[i][1]*sizeY;
+                        x2 = avatarW;
+                        y2 = y1;
+
+
+                        ctx.beginPath();
+                            ctx.moveTo(x1, y1);
+                            ctx.lineTo(x2, y2);
+
+                            for(j=2; j<= raceCount; j++) {
+
+                                x2 = avatarW*(j-1) + marginX*(j-2);
+                                y2 = playerPlaces[i][j-1]*sizeY;
+                                cp2x = x2  + handleX;
+                                cp2y = y2;
+
+                                x3 = x2 + marginX;
+                                y3 = playerPlaces[i][j]*sizeY;
+                                cp3x = x3 - handleX;
+                                cp3y = y3;
+
+                                x4 = x3 + avatarW;
+                                y4 = y3;
+
+                                ctx.bezierCurveTo(cp2x, cp2y, cp3x, cp3y, x3, y3);
+                                ctx.lineTo(x4, y4);
+                            }
+                            
+                            x1 = x4;
+                            y1 = y4 + (sizeY-1);
+                            x2 = x1 - avatarW;
+                            y2 = y1;
+                            ctx.lineTo(x1,y1);
+                            ctx.lineTo(x2,y2);
+                            ctx.save();
+                                ctx.translate(0,  sizeY-1 );
+ 
+                                for(j=raceCount-1; j>= 1; j--) {
+
+
+                                    x4 = avatarW*(j-1) + marginX*(j-1);
+                                    y4 = playerPlaces[i][j]*sizeY;
+                                
+                                    x3 = x4 + avatarW;
+                                    y3 = y4;
+                                    cp3x = x3 + handleX;
+                                    cp3y = y3;
+
+
+                                    x2 = x3 + marginX;
+                                    y2 = playerPlaces[i][j+1]*sizeY;
+                                    cp2x = x2 - handleX;
+                                    cp2y = y2;
+
+                                    ctx.bezierCurveTo(cp2x, cp2y, cp3x, cp3y, x3, y3);
+                                    // ctx.lineTo(x2, y2);
+                                    // ctx.lineTo(x3, y3);
+                                    ctx.lineTo(x4, y4);
+                                    // ctx.lineTo(x2, y2);
+                                }
+                            ctx.restore();
+ 
+                            
+                            ctx.fill();
+                        ctx.closePath;
+            	    }
+            	    /**/
 
     			}
     		}

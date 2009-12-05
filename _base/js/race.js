@@ -14,22 +14,42 @@ $(function(){
     var playerCount = $('#graph .player').length;
     var roundMax = raceCount * 15;
     var pixelAdjust = 600 / roundMax;
+    
+    
+    var meterSpeed = 1500;
+    var switchSpeed = 500;
+    var playerY = 70;
 
     debug('playerCount', playerCount);
     debug('raceCount', raceCount);
 
+
+    // get the values we need to render the canvases
     var playerPoints = [];
+    var playerPlaces = [];
+
     for (i=1; i <= playerCount; i++) {
         playerPoints[i] = [];
+        playerPlaces[i] = [];
         for (j=1; j <= raceCount; j++ ) {
             var points = $('#graph .player:eq('+(i-1)+') meter.race:eq('+(j-1)+')')
                             .attr('value');
-			points = parseInt(points);
+            var place = $('#output tr:eq('+(i+1)+') td:eq('+(j+2)+')').text();
+            points = parseInt(points);
+            place = parseInt(place);
             playerPoints[i][j] = points;
+            playerPlaces[i][j] = place;
 			// debug(points);
         }
+        // debug(playerPlaces[i]);
     }
     
+
+    // set meter background colors
+    $('#graph .player').each(function(){
+        var color = $(this).find('.avatar').css('color');
+        $(this).find('meter.round').css('background-color', color);
+    })
 
     // ranking function for sorting players when animated
     function getRank(s, currentScores) {
@@ -59,20 +79,18 @@ $(function(){
 
     $('#animate_graph').click(function(){
         var ajaxing = false;
-        var aniSpeed = 1500;
-        var switchSpeed = 500;
 
         $('#graph .player .total').text('0');
 
         var progressX = [];
-        var points = [];
+        var scores = [];
         var pointCount = [];
         var k = [];
 		var ranks = [];
 		var previousRanks = [];
         for (var i=0; i < playerCount; i++) {
             progressX[i] = 0;
-            points[i] = 0;
+            scores[i] = 0;
             previousRanks[i] = i;
         }
 
@@ -87,6 +105,52 @@ $(function(){
             ajaxing = true;
         });
 
+        function finishSortRank() {
+		    $('#graph .player')
+    		    // wait before resorting to original order
+    		    .animate({opacity: 1}, 2000)
+    		    .each(function(iii){
+    		        $(this).animate({top: iii*playerY}, switchSpeed, 'swing'
+    		            , function(){
+    		                if (iii == 0 ) { 
+    		                    $('#curves').fadeIn();
+    		                    debug('animation complete'); 
+    		                }
+    		        });
+    		    })
+		    ;
+		    ajaxing = false;
+        }
+
+        function animateSortRank(i, player) {
+            
+            // ranks[i] = getRank(i, points);
+            var rank = getRank(i, scores);
+            debug(i, 'rank: ' + rank, 'score: ' +  scores[i] );
+            
+            /**/
+            player.animate({top: rank*playerY}, switchSpeed, 'swing')
+            .animate({opacity: 1}, 250, 'linear',
+             function(){
+                 // debug(i);
+                // if this is the last player
+                if(i == playerCount-1) {
+
+                    if ( j >= raceCount) {
+					    // animation is complete
+                        finishSortRank();
+
+
+                    } else {
+                        // do another race animation
+                        j++;
+                        debug(j);
+                        animateRace();
+                    }
+                }                            
+            });
+            /**/
+        }
 
         function animateRace() {
 			$('#graph .player').each(function(i){
@@ -99,50 +163,18 @@ $(function(){
 
 				for(var p=0; p < addPoints; p++ ) {
                     roundTotal.animate({opacity: 1}, 50, 'linear', function(){
-                        points[i] ++;
-                        $(this).text( points[i] );
-                        // debug('race '+ j, 'player ' + i, 'points[i]: ' + points[i] );
+                        scores[i] ++;
+                        $(this).text( scores[i] );
                     });
 				}
 
                 progressX[i] += addPoints * pixelAdjust;
-                roundMeter.animate({ width: progressX[i] + 2 }, aniSpeed, 'swing'
-                    , function(){
-
-                        ranks[i] = getRank(i, points);
-                        
+                roundMeter.animate({ width: progressX[i] + 2 }, meterSpeed, 'swing'
+                    , function() {
                         var player = $(this).parents('.player');
+                        animateSortRank(i, player);
 
-                        player.animate({top: ranks[i]*70}, switchSpeed, 'swing')
-                        .animate({opacity: 1}, 250, 'linear',
-                         function(){
-                            previousRanks[i] = ranks[i];
-
-                            // if this is the last player
-                            if(i == playerCount-1) {
-
-                                if ( j >= raceCount) {
-        						    // animation is complete
-
-                                    $('#curves').fadeIn();
-        						    debug('animation complete');
-        						    $('#graph .player').each(function(iii){
-        						        $(this).animate({top: iii*70}, switchSpeed, 'swing');
-        						    })
-        						    ajaxing = false;
-
-                                } else {
-                                    // do another race animation
-                                    j++;
-                                    debug(j);
-                                    animateRace();
-                                }
-                            }                            
-                        });
-
-                        // debug('prev:' + previousRanks[i], 'current: ' + ranks[i], newRank);
- 
-                    }
+                    } 
                 );	
             });
             
@@ -154,9 +186,9 @@ $(function(){
 
     // render the bezier curves
     function drawCanvas() {
-		var canvas = document.getElementById("curves");
-		if (canvas.getContext) {
-			var ctx = canvas.getContext("2d");
+		var curvesCanvas = document.getElementById("curves");
+		if (curvesCanvas.getContext) {
+			var ctx = curvesCanvas.getContext("2d");
 			// begin canvas code
 
             var meterH = 20;
@@ -174,24 +206,30 @@ $(function(){
             }
 
             for ( j=1; j <= raceCount; j++) {
-                var hue = (360 / raceCount) * j;
+                var points, hue,
+                    x1, y2, x2, y2, cp2x, cp2y, 
+                    x3, y3, cp3x, cp3y, x4, y4;
+                
+                hue = (360 / raceCount) * j;
                 hue = parseInt(hue);
                 ctx.strokeStyle = $('meter.race:eq('+(j-1)+')').css('border-right-color');
 
-                var player1points = playerPoints[1][j] * pixelAdjust;
+                player1points = playerPoints[1][j] * pixelAdjust;
 
-                var x1 = x[1] + player1points;
-                var y1 = 0;
+                x1 = x[1] + player1points;
+                y1 = 0;
+
+                x2 = x1;
+                y2 = meterH;
 
                 x[1] += player1points;
 
 
                 ctx.beginPath();
                     ctx.moveTo(x1,y1);
+                    ctx.lineTo(x2,y2);
 
                     for (i=2; i <= playerCount; i++) {
-                        var points, x2, y2, cp2x, cp2y, 
-                            x3, y3, cp3x, cp3y, x4, y4;
 
                         points = playerPoints[i][j] * pixelAdjust;
 
@@ -210,7 +248,7 @@ $(function(){
                         x4 = x3;
                         y4 = y3 + meterH;
 
-                        ctx.lineTo(x2,y2);
+                        // ctx.lineTo(x2,y2);
                         ctx.bezierCurveTo(cp2x, cp2y, cp3x, cp3y, x3, y3);  
                         ctx.lineTo(x4,y4);
 
@@ -223,6 +261,99 @@ $(function(){
             }
 
         }
+
+		var racesCanvas = document.getElementById("round_races_curves");
+		if (racesCanvas.getContext) {
+			var ctx = racesCanvas.getContext("2d");
+			// begin canvas code
+            
+             var avatarW = 42;
+             var marginX = 210;
+             var handleX = marginX * .5;
+             var sizeY = 26;
+
+             ctx.translate(0,-sizeY);
+
+             /**/
+ 		    for (i=1; i <= playerCount; i++) {
+                 var points, hue,
+                     x1, y2, x2, y2, cp2x, cp2y, 
+                     x3, y3, cp3x, cp3y, x4, y4;
+ 		        
+                 hue = (360 / playerCount) * i;
+                 hue = parseInt(hue);
+                 ctx.fillStyle = $('#graph .player:eq('+(i-1)+') .avatar').css('color');
+                 debug(ctx.fillStyle);
+                 
+                 x1 = 0;
+                 y1 = playerPlaces[i][1]*sizeY;
+                 x2 = avatarW;
+                 y2 = y1;
+
+
+                 ctx.beginPath();
+                     ctx.moveTo(x1, y1);
+                     ctx.lineTo(x2, y2);
+
+                     for(j=2; j<= raceCount; j++) {
+
+                         x2 = avatarW*(j-1) + marginX*(j-2);
+                         y2 = playerPlaces[i][j-1]*sizeY;
+                         cp2x = x2  + handleX;
+                         cp2y = y2;
+
+                         x3 = x2 + marginX;
+                         y3 = playerPlaces[i][j]*sizeY;
+                         cp3x = x3 - handleX;
+                         cp3y = y3;
+
+                         x4 = x3 + avatarW;
+                         y4 = y3;
+
+                         ctx.bezierCurveTo(cp2x, cp2y, cp3x, cp3y, x3, y3);
+                         ctx.lineTo(x4, y4);
+                     }
+                     
+                     x1 = x4;
+                     y1 = y4 + (sizeY-1);
+                     x2 = x1 - avatarW;
+                     y2 = y1;
+                     ctx.lineTo(x1,y1);
+                     ctx.lineTo(x2,y2);
+                     ctx.save();
+                         ctx.translate(0,  sizeY-1 );
+
+                         for(j=raceCount-1; j>= 1; j--) {
+
+
+                             x4 = avatarW*(j-1) + marginX*(j-1);
+                             y4 = playerPlaces[i][j]*sizeY;
+                         
+                             x3 = x4 + avatarW;
+                             y3 = y4;
+                             cp3x = x3 + handleX;
+                             cp3y = y3;
+
+
+                             x2 = x3 + marginX;
+                             y2 = playerPlaces[i][j+1]*sizeY;
+                             cp2x = x2 - handleX;
+                             cp2y = y2;
+
+                             ctx.bezierCurveTo(cp2x, cp2y, cp3x, cp3y, x3, y3);
+                             ctx.lineTo(x4, y4);
+                         }
+                     ctx.restore();
+
+                     
+                     ctx.fill();
+                 ctx.closePath;
+     	    }
+     	    /**/
+
+        }
+
+
     }
 
 
