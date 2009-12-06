@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_base/js/entry.js" charset="utf-8"></script>
 
 </head>
-<body class="input1_page">
+<body class="entry">
     
     <div id="wrap">    
         <h1>Round Entry</h1>
@@ -42,7 +42,7 @@
         </form>
 
 
-        <form id="race_entry" action="race.php" method="post">
+        <form id="race_entry" action="round.php" method="post">
 
             <input type="hidden" name="race_count" value="<?= $raceCount ?>" />
             <input type="hidden" name="player_count" value="<?= $playerCount ?>" />

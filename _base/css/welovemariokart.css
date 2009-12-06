@@ -17,6 +17,13 @@ body {
     overflow: hidden;
 }
 
+h1 {
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 200;
+    color: #E5E5E5;
+}
+
 th, td {
     border: 1px solid #AAA;
 	padding: 1px;
@@ -45,8 +52,7 @@ select.person {
 **************************/
 
 #graph {
-    margin-top: 40px;
-    margin-left: 80px;
+    margin: 40px 0 10px 80px;
     background: #FFF;
     position: relative;
     height: 280px;
@@ -122,8 +128,33 @@ select.person {
     left: 0;
     height: 100%;
     border-right: 2px solid #F00;
-    text-indent: -9999em;
+    overflow: hidden;
 }
+
+#graph meter.race .points {
+    position: absolute;
+    top: 20px;
+}
+
+#graph meter.race .place {
+    position: absolute;
+    line-height: 20px;
+    left: 6px;
+    width: 30px;
+    font-size: 14px;
+    color: #FFF;
+    display: none;
+}
+#graph meter.race span {
+    text-transform: uppercase;
+    font-size: 11px;
+    display: inline-block;
+    position: relative;
+    top: -0.2em;
+}
+
+#graph meter.race.selected .place,
+#graph meter.race:hover .place { display: block; }
 
 #graph .identity {
     position: absolute;
@@ -238,30 +269,32 @@ select.person {
 .avatar.character.funky_kong img { top: -225px; left: -90px; }
 .avatar.character.dry_bowser img { top: -225px; left: -135px; }
 
-.avatar.character.baby_mario { color: hsla(0,100%,50%,.15); }
-.avatar.character.baby_luigi { color: hsla(110,100%,35%,.15); }
-.avatar.character.baby_peach { color: hsla(340,50%,50%,.15); }
-.avatar.character.baby_daisy { color: hsla(45,75%,50%,.15); }
-.avatar.character.toad { color: hsla(250,100%,50%,.15); }
-.avatar.character.toadette { color: hsla(330,65%,50%,.15); }
-.avatar.character.koopa_troopa { color: hsla(50,100%,50%,.15); }
-.avatar.character.dry_bones { color: hsla(240,5%,60%,.15); }
-.avatar.character.mario { color: hsla(0,100%,50%,.15); }
-.avatar.character.luigi { color: hsla(110,90%,35%,.15); }
-.avatar.character.peach { color: hsla(60,100%,50%,.15); }
-.avatar.character.daisy { color: hsla(45,80%,50%,.15); }
-.avatar.character.yoshi { color: hsla(120,60%,50%,.15); }
-.avatar.character.birdo { color: hsla(300,100%,50%,.15); }
-.avatar.character.diddy_kong { color: hsla(15,100%,30%,.15); }
-.avatar.character.bowser_jr { color: hsla(75,100%,40%,.15); }
-.avatar.character.wario { color: hsla(60,100%,50%,.15); }
-.avatar.character.waluigi { color: hsla(270,100%,50%,.15); }
-.avatar.character.donkey_kong { color: hsla(15,80%,30%,.15); }
-.avatar.character.bowser { color: hsla(15,100%,50%,.15); }
-.avatar.character.king_boo { color: hsla(0,0%,70%,.15); }
-.avatar.character.rosalina { color: hsla(170,60%,50%,.15); }
-.avatar.character.funky_kong { color: hsla(30,20%,50%,.15); }
-.avatar.character.dry_bowser { color: hsla(55,10%,45%,.15); }
+#graph .player.baby_mario meter.round { background-color: hsla(0,100%,50%,.15); }
+#graph .player.baby_luigi meter.round { background-color: hsla(110,100%,35%,.15); }
+#graph .player.baby_peach meter.round { background-color: hsla(340,50%,50%,.15); }
+#graph .player.baby_daisy meter.round { background-color: hsla(45,75%,50%,.15); }
+#graph .player.toad meter.round { background-color: hsla(250,100%,50%,.15); }
+#graph .player.toadette meter.round { background-color: hsla(330,65%,50%,.15); }
+#graph .player.koopa_troopa meter.round { background-color: hsla(50,100%,50%,.15); }
+#graph .player.dry_bones meter.round { background-color: hsla(240,5%,60%,.15); }
+#graph .player.mario meter.round { background-color: hsla(0,100%,50%,.15); }
+#graph .player.luigi meter.round { background-color: hsla(110,90%,35%,.15); }
+#graph .player.peach meter.round { background-color: hsla(60,100%,50%,.15); }
+#graph .player.daisy meter.round { background-color: hsla(45,80%,50%,.15); }
+#graph .player.yoshi meter.round { background-color: hsla(120,60%,50%,.15); }
+#graph .player.birdo meter.round { background-color: hsla(300,100%,50%,.15); }
+#graph .player.diddy_kong meter.round { background-color: hsla(15,100%,30%,.15); }
+#graph .player.bowser_jr meter.round { background-color: hsla(75,100%,40%,.15); }
+#graph .player.wario meter.round { background-color: hsla(60,100%,50%,.15); }
+#graph .player.waluigi meter.round { background-color: hsla(270,100%,50%,.15); }
+#graph .player.donkey_kong meter.round { background-color: hsla(15,80%,30%,.15); }
+#graph .player.bowser meter.round { background-color: hsla(15,100%,50%,.15); }
+#graph .player.king_boo meter.round { background-color: hsla(0,0%,70%,.15); }
+#graph .player.rosalina meter.round { background-color: hsla(170,60%,50%,.15); }
+#graph .player.funky_kong meter.round { background-color: hsla(30,20%,50%,.15); }
+#graph .player.dry_bowser meter.round { background-color: hsla(55,10%,45%,.15); }
+
+
 
 
 /**** Round Races ****/
@@ -273,21 +306,21 @@ select.person {
 }
 
 #round_races .slider {
-    width: 2530px;
     position: relative;
 }
 
 #round_races canvas {
     position: absolute;
-    top: 38px;
-    left: 36px;
+    top: 48px;
+    left: 51px;
 }
 
 #round_races .race {
     width: 240px;
     float: left;
     border: 1px solid #CCC;
-    margin: 10px 5px;
+    margin: 20px 0 20px 20px;
+    position: relative;
 }
 
 #round_races .race h3 {
@@ -375,75 +408,149 @@ select.person {
 
 /**** Colors ****/
 #graph meter.race.luigi_circuit { border-color: #3C5; }
+#graph meter.race.luigi_circuit.selected,
+#graph meter.race.luigi_circuit:hover,
 #round_races .race.luigi_circuit h3 { background-color: #3C5; }
 #graph meter.race.moo_moo_meadows { border-color: #AA5; }
+#graph meter.race.moo_moo_meadows.selected,
+#graph meter.race.moo_moo_meadows:hover,
 #round_races .race.moo_moo_meadows h3 { background-color: #AA5; }
 #graph meter.race.mushroom_gorge { border-color: #F22; }
+#graph meter.race.mushroom_gorge.selected,
+#graph meter.race.mushroom_gorge:hover,
 #round_races .race.mushroom_gorge h3 { background-color: #F22; }
 #graph meter.race.toads_factory { border-color: #D6D; }
+#graph meter.race.toads_factory.selected,
+#graph meter.race.toads_factory:hover,
 #round_races .race.toads_factory h3 { background-color: #D6D; }
 #graph meter.race.mario_circuit { border-color: #E11; }
+#graph meter.race.mario_circuit.selected,
+#graph meter.race.mario_circuit:hover,
 #round_races .race.mario_circuit h3 { background-color: #E11; }
 #graph meter.race.coconut_mall { border-color: #A8A; }
+#graph meter.race.coconut_mall.selected,
+#graph meter.race.coconut_mall:hover,
 #round_races .race.coconut_mall h3 { background-color: #A8A; }
 #graph meter.race.dks_snowboard_cross { border-color: #EEE; }
+#graph meter.race.dks_snowboard_cross.selected,
+#graph meter.race.dks_snowboard_cross:hover,
 #round_races .race.dks_snowboard_cross h3 { background-color: #EEE; }
 #graph meter.race.warios_gold_mine { border-color: #EE2; }
+#graph meter.race.warios_gold_mine.selected,
+#graph meter.race.warios_gold_mine:hover,
 #round_races .race.warios_gold_mine h3 { background-color: #EE2; }
 #graph meter.race.daisy_circuit { border-color: #F93; }
+#graph meter.race.daisy_circuit.selected,
+#graph meter.race.daisy_circuit:hover,
 #round_races .race.daisy_circuit h3 { background-color: #F93; }
 #graph meter.race.koopa_cape { border-color: #789; }
+#graph meter.race.koopa_cape.selected,
+#graph meter.race.koopa_cape:hover,
 #round_races .race.koopa_cape h3 { background-color: #789; }
 #graph meter.race.maple_treeway { border-color: #C94; }
+#graph meter.race.maple_treeway.selected,
+#graph meter.race.maple_treeway:hover,
 #round_races .race.maple_treeway h3 { background-color: #C94; }
 #graph meter.race.grumble_volcano { border-color: #C82; }
+#graph meter.race.grumble_volcano.selected,
+#graph meter.race.grumble_volcano:hover,
 #round_races .race.grumble_volcano h3 { background-color: #C82; }
 #graph meter.race.dry_dry_ruins { border-color: #EC6; }
+#graph meter.race.dry_dry_ruins.selected,
+#graph meter.race.dry_dry_ruins:hover,
 #round_races .race.dry_dry_ruins h3 { background-color: #EC6; }
 #graph meter.race.moonview_highway { border-color: #343; }
+#graph meter.race.moonview_highway.selected,
+#graph meter.race.moonview_highway:hover,
 #round_races .race.moonview_highway h3 { background-color: #343; }
 #graph meter.race.bowsers_castle { border-color: #116; }
+#graph meter.race.bowsers_castle.selected,
+#graph meter.race.bowsers_castle:hover,
 #round_races .race.bowsers_castle h3 { background-color: #116; }
 #graph meter.race.rainbow_road { border-color: #000; }
+#graph meter.race.rainbow_road.selected,
+#graph meter.race.rainbow_road:hover,
 #round_races .race.rainbow_road h3 { background-color: #000; }
 #graph meter.race.gcn_peach_beach { border-color: #66E; }
+#graph meter.race.gcn_peach_beach.selected,
+#graph meter.race.gcn_peach_beach:hover,
 #round_races .race.gcn_peach_beach h3 { background-color: #66E; }
 #graph meter.race.ds_yoshi_falls { border-color: #2D2; }
+#graph meter.race.ds_yoshi_falls.selected,
+#graph meter.race.ds_yoshi_falls:hover,
 #round_races .race.ds_yoshi_falls h3 { background-color: #2D2; }
 #graph meter.race.snes_ghost_valley_2 { border-color: #442; }
+#graph meter.race.snes_ghost_valley_2.selected,
+#graph meter.race.snes_ghost_valley_2:hover,
 #round_races .race.snes_ghost_valley_2 h3 { background-color: #442; }
 #graph meter.race.n64_mario_raceway { border-color: #C22; }
+#graph meter.race.n64_mario_raceway.selected,
+#graph meter.race.n64_mario_raceway:hover,
 #round_races .race.n64_mario_raceway h3 { background-color: #C22; }
 #graph meter.race.n64_sherbet_land { border-color: #DDE; }
+#graph meter.race.n64_sherbet_land.selected,
+#graph meter.race.n64_sherbet_land:hover,
 #round_races .race.n64_sherbet_land h3 { background-color: #DDE; }
 #graph meter.race.gba_shy_guy_beach { border-color: #EE8; }
+#graph meter.race.gba_shy_guy_beach.selected,
+#graph meter.race.gba_shy_guy_beach:hover,
 #round_races .race.gba_shy_guy_beach h3 { background-color: #EE8; }
 #graph meter.race.ds_delfino_square { border-color: #AAC; }
+#graph meter.race.ds_delfino_square.selected,
+#graph meter.race.ds_delfino_square:hover,
 #round_races .race.ds_delfino_square h3 { background-color: #AAC; }
 #graph meter.race.gcn_waluigi_stadium { border-color: #963; }
+#graph meter.race.gcn_waluigi_stadium.selected,
+#graph meter.race.gcn_waluigi_stadium:hover,
 #round_races .race.gcn_waluigi_stadium h3 { background-color: #963; }
 #graph meter.race.ds_desert_hills { border-color: #FDB; }
+#graph meter.race.ds_desert_hills.selected,
+#graph meter.race.ds_desert_hills:hover,
 #round_races .race.ds_desert_hills h3 { background-color: #FDB; }
 #graph meter.race.gba_bowser_castle_3 { border-color: #F63; }
+#graph meter.race.gba_bowser_castle_3.selected,
+#graph meter.race.gba_bowser_castle_3:hover,
 #round_races .race.gba_bowser_castle_3 h3 { background-color: #F63; }
 #graph meter.race.n64_dks_jungle_parkway { border-color: #FD3; }
+#graph meter.race.n64_dks_jungle_parkway.selected,
+#graph meter.race.n64_dks_jungle_parkway:hover,
 #round_races .race.n64_dks_jungle_parkway h3 { background-color: #FD3; }
 #graph meter.race.gcn_mario_circuit { border-color: #292; }
+#graph meter.race.gcn_mario_circuit.selected,
+#graph meter.race.gcn_mario_circuit:hover,
 #round_races .race.gcn_mario_circuit h3 { background-color: #292; }
 #graph meter.race.snes_mario_circuit_3 { border-color: #EE2; }
+#graph meter.race.snes_mario_circuit_3.selected,
+#graph meter.race.snes_mario_circuit_3:hover,
 #round_races .race.snes_mario_circuit_3 h3 { background-color: #EE2; }
 #graph meter.race.ds_peach_gardens { border-color: #8A8; }
+#graph meter.race.ds_peach_gardens.selected,
+#graph meter.race.ds_peach_gardens:hover,
 #round_races .race.ds_peach_gardens h3 { background-color: #8A8; }
 #graph meter.race.gcn_dk_mountain { border-color: #8AA; }
+#graph meter.race.gcn_dk_mountain.selected,
+#graph meter.race.gcn_dk_mountain:hover,
 #round_races .race.gcn_dk_mountain h3 { background-color: #8AA; }
 #graph meter.race.n64_bowsers_castle { border-color: #33A; }
+#graph meter.race.n64_bowsers_castle.selected,
+#graph meter.race.n64_bowsers_castle:hover,
 #round_races .race.n64_bowsers_castle h3 { background-color: #33A; }
 
 #round_races .race.dks_snowboard_cross h3,
+#graph meter.race.dks_snowboard_cross .place,
 #round_races .race.warios_gold_mine h3,
+#graph meter.race.warios_gold_mine .place,
 #round_races .race.n64_sherbet_land h3,
+#graph meter.race.n64_sherbet_land .place,
 #round_races .race.gba_shy_guy_beach h3,
+#graph meter.race.gba_shy_guy_beach .place,
 #round_races .race.n64_dks_jungle_parkway h3,
-#round_races .race.snes_mario_circuit_3 h3 { 
+#graph meter.race.n64_dks_jungle_parkway .place,
+#round_races .race.snes_mario_circuit_3 h3,
+#graph meter.race.snes_mario_circuit_3 .place,
+#round_races .race.ds_desert_hills h3,
+#graph meter.race.ds_desert_hills .place { 
     color: #111; 
 }
+
+/*#graph meter.race.selected { background-color: #000;}*/

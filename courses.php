@@ -84,7 +84,9 @@
         <hr />
 
         <?php foreach ($allCourses as $course): ?>
-            meter.race.<?= cleanURL($course) ?> { border-color: <?= $courseColors[$course] ?>; }<br />
+            #graph meter.race.<?= cleanURL($course) ?> { border-color: <?= $courseColors[$course] ?>; }<br />
+            #graph meter.race.<?= cleanURL($course) ?>.selected,<br />
+            #graph meter.race.<?= cleanURL($course) ?>:hover,<br />
             #round_races .race.<?= cleanURL($course) ?> h3 { background-color: <?= $courseColors[$course] ?>; }<br />
         <?php endforeach; ?>
     

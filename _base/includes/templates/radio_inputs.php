@@ -1,4 +1,4 @@
-<div>
+<fieldset>
     <label><?= $legend ?></label>
     <ul>
         <?php foreach ($items as $item): 
@@ -11,4 +11,4 @@
         <?php endforeach; ?>
         
     </ul>
-</div>
+</fieldset>

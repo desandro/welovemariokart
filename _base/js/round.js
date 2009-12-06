@@ -15,10 +15,14 @@ $(function(){
     var roundMax = raceCount * 15;
     var pixelAdjust = 600 / roundMax;
     
-    
     var meterSpeed = 1500;
     var switchSpeed = 500;
     var playerY = 70;
+
+    var roundRacesW = $('#round_races').width();
+    var sliderW = $('#round_races .slider').width();
+    var scrollX = ( sliderW - roundRacesW ) / (raceCount-1);
+    debug('roundRacesW' + roundRacesW, 'sliderW ' + sliderW, 'scrollX ' + scrollX );
 
     debug('playerCount', playerCount);
     debug('raceCount', raceCount);
@@ -44,145 +48,6 @@ $(function(){
         // debug(playerPlaces[i]);
     }
     
-
-    // set meter background colors
-    $('#graph .player').each(function(){
-        var color = $(this).find('.avatar').css('color');
-        $(this).find('meter.round').css('background-color', color);
-    })
-
-    // ranking function for sorting players when animated
-    function getRank(s, currentScores) {
-        var scores = [];
-        var ranks = [];
-
-        for ( ii=0; ii < currentScores.length; ii++) {
-            scores[ii] = {
-                score: currentScores[ii],
-                ident: ii
-            };
-        }
-
-        scores.sort(function(a,b){return b.score - a.score});
-
-        for ( ii=0; ii < scores.length; ii++) {
-            var identI = scores[ii].ident;
-            ranks[identI] = ii;
-        }
-        
-        return ranks[s];
-        
-    }
-    
-
-    $('#graph').after('<button id="animate_graph">Animate Graph</button>');
-
-    $('#animate_graph').click(function(){
-        var ajaxing = false;
-
-        $('#graph .player .total').text('0');
-
-        var progressX = [];
-        var scores = [];
-        var pointCount = [];
-        var k = [];
-		var ranks = [];
-		var previousRanks = [];
-        for (var i=0; i < playerCount; i++) {
-            progressX[i] = 0;
-            scores[i] = 0;
-            previousRanks[i] = i;
-        }
-
-   		var j = 1;
-
-
-        $('#curves').fadeOut();
-        $('#graph .player meter.round').animate({ width: 0 }, 'normal', 'swing', function(){
-            if( !ajaxing ) {
-        		animateRace();
-            }
-            ajaxing = true;
-        });
-
-        function finishSortRank() {
-		    $('#graph .player')
-    		    // wait before resorting to original order
-    		    .animate({opacity: 1}, 2000)
-    		    .each(function(iii){
-    		        $(this).animate({top: iii*playerY}, switchSpeed, 'swing'
-    		            , function(){
-    		                if (iii == 0 ) { 
-    		                    $('#curves').fadeIn();
-    		                    debug('animation complete'); 
-    		                }
-    		        });
-    		    })
-		    ;
-		    ajaxing = false;
-        }
-
-        function animateSortRank(i, player) {
-            
-            // ranks[i] = getRank(i, points);
-            var rank = getRank(i, scores);
-            debug(i, 'rank: ' + rank, 'score: ' +  scores[i] );
-            
-            /**/
-            player.animate({top: rank*playerY}, switchSpeed, 'swing')
-            .animate({opacity: 1}, 250, 'linear',
-             function(){
-                 // debug(i);
-                // if this is the last player
-                if(i == playerCount-1) {
-
-                    if ( j >= raceCount) {
-					    // animation is complete
-                        finishSortRank();
-
-
-                    } else {
-                        // do another race animation
-                        j++;
-                        debug(j);
-                        animateRace();
-                    }
-                }                            
-            });
-            /**/
-        }
-
-        function animateRace() {
-			$('#graph .player').each(function(i){
-
-                var addPoints =  playerPoints[i+1][j];
-
-				var roundMeter = $(this).children('meter.round');
-				var roundTotal = $(this).children('.total');
-
-
-				for(var p=0; p < addPoints; p++ ) {
-                    roundTotal.animate({opacity: 1}, 50, 'linear', function(){
-                        scores[i] ++;
-                        $(this).text( scores[i] );
-                    });
-				}
-
-                progressX[i] += addPoints * pixelAdjust;
-                roundMeter.animate({ width: progressX[i] + 2 }, meterSpeed, 'swing'
-                    , function() {
-                        var player = $(this).parents('.player');
-                        animateSortRank(i, player);
-
-                    } 
-                );	
-            });
-            
-
-		}
-
-
-    })
 
     // render the bezier curves
     function drawCanvas() {
@@ -212,7 +77,7 @@ $(function(){
                 
                 hue = (360 / raceCount) * j;
                 hue = parseInt(hue);
-                ctx.strokeStyle = $('meter.race:eq('+(j-1)+')').css('border-right-color');
+                ctx.strokeStyle = $('meter.race').eq(j-1).css('border-right-color');
 
                 player1points = playerPoints[1][j] * pixelAdjust;
 
@@ -267,8 +132,8 @@ $(function(){
 			var ctx = racesCanvas.getContext("2d");
 			// begin canvas code
             
-             var avatarW = 42;
-             var marginX = 210;
+             var avatarW = $('#round_races .avatar').outerWidth();
+             var marginX = $('#round_races .race').outerWidth(true) - avatarW;
              var handleX = marginX * .5;
              var sizeY = 26;
 
@@ -282,7 +147,7 @@ $(function(){
  		        
                  hue = (360 / playerCount) * i;
                  hue = parseInt(hue);
-                 ctx.fillStyle = $('#graph .player:eq('+(i-1)+') .avatar').css('color');
+                 ctx.fillStyle = $('#graph .player:eq('+(i-1)+') meter.round').css('background-color');
                  debug(ctx.fillStyle);
                  
                  x1 = 0;
@@ -359,4 +224,175 @@ $(function(){
 
 
     drawCanvas();
+
+
+    // graph animation functions
+
+
+    $('#graph').after('<button id="animate_graph">Animate Graph</button>');
+
+    function getRank(s, currentScores) {
+        var scores = [];
+        var ranks = [];
+
+        for ( ii=0; ii < currentScores.length; ii++) {
+            scores[ii] = {
+                score: currentScores[ii],
+                ident: ii
+            };
+        }
+
+        scores.sort(function(a,b){return b.score - a.score});
+
+        for ( ii=0; ii < scores.length; ii++) {
+            var identI = scores[ii].ident;
+            ranks[identI] = ii;
+        }
+        
+        return ranks[s];
+        
+    }
+    
+
+
+    $('#animate_graph').click(function(){
+        var ajaxing = false;
+
+        $('#graph .player .total').text('0');
+
+        var progressX = [];
+        var scores = [];
+        var pointCount = [];
+        var k = [];
+		var ranks = [];
+		var previousRanks = [];
+        for (var i=0; i < playerCount; i++) {
+            progressX[i] = 0;
+            scores[i] = 0;
+            previousRanks[i] = i;
+        }
+
+   		var j = 1;
+
+
+        $('#curves').fadeOut();
+        $('#round_races .race').fadeTo('normal', .15);
+        $('#graph .player meter.round').animate({ width: 0 }, 'normal', 'swing', function(){
+            if( !ajaxing ) {
+        		animateRace();
+            }
+            ajaxing = true;
+        });
+
+        function finishSortRank() {
+		    $('#graph .player')
+    		    // wait before resorting to original order
+    		    .animate({opacity: 1}, 1500)
+    		    .each(function(iii){
+                    // resort to orginal order
+    		        $(this).animate({top: iii*playerY}, switchSpeed, 'swing'
+    		            , function(){
+    		                if (iii == 0 ) { 
+                		        // fade in graph curves and all races
+    		                    $('#curves').fadeIn();
+                                $('#round_races .race').fadeTo('normal', 1);
+    		                    debug('animation complete'); 
+    		                }
+    		        });
+    		    })
+		    ;
+		    ajaxing = false;
+        }
+
+        function animateSortRank(i, player) {
+            
+            // ranks[i] = getRank(i, points);
+            var rank = getRank(i, scores);
+            debug(i, 'rank: ' + rank, 'score: ' +  scores[i] );
+            
+            /**/
+            player.animate({top: rank*playerY}, switchSpeed, 'swing')
+            .animate({opacity: 1}, 250, 'linear',
+             function(){
+                 // debug(i);
+                // if this is the last player
+                 $('#graph meter.race.selected').removeClass('selected');
+                if(i == playerCount-1) {
+
+                    if ( j >= raceCount) {
+					    // animation is complete
+                        finishSortRank();
+
+
+                    } else {
+                        // do another race animation
+                        j++;
+                        debug(j);
+                        animateRace();
+                    }
+                }                            
+            });
+            /**/
+        }
+
+        function movePlayers() {
+            $('#graph .player').each(function(i){
+
+                var addPoints =  playerPoints[i+1][j];
+
+				var roundMeter = $(this).children('meter.round');
+				var roundTotal = $(this).children('.total');
+
+
+				for(var p=0; p < addPoints; p++ ) {
+                    roundTotal.animate({opacity: 1}, 50, 'linear', function(){
+                        scores[i] ++;
+                        $(this).text( scores[i] );
+                    });
+				}
+
+                progressX[i] += addPoints * pixelAdjust;
+                roundMeter.children('meter.race').eq(j-1).addClass('selected');
+                roundMeter.animate({ width: progressX[i] + 2 }, meterSpeed, 'swing'
+                    , function() {
+                        var player = $(this).parents('.player');
+                        animateSortRank(i, player);
+
+                    } 
+                );	
+            });
+        }
+
+        function hiliteRace() {
+            if( j > 1 ) {
+                $('#round_races .race').eq(j-2).fadeTo('normal', .15);
+            }
+            $('#round_races').animate({ scrollLeft: scrollX * (j-1) });
+            $('#round_races .race').eq(j-1).fadeTo('normal', 1, 
+                function() {
+                    
+                    movePlayers();
+                }
+            );
+            // movePlayers();
+            
+        }
+
+        function animateRace() {
+
+            hiliteRace();
+		}
+
+
+    });
+
+    $('#round_races .race').hover(function(){
+        var raceJ = $('#round_races .race').index(this);
+        $('#graph .player').each(function(){
+            $(this).find('meter.race').eq(raceJ).addClass('selected');
+        });
+    }, function(){
+        $('#graph meter.race.selected').removeClass('selected');
+    });
+
 })

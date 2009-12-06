@@ -69,15 +69,15 @@
     include('_base/includes/templates/html_head.php');
 ?>
 
-    <script type="text/javascript" src="_base/js/race.js" charset="utf-8"></script>
+    <script type="text/javascript" src="_base/js/round.js" charset="utf-8"></script>
 
-    <title>race</title>
+    <title>Round</title>
     
 
 </head>
-<body class="race">
+<body class="round">
     <div id="wrap">    
-        <h1>race</h1>
+        <h1>Round</h1>
     
         <section id="graph">
             <div class="graph_lines">
@@ -89,14 +89,14 @@
                 <?php endfor; ?>
             </div>
         
-        	<canvas id="curves" width="600" height="300"></canvas>
+        	<canvas id="curves" width="600" height="260"></canvas>
         
             <?php foreach( $players as $player): 
                 $roundW = ($player->total / $roundMax) * 600;
                 $roundW = intval($roundW);
         
             ?>
-                <div id="player_<?= $player->id ?>" class="player">
+                <div id="player_<?= $player->id ?>" class="player <?= cleanURL($player->character) ?>">
                     <p class="total"><?= $player->total ?></p>
                     <meter class="round" value="<?= $player->total ?>" min="0" max="<?= $roundMax ?>" style="width: <?= pixelWidth($player->total)+2 ?>px;">
                         <?php 
@@ -104,9 +104,13 @@
                             for ($j=1; $j <= $raceCount; $j++): 
                                 $w = pixelWidth($player->points[$j]);
                                 $points = $player->points[$j];
+                                $place = $player->places[$j];
                         ?>
                             <meter class="race race<?= $j ?> <?= cleanURL($roundCourses[$j]) ?>" value="<?= $points ?>" min="0" max="15" style="width: <?= $w ?>px; left: <?= $x ?>px;">
-                                <?= $points ?>
+                                <strong class="place">
+                                    <?= $place  ?><span><?= $placePositions[$place] ?></span>
+                                </strong>
+                                <span class="points"><?= $points ?> points</span>
                             </meter>
                         <?php 
                             $x += $w; 
@@ -129,10 +133,10 @@
 
         <section id="round_races">
 
-            <h2>Round Races</h2>
+            <!-- <h2>Round Races</h2> -->
             
-            <div class="slider">
-            	<canvas id="round_races_curves" width="2600" height="312"></canvas>
+            <div class="slider" style="width: <?= (262*$raceCount+20) ?>px">
+            	<canvas id="round_races_curves" width="<?= (262*$raceCount-51) ?>" height="312"></canvas>
                 
                 <?php for ($j=1; $j <= $raceCount; $j++): 
                     $course = $roundCourses[$j];
