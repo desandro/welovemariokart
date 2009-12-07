@@ -1,5 +1,15 @@
 var placePoints = [15,12,10,8,7,6,5,4,3,2,1,0];
 
+var smallCharacters = ['Baby Mario', 'Baby Luigi', 'Baby Peach', 'Baby Daisy', 'Toad', 'Toadette', 'Koopa Troopa',  'Dry Bones'];
+var mediumCharacters = ['Mario', 'Luigi', 'Peach', 'Daisy', 'Yoshi',  'Birdo',  'Diddy Kong', 'Bowser Jr.'];
+var largeCharacters = ['Wario', 'Waluigi', 'Donkey Kong', 'Bowser',  'King Boo', 'Rosalina', 'Funky Kong', 'Dry Bowser'];
+
+var characterClass = [];
+for(i=0; i<8; i++) {
+    characterClass[ smallCharacters[i] ] = 'small';
+    characterClass[ mediumCharacters[i] ] = 'medium';
+    characterClass[ largeCharacters[i] ] = 'large';
+}
 
 $(function(){
     
@@ -7,6 +17,8 @@ $(function(){
 	function debug(){
 	    window.console && console.log.call(console,arguments);
 	}
+
+    debug(characterClass['Dry Bowser']);
 
 	// add total row on bottom
 	var totalCells = '<th scope="row">Total</th>';
@@ -50,6 +62,36 @@ $(function(){
     });
     
 
+    // limiting vehicles for characters chosen
+    $('select.character').change(function(){
+        var character = $(this).val();
+        var charClass = characterClass[character];
+
+        var col = $('select.character').index(this);
+        var $vehicleSelect = $('select.vehicle').eq(col);
+        var $optgroups = $vehicleSelect.children('optgroup');
+        var $currentVehicle = $vehicleSelect.find(':selected');
+    
+        $optgroups.removeAttr('disabled').show();
+        
+
+        
+        if ( charClass == 'small') {
+            $optgroups.filter(':gt(1)').attr('disabled', 'disabled').hide();
+        } else if ( charClass == 'medium') {
+            $optgroups.filter(':lt(2)').attr('disabled', 'disabled').hide();
+            $optgroups.filter(':gt(3)').attr('disabled', 'disabled').hide();
+        } else if ( charClass == 'large') {
+            $optgroups.filter(':lt(4)').attr('disabled', 'disabled').hide();
+        }
+
+        // if character has changed, and current vehicle selected is not proper.
+        if ( $currentVehicle.parent().attr('disabled') ) {
+            $vehicleSelect.val('---');
+        }
+
+    });
+
     function updatePlayerTotal(col) {
         var playerTotal = 0;
         $('tr.race:visible').each(function(){
@@ -65,7 +107,6 @@ $(function(){
 
     // tally player total
     $('select.place').change(function(){
-
         var row = $(this).parents('tr');
 		var col = $(this).parent();
 		col = row.children('td').index( col );
@@ -73,6 +114,8 @@ $(function(){
 
     });
     
+
+
 
     // change race_entry table dynamically
     $('#race_setup input[name="race_count"]').change(function(){
@@ -126,7 +169,14 @@ $(function(){
 		
 	});
 		// check it on startup
-	$('select').eq(0).change();
+    // $('select').eq(0).change();
+    
+    // check all selects on start up
+    $('select').each(function(){
+        if ($(this).val() != '---') {
+            $(this).change();
+        }
+    })
 
     
 })

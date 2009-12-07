@@ -29,6 +29,25 @@ th, td {
 	padding: 1px;
 }
 
+/**************************
+**  Entry
+**************************/
+
+fieldset {
+    margin-bottom: 10px;    
+}
+
+fieldset legend {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+body.entry fieldset li {
+    display: block;
+    float: left;
+    width: 40px;
+}
+
 select.race {
     font-size: 15px;
 }
@@ -43,8 +62,8 @@ select.person {
     font-size: 16px;
 }
 
-.hidden {
-    display: none;
+th {
+    font-weight: bold;
 }
 
 /**************************
@@ -553,4 +572,3 @@ select.person {
     color: #111; 
 }
 
-/*#graph meter.race.selected { background-color: #000;}*/

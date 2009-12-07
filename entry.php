@@ -1,21 +1,20 @@
 <?php
     include('_base/includes/config.php');
 
-    // $raceCountPosted = $_POST['race_count'];
-    // $playerCountPosted = $_POST['player_count'];
-
+    /** /
     if ( isset($_POST['race_count']) ) {
         $raceCount = intval($raceCountPosted);
     } else {
-        $raceCount = 10;
     }
 
     if ( isset($_POST['player_count']) ) {
         $playerCount = intval($playerCountPosted);
     } else {
-        $playerCount = 4;
     }
-
+    /**/
+    
+        $raceCount = 10;
+        $playerCount = 4;
 
     include('_base/includes/templates/html_head.php');
 ?>
@@ -72,7 +71,17 @@
                     <td></td>
                     <?php for ($i=1; $i <= 4; $i++): ?>
                         <td>
-                            <?php selectOptions($i, $vehicles, 'vehicle', ''); ?>
+                            <?php $id = 'player' . $i . '_vehicle'; ?>
+                            <select name="<?= $id ?>" id="<?= $id ?>" class="vehicle">
+                                <option value="---">---</option>
+                                <?php foreach ($allVehicles as $vehicleClass => $vehicles): ?>
+                                    <optgroup label="<?= $vehicleClass ?>">
+                                    <?php foreach ($vehicles as $vehicle): ?>
+                                        <option value="<?= $vehicle ?>"><?= $vehicle ?></option>
+                                    <?php endforeach; ?>
+                                    </optgroup>
+                                <?php endforeach; ?>
+                            </select>
                         </td>
                     <?php endfor; ?>                
                 </tr>
@@ -80,7 +89,13 @@
                     <tr class="race">
                         <th scope="row">Race <?= $j ?></th>
                         <td>
-                            <?php include('_base/includes/templates/select_courses2.php'); ?>
+                            <?php $id = 'course_' . $j; ?>
+                            <select name="<?= $id ?>" id="<?= $id ?>" class="course">
+                                <option value="---">---</option>
+                                <?php foreach ($allCourses as $course): ?>
+                                    <option value="<?= $course ?>"><?= $course ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </td>
                         <?php for ($i=1; $i <= 4; $i++): ?>
                             <td>

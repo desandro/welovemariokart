@@ -8,7 +8,13 @@
     
     $allCourses = array('Luigi Circuit', 'Moo Moo Meadows', 'Mushroom Gorge', 'Toads Factory', 'Mario Circuit', 'Coconut Mall', 'DKs Snowboard Cross', 'Warios Gold Mine', 'Daisy Circuit', 'Koopa Cape', 'Maple Treeway', 'Grumble Volcano', 'Dry Dry Ruins', 'Moonview Highway', 'Bowsers Castle', 'Rainbow Road', 'GCN Peach Beach', 'DS Yoshi Falls', 'SNES Ghost Valley 2', 'N64 Mario Raceway', 'N64 Sherbet Land', 'GBA Shy Guy Beach', 'DS Delfino Square', 'GCN Waluigi Stadium', 'DS Desert Hills', 'GBA Bowser Castle 3', 'N64 DKs Jungle Parkway', 'GCN Mario Circuit', 'SNES Mario Circuit 3', 'DS Peach Gardens', 'GCN DK Mountain', 'N64 Bowsers Castle');
 
-    $vehicles = array('Standard Kart Small', 'Baby Booster', 'Concerto', 'Rally Romper', 'Blue Falcon', 'Cheep Charger', 'Standard Kart Medium', 'Nostalgia 1', 'Wild Wing', 'Turbo Blooper', 'Royal Racer', 'B Dasher Mk 2', 'Standard Kart Large', 'Offroader', 'Flame Flyer', 'Piranha Prowler', 'Dragonetti', 'Aero Glider', 'Standard Bike Small', 'Bullet Bike', 'Nano Bike', 'Quacker', 'Magikruiser', 'Torpedo', 'Standard Bike Medium', 'Mach Bike', 'Bon Bon', 'Rapide', 'Dolphin Dasher', 'Nitrocycle', 'Standard Bike Large', 'Bowser Bike', 'Wario Bike', 'Twinkle Star', 'Phantom', 'Torpedo');
+    $allVehicles = array();
+    $allVehicles['Small Karts'] = array('Standard Kart S', 'Booster Seat', 'Mini Beast', 'Cheep Charger', 'Tiny Titan', 'Blue Falcon');
+    $allVehicles['Small Bikes'] = array('Standard Bike S', 'Bullet Bike', 'Bit Bike', 'Quacker', 'Magikruiser', 'Jet Bubble');
+    $allVehicles['Medium Karts'] = array('Standard Kart M', 'Classic Dragster', 'Wild Wing', 'Super Blooper', 'Daytripper', 'Sprinter');
+    $allVehicles['Medium Bikes'] = array('Standard Bike M', 'Mach Bike', 'Sugarscoot', 'Zip Zip', 'Sneakster', 'Dolphin Dasher');
+    $allVehicles['Large Karts'] = array('Standard Kart L', 'Offroader', 'Flame Flyer', 'Piranha Prowler', 'Jetsetter', 'Honeycoupe');
+    $allVehicles['Large Bikes'] = array('Standard Bike L', 'Flame Runner', 'Wario Bike', 'Shooting Star', 'Spear', 'Phantom');
 
     $placePoints = array(15,12,10,8,7,6,5,4,3,2,1,0);
     $placePositions = array();

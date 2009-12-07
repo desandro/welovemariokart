@@ -1,5 +1,5 @@
 <fieldset>
-    <label><?= $legend ?></label>
+    <legend><?= $legend ?></legend>
     <ul>
         <?php foreach ($items as $item): 
             $itemID = $id . '_' . $item;
