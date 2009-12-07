@@ -1,8 +1,8 @@
-h1. Toonament
+h1. welovemariokart
 
 h2. Overview
 
-Visualizes progress in a tournament. Made especially for Mario Kart.
+Visualizes rounds of races for Mario Kart Wii.
 
 h2. Vars
 
@@ -58,3 +58,12 @@ extend meter AND tally up points
 
 
 
+h2. Schema
+
+h3. Players (people)
+
+*Options*
+
+Prefered Character
+Prefered Kart
+Buddies - 

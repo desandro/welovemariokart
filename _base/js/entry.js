@@ -176,7 +176,7 @@ $(function(){
         if ($(this).val() != '---') {
             $(this).change();
         }
-    })
+    });
 
     
-})
+});
