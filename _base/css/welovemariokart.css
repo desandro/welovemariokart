@@ -1,5 +1,14 @@
+@charset "UTF-8";
+/*
+------------------------------
+nclud'ed screen styles
+Design & Dev by nclud, LLC
+http://www.nclud.com
+------------------------------
+*/
+
 /* HTML5 styles */
-section, header, meter, figure {
+section, header, progress, article, meter, figure {
 	display: block;
 }
 
@@ -132,7 +141,7 @@ th {
 #graph #player_3 { top: 140px; }
 #graph #player_4 { top: 210px; }
 
-#graph meter.round {
+#graph progress.round {
     border: 1px solid #AAA;
     height: 20px;
     width: 640px;
@@ -288,30 +297,30 @@ th {
 .avatar.character.funky_kong img { top: -225px; left: -90px; }
 .avatar.character.dry_bowser img { top: -225px; left: -135px; }
 
-#graph .player.baby_mario meter.round { background-color: hsla(0,100%,50%,.15); }
-#graph .player.baby_luigi meter.round { background-color: hsla(110,100%,35%,.15); }
-#graph .player.baby_peach meter.round { background-color: hsla(340,50%,50%,.15); }
-#graph .player.baby_daisy meter.round { background-color: hsla(45,75%,50%,.15); }
-#graph .player.toad meter.round { background-color: hsla(250,100%,50%,.15); }
-#graph .player.toadette meter.round { background-color: hsla(330,65%,50%,.15); }
-#graph .player.koopa_troopa meter.round { background-color: hsla(50,100%,50%,.15); }
-#graph .player.dry_bones meter.round { background-color: hsla(240,5%,60%,.15); }
-#graph .player.mario meter.round { background-color: hsla(0,100%,50%,.15); }
-#graph .player.luigi meter.round { background-color: hsla(110,90%,35%,.15); }
-#graph .player.peach meter.round { background-color: hsla(60,100%,50%,.15); }
-#graph .player.daisy meter.round { background-color: hsla(45,80%,50%,.15); }
-#graph .player.yoshi meter.round { background-color: hsla(120,60%,50%,.15); }
-#graph .player.birdo meter.round { background-color: hsla(300,100%,50%,.15); }
-#graph .player.diddy_kong meter.round { background-color: hsla(15,100%,30%,.15); }
-#graph .player.bowser_jr meter.round { background-color: hsla(75,100%,40%,.15); }
-#graph .player.wario meter.round { background-color: hsla(60,100%,50%,.15); }
-#graph .player.waluigi meter.round { background-color: hsla(270,100%,50%,.15); }
-#graph .player.donkey_kong meter.round { background-color: hsla(15,80%,30%,.15); }
-#graph .player.bowser meter.round { background-color: hsla(15,100%,50%,.15); }
-#graph .player.king_boo meter.round { background-color: hsla(0,0%,70%,.15); }
-#graph .player.rosalina meter.round { background-color: hsla(170,60%,50%,.15); }
-#graph .player.funky_kong meter.round { background-color: hsla(30,20%,50%,.15); }
-#graph .player.dry_bowser meter.round { background-color: hsla(55,10%,45%,.15); }
+#graph .player.baby_mario progress.round { background-color: hsla(0,100%,50%,.15); }
+#graph .player.baby_luigi progress.round { background-color: hsla(110,100%,35%,.15); }
+#graph .player.baby_peach progress.round { background-color: hsla(340,50%,50%,.15); }
+#graph .player.baby_daisy progress.round { background-color: hsla(45,75%,50%,.15); }
+#graph .player.toad progress.round { background-color: hsla(250,100%,50%,.15); }
+#graph .player.toadette progress.round { background-color: hsla(330,65%,50%,.15); }
+#graph .player.koopa_troopa progress.round { background-color: hsla(50,100%,50%,.15); }
+#graph .player.dry_bones progress.round { background-color: hsla(240,5%,60%,.15); }
+#graph .player.mario progress.round { background-color: hsla(0,100%,50%,.15); }
+#graph .player.luigi progress.round { background-color: hsla(110,90%,35%,.15); }
+#graph .player.peach progress.round { background-color: hsla(60,100%,50%,.15); }
+#graph .player.daisy progress.round { background-color: hsla(45,80%,50%,.15); }
+#graph .player.yoshi progress.round { background-color: hsla(120,60%,50%,.15); }
+#graph .player.birdo progress.round { background-color: hsla(300,100%,50%,.15); }
+#graph .player.diddy_kong progress.round { background-color: hsla(15,100%,30%,.15); }
+#graph .player.bowser_jr progress.round { background-color: hsla(75,100%,40%,.15); }
+#graph .player.wario progress.round { background-color: hsla(60,100%,50%,.15); }
+#graph .player.waluigi progress.round { background-color: hsla(270,100%,50%,.15); }
+#graph .player.donkey_kong progress.round { background-color: hsla(15,80%,30%,.15); }
+#graph .player.bowser progress.round { background-color: hsla(15,100%,50%,.15); }
+#graph .player.king_boo progress.round { background-color: hsla(0,0%,70%,.15); }
+#graph .player.rosalina progress.round { background-color: hsla(170,60%,50%,.15); }
+#graph .player.funky_kong progress.round { background-color: hsla(30,20%,50%,.15); }
+#graph .player.dry_bowser progress.round { background-color: hsla(55,10%,45%,.15); }
 
 
 
@@ -355,7 +364,7 @@ th {
     font-weight: 200;
 }
 
-#round_races .place {
+#round_races h4 {
     float: left;
     width: 18px;
     text-align: right;
@@ -370,12 +379,12 @@ th {
 
 }
 
-#round_races .player .place {
+#round_races .player h4 {
     font-weight: bold;
     color: #111;
 }
 
-#round_races figure {
+#round_races dl {
     position: relative;
 }
 

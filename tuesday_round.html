@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    <link rel="stylesheet" href="_base/css/yui_reset.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="_base/css/welovemariokart.css" type="text/css" media="screen" charset="utf-8" />
+    
+    <style type="text/css" media="screen"> 
+        #output { display: none;}
+    </style>
+    
+    <script type="text/javascript" src="_base/js/jquery-1.3.2.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="_base/js/round.js" charset="utf-8"></script>
+
+    <title>Round</title>
+    
+
+</head>
+<body class="round">
+    <div id="wrap">    
+        <h1>Round &rsaquo; Tuesday 8 Dec 2009</h1>
+    
+        <section id="graph">
+            <div class="graph_lines">
+                <label class="zero">0</label>
+                                    <div><label>25</label></div>
+                                    <div><label>50</label></div>
+                                    <div><label>75</label></div>
+                                    <div><label>100</label></div>
+                                    <div><label>125</label></div>
+                                    <div><label>150</label></div>
+                            </div>
+        
+        	<canvas id="curves" width="600" height="260"></canvas>
+        
+                            <div id="player_1" class="player bowser">
+                    <p class="total">109</p>
+                    <meter class="round" value="109" min="0" max="150" style="width: 438px;">
+                                                    <meter class="race race1 coconut_mall" value="12" min="0" max="15" style="width: 48px; left: 0px;">
+                                <strong class="place">
+                                    2<span>nd</span>
+                                </strong>
+                                <span class="points">12 points</span>
+                            </meter>
+                                                    <meter class="race race2 ds_delfino_square" value="6" min="0" max="15" style="width: 24px; left: 48px;">
+                                <strong class="place">
+                                    6<span>th</span>
+                                </strong>
+                                <span class="points">6 points</span>
+                            </meter>
+                                                    <meter class="race race3 dks_snowboard_cross" value="12" min="0" max="15" style="width: 48px; left: 72px;">
+                                <strong class="place">
+                                    2<span>nd</span>
+                                </strong>
+                                <span class="points">12 points</span>
+                            </meter>
+                                                    <meter class="race race4 rainbow_road" value="3" min="0" max="15" style="width: 12px; left: 120px;">
+                                <strong class="place">
+                                    9<span>th</span>
+                                </strong>
+                                <span class="points">3 points</span>
+                            </meter>
+                                                    <meter class="race race5 ds_peach_gardens" value="15" min="0" max="15" style="width: 60px; left: 132px;">
+                                <strong class="place">
+                                    1<span>st</span>
+                                </strong>
+                                <span class="points">15 points</span>
+                            </meter>
+                                                    <meter class="race race6 moonview_highway" value="15" min="0" max="15" style="width: 60px; left: 192px;">
+                                <strong class="place">
+                                    1<span>st</span>
+                                </strong>
+                                <span class="points">15 points</span>
+                            </meter>
+                                                    <meter class="race race7 toads_factory" value="12" min="0" max="15" style="width: 48px; left: 252px;">
+                                <strong class="place">
+                                    2<span>nd</span>
+                                </strong>
+                                <span class="points">12 points</span>
+                            </meter>
+                                                    <meter class="race race8 n64_bowsers_castle" value="12" min="0" max="15" style="width: 48px; left: 300px;">
+                                <strong class="place">
+                                    2<span>nd</span>
+                                </strong>
+                                <span class="points">12 points</span>
+                            </meter>
+                                                    <meter class="race race9 maple_treeway" value="12" min="0" max="15" style="width: 48px; left: 348px;">
+                                <strong class="place">
+                                    2<span>nd</span>
+                                </strong>
+                                <span class="points">12 points</span>
+                            </meter>
+                                                    <meter class="race race10 dry_dry_ruins" value="10" min="0" max="15" style="width: 40px; left: 396px;">
+                                <strong class="place">
+                                    3<span>rd</span>
+                                </strong>
+                                <span class="points">10 points</span>
+                            </meter>
+                                            </meter>
+                    <figure class="identity">
+                        <dd class="name">Alex</dd>
+                        <dt class="avatar character bowser">
+                            <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                        </dt>
+                    </figure>
+
+                </div>
+                            <div id="player_2" class="player diddy_kong">
+                    <p class="total">106</p>
+                    <meter class="round" value="106" min="0" max="150" style="width: 426px;">
+                                                    <meter class="race race1 coconut_mall" value="7" min="0" max="15" style="width: 28px; left: 0px;">
+                                <strong class="place">
+                                    5<span>th</span>
+                                </strong>
+                                <span class="points">7 points</span>
+                            </meter>
+                                                    <meter class="race race2 ds_delfino_square" value="15" min="0" max="15" style="width: 60px; left: 28px;">
+                                <strong class="place">
+                                    1<span>st</span>
+                                </strong>
+                                <span class="points">15 points</span>
+                            </meter>
+                                                    <meter class="race race3 dks_snowboard_cross" value="15" min="0" max="15" style="width: 60px; left: 88px;">
+                                <strong class="place">
+                                    1<span>st</span>
+                                </strong>
+                                <span class="points">15 points</span>
+                            </meter>
+                                                    <meter class="race race4 rainbow_road" value="8" min="0" max="15" style="width: 32px; left: 148px;">
+                                <strong class="place">
+                                    4<span>th</span>
+                                </strong>
+                                <span class="points">8 points</span>
+                            </meter>
+                                                    <meter class="race race5 ds_peach_gardens" value="6" min="0" max="15" style="width: 24px; left: 180px;">
+                                <strong class="place">
+                                    6<span>th</span>
+                                </strong>
+                                <span class="points">6 points</span>
+                            </meter>
+                                                    <meter class="race race6 moonview_highway" value="8" min="0" max="15" style="width: 32px; left: 204px;">
+                                <strong class="place">
+                                    4<span>th</span>
+                                </strong>
+                                <span class="points">8 points</span>
+                            </meter>
+                                                    <meter class="race race7 toads_factory" value="15" min="0" max="15" style="width: 60px; left: 236px;">
+                                <strong class="place">
+                                    1<span>st</span>
+                                </strong>
+                                <span class="points">15 points</span>
+                            </meter>
+                                                    <meter class="race race8 n64_bowsers_castle" value="10" min="0" max="15" style="width: 40px; left: 296px;">
+                                <strong class="place">
+                                    3<span>rd</span>
+                                </strong>
+                                <span class="points">10 points</span>
+                            </meter>
+                                                    <meter class="race race9 maple_treeway" value="10" min="0" max="15" style="width: 40px; left: 336px;">
+                                <strong class="place">
+                                    3<span>rd</span>
+                                </strong>
+                                <span class="points">10 points</span>
+                            </meter>
+                                                    <meter class="race race10 dry_dry_ruins" value="12" min="0" max="15" style="width: 48px; left: 376px;">
+                                <strong class="place">
+                                    2<span>nd</span>
+                                </strong>
+                                <span class="points">12 points</span>
+                            </meter>
+                                            </meter>
+                    <figure class="identity">
+                        <dd class="name">Lauren</dd>
+                        <dt class="avatar character diddy_kong">
+                            <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                        </dt>
+                    </figure>
+
+                </div>
+                            <div id="player_3" class="player wario">
+                    <p class="total">89</p>
+                    <meter class="round" value="89" min="0" max="150" style="width: 358px;">
+                                                    <meter class="race race1 coconut_mall" value="8" min="0" max="15" style="width: 32px; left: 0px;">
+                                <strong class="place">
+                                    4<span>th</span>
+                                </strong>
+                                <span class="points">8 points</span>
+                            </meter>
+                                                    <meter class="race race2 ds_delfino_square" value="12" min="0" max="15" style="width: 48px; left: 32px;">
+                                <strong class="place">
+                                    2<span>nd</span>
+                                </strong>
+                                <span class="points">12 points</span>
+                            </meter>
+                                                    <meter class="race race3 dks_snowboard_cross" value="8" min="0" max="15" style="width: 32px; left: 80px;">
+                                <strong class="place">
+                                    4<span>th</span>
+                                </strong>
+                                <span class="points">8 points</span>
+                            </meter>
+                                                    <meter class="race race4 rainbow_road" value="10" min="0" max="15" style="width: 40px; left: 112px;">
+                                <strong class="place">
+                                    3<span>rd</span>
+                                </strong>
+                                <span class="points">10 points</span>
+                            </meter>
+                                                    <meter class="race race5 ds_peach_gardens" value="10" min="0" max="15" style="width: 40px; left: 152px;">
+                                <strong class="place">
+                                    3<span>rd</span>
+                                </strong>
+                                <span class="points">10 points</span>
+                            </meter>
+                                                    <meter class="race race6 moonview_highway" value="10" min="0" max="15" style="width: 40px; left: 192px;">
+                                <strong class="place">
+                                    3<span>rd</span>
+                                </strong>
+                                <span class="points">10 points</span>
+                            </meter>
+                                                    <meter class="race race7 toads_factory" value="3" min="0" max="15" style="width: 12px; left: 232px;">
+                                <strong class="place">
+                                    9<span>th</span>
+                                </strong>
+                                <span class="points">3 points</span>
+                            </meter>
+                                                    <meter class="race race8 n64_bowsers_castle" value="15" min="0" max="15" style="width: 60px; left: 244px;">
+                                <strong class="place">
+                                    1<span>st</span>
+                                </strong>
+                                <span class="points">15 points</span>
+                            </meter>
+                                                    <meter class="race race9 maple_treeway" value="5" min="0" max="15" style="width: 20px; left: 304px;">
+                                <strong class="place">
+                                    7<span>th</span>
+                                </strong>
+                                <span class="points">5 points</span>
+                            </meter>
+                                                    <meter class="race race10 dry_dry_ruins" value="8" min="0" max="15" style="width: 32px; left: 324px;">
+                                <strong class="place">
+                                    4<span>th</span>
+                                </strong>
+                                <span class="points">8 points</span>
+                            </meter>
+                                            </meter>
+                    <figure class="identity">
+                        <dd class="name">Martin</dd>
+                        <dt class="avatar character wario">
+                            <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                        </dt>
+                    </figure>
+
+                </div>
+                            <div id="player_4" class="player king_boo">
+                    <p class="total">94</p>
+                    <meter class="round" value="94" min="0" max="150" style="width: 378px;">
+                                                    <meter class="race race1 coconut_mall" value="5" min="0" max="15" style="width: 20px; left: 0px;">
+                                <strong class="place">
+                                    7<span>th</span>
+                                </strong>
+                                <span class="points">5 points</span>
+                            </meter>
+                                                    <meter class="race race2 ds_delfino_square" value="10" min="0" max="15" style="width: 40px; left: 20px;">
+                                <strong class="place">
+                                    3<span>rd</span>
+                                </strong>
+                                <span class="points">10 points</span>
+                            </meter>
+                                                    <meter class="race race3 dks_snowboard_cross" value="6" min="0" max="15" style="width: 24px; left: 60px;">
+                                <strong class="place">
+                                    6<span>th</span>
+                                </strong>
+                                <span class="points">6 points</span>
+                            </meter>
+                                                    <meter class="race race4 rainbow_road" value="12" min="0" max="15" style="width: 48px; left: 84px;">
+                                <strong class="place">
+                                    2<span>nd</span>
+                                </strong>
+                                <span class="points">12 points</span>
+                            </meter>
+                                                    <meter class="race race5 ds_peach_gardens" value="12" min="0" max="15" style="width: 48px; left: 132px;">
+                                <strong class="place">
+                                    2<span>nd</span>
+                                </strong>
+                                <span class="points">12 points</span>
+                            </meter>
+                                                    <meter class="race race6 moonview_highway" value="12" min="0" max="15" style="width: 48px; left: 180px;">
+                                <strong class="place">
+                                    2<span>nd</span>
+                                </strong>
+                                <span class="points">12 points</span>
+                            </meter>
+                                                    <meter class="race race7 toads_factory" value="8" min="0" max="15" style="width: 32px; left: 228px;">
+                                <strong class="place">
+                                    4<span>th</span>
+                                </strong>
+                                <span class="points">8 points</span>
+                            </meter>
+                                                    <meter class="race race8 n64_bowsers_castle" value="7" min="0" max="15" style="width: 28px; left: 260px;">
+                                <strong class="place">
+                                    5<span>th</span>
+                                </strong>
+                                <span class="points">7 points</span>
+                            </meter>
+                                                    <meter class="race race9 maple_treeway" value="7" min="0" max="15" style="width: 28px; left: 288px;">
+                                <strong class="place">
+                                    5<span>th</span>
+                                </strong>
+                                <span class="points">7 points</span>
+                            </meter>
+                                                    <meter class="race race10 dry_dry_ruins" value="15" min="0" max="15" style="width: 60px; left: 316px;">
+                                <strong class="place">
+                                    1<span>st</span>
+                                </strong>
+                                <span class="points">15 points</span>
+                            </meter>
+                                            </meter>
+                    <figure class="identity">
+                        <dd class="name">Dave</dd>
+                        <dt class="avatar character king_boo">
+                            <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                        </dt>
+                    </figure>
+
+                </div>
+                    
+        </section>
+
+        
+
+        <section id="round_races">
+
+            <!-- <h2>Round Races</h2> -->
+            
+            <div class="slider" style="width: 2640px">
+            	<canvas id="round_races_curves" width="2569" height="312"></canvas>
+                
+                                    <div class="race race1 coconut_mall ">
+                        <h3>Race 1 <strong>Coconut Mall</strong></h3>
+                        <ol>
+                                                                                                <li><span class="place">1</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">2</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Alex</dd>
+                                            <dt class="avatar character bowser">
+                                                <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                                            </dt>
+                                            <dt class="points">+12</dt>
+                                            <dt class="score">12</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">3</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">4</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Martin</dd>
+                                            <dt class="avatar character wario">
+                                                <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                                            </dt>
+                                            <dt class="points">+8</dt>
+                                            <dt class="score">8</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">5</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Lauren</dd>
+                                            <dt class="avatar character diddy_kong">
+                                                <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                                            </dt>
+                                            <dt class="points">+7</dt>
+                                            <dt class="score">7</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">6</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">7</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Dave</dd>
+                                            <dt class="avatar character king_boo">
+                                                <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                                            </dt>
+                                            <dt class="points">+5</dt>
+                                            <dt class="score">5</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">8</span></li>
+                                                                                                                                <li><span class="place">9</span></li>
+                                                                                                                                <li><span class="place">10</span></li>
+                                                                                                                                <li><span class="place">11</span></li>
+                                                                                                                                <li><span class="place">12</span></li>
+                                                                                    </ol>
+                    </div>
+                                    <div class="race race2 ds_delfino_square ">
+                        <h3>Race 2 <strong>DS Delfino Square</strong></h3>
+                        <ol>
+                                                                                                <li class="player">
+                                        <span class="place">1</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Lauren</dd>
+                                            <dt class="avatar character diddy_kong">
+                                                <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                                            </dt>
+                                            <dt class="points">+15</dt>
+                                            <dt class="score">22</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">2</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Martin</dd>
+                                            <dt class="avatar character wario">
+                                                <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                                            </dt>
+                                            <dt class="points">+12</dt>
+                                            <dt class="score">20</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">3</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Dave</dd>
+                                            <dt class="avatar character king_boo">
+                                                <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                                            </dt>
+                                            <dt class="points">+10</dt>
+                                            <dt class="score">15</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">4</span></li>
+                                                                                                                                <li><span class="place">5</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">6</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Alex</dd>
+                                            <dt class="avatar character bowser">
+                                                <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                                            </dt>
+                                            <dt class="points">+6</dt>
+                                            <dt class="score">18</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">7</span></li>
+                                                                                                                                <li><span class="place">8</span></li>
+                                                                                                                                <li><span class="place">9</span></li>
+                                                                                                                                <li><span class="place">10</span></li>
+                                                                                                                                <li><span class="place">11</span></li>
+                                                                                                                                <li><span class="place">12</span></li>
+                                                                                    </ol>
+                    </div>
+                                    <div class="race race3 dks_snowboard_cross ">
+                        <h3>Race 3 <strong>DKs Snowboard Cross</strong></h3>
+                        <ol>
+                                                                                                <li class="player">
+                                        <span class="place">1</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Lauren</dd>
+                                            <dt class="avatar character diddy_kong">
+                                                <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                                            </dt>
+                                            <dt class="points">+15</dt>
+                                            <dt class="score">37</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">2</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Alex</dd>
+                                            <dt class="avatar character bowser">
+                                                <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                                            </dt>
+                                            <dt class="points">+12</dt>
+                                            <dt class="score">30</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">3</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">4</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Martin</dd>
+                                            <dt class="avatar character wario">
+                                                <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                                            </dt>
+                                            <dt class="points">+8</dt>
+                                            <dt class="score">28</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">5</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">6</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Dave</dd>
+                                            <dt class="avatar character king_boo">
+                                                <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                                            </dt>
+                                            <dt class="points">+6</dt>
+                                            <dt class="score">21</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">7</span></li>
+                                                                                                                                <li><span class="place">8</span></li>
+                                                                                                                                <li><span class="place">9</span></li>
+                                                                                                                                <li><span class="place">10</span></li>
+                                                                                                                                <li><span class="place">11</span></li>
+                                                                                                                                <li><span class="place">12</span></li>
+                                                                                    </ol>
+                    </div>
+                                    <div class="race race4 rainbow_road ">
+                        <h3>Race 4 <strong>Rainbow Road</strong></h3>
+                        <ol>
+                                                                                                <li><span class="place">1</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">2</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Dave</dd>
+                                            <dt class="avatar character king_boo">
+                                                <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                                            </dt>
+                                            <dt class="points">+12</dt>
+                                            <dt class="score">33</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">3</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Martin</dd>
+                                            <dt class="avatar character wario">
+                                                <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                                            </dt>
+                                            <dt class="points">+10</dt>
+                                            <dt class="score">38</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">4</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Lauren</dd>
+                                            <dt class="avatar character diddy_kong">
+                                                <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                                            </dt>
+                                            <dt class="points">+8</dt>
+                                            <dt class="score">45</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">5</span></li>
+                                                                                                                                <li><span class="place">6</span></li>
+                                                                                                                                <li><span class="place">7</span></li>
+                                                                                                                                <li><span class="place">8</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">9</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Alex</dd>
+                                            <dt class="avatar character bowser">
+                                                <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                                            </dt>
+                                            <dt class="points">+3</dt>
+                                            <dt class="score">33</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">10</span></li>
+                                                                                                                                <li><span class="place">11</span></li>
+                                                                                                                                <li><span class="place">12</span></li>
+                                                                                    </ol>
+                    </div>
+                                    <div class="race race5 ds_peach_gardens ">
+                        <h3>Race 5 <strong>DS Peach Gardens</strong></h3>
+                        <ol>
+                                                                                                <li class="player">
+                                        <span class="place">1</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Alex</dd>
+                                            <dt class="avatar character bowser">
+                                                <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                                            </dt>
+                                            <dt class="points">+15</dt>
+                                            <dt class="score">48</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">2</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Dave</dd>
+                                            <dt class="avatar character king_boo">
+                                                <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                                            </dt>
+                                            <dt class="points">+12</dt>
+                                            <dt class="score">45</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">3</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Martin</dd>
+                                            <dt class="avatar character wario">
+                                                <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                                            </dt>
+                                            <dt class="points">+10</dt>
+                                            <dt class="score">48</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">4</span></li>
+                                                                                                                                <li><span class="place">5</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">6</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Lauren</dd>
+                                            <dt class="avatar character diddy_kong">
+                                                <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                                            </dt>
+                                            <dt class="points">+6</dt>
+                                            <dt class="score">51</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">7</span></li>
+                                                                                                                                <li><span class="place">8</span></li>
+                                                                                                                                <li><span class="place">9</span></li>
+                                                                                                                                <li><span class="place">10</span></li>
+                                                                                                                                <li><span class="place">11</span></li>
+                                                                                                                                <li><span class="place">12</span></li>
+                                                                                    </ol>
+                    </div>
+                                    <div class="race race6 moonview_highway ">
+                        <h3>Race 6 <strong>Moonview Highway</strong></h3>
+                        <ol>
+                                                                                                <li class="player">
+                                        <span class="place">1</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Alex</dd>
+                                            <dt class="avatar character bowser">
+                                                <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                                            </dt>
+                                            <dt class="points">+15</dt>
+                                            <dt class="score">63</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">2</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Dave</dd>
+                                            <dt class="avatar character king_boo">
+                                                <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                                            </dt>
+                                            <dt class="points">+12</dt>
+                                            <dt class="score">57</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">3</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Martin</dd>
+                                            <dt class="avatar character wario">
+                                                <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                                            </dt>
+                                            <dt class="points">+10</dt>
+                                            <dt class="score">58</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">4</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Lauren</dd>
+                                            <dt class="avatar character diddy_kong">
+                                                <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                                            </dt>
+                                            <dt class="points">+8</dt>
+                                            <dt class="score">59</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">5</span></li>
+                                                                                                                                <li><span class="place">6</span></li>
+                                                                                                                                <li><span class="place">7</span></li>
+                                                                                                                                <li><span class="place">8</span></li>
+                                                                                                                                <li><span class="place">9</span></li>
+                                                                                                                                <li><span class="place">10</span></li>
+                                                                                                                                <li><span class="place">11</span></li>
+                                                                                                                                <li><span class="place">12</span></li>
+                                                                                    </ol>
+                    </div>
+                                    <div class="race race7 toads_factory ">
+                        <h3>Race 7 <strong>Toads Factory</strong></h3>
+                        <ol>
+                                                                                                <li class="player">
+                                        <span class="place">1</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Lauren</dd>
+                                            <dt class="avatar character diddy_kong">
+                                                <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                                            </dt>
+                                            <dt class="points">+15</dt>
+                                            <dt class="score">74</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">2</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Alex</dd>
+                                            <dt class="avatar character bowser">
+                                                <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                                            </dt>
+                                            <dt class="points">+12</dt>
+                                            <dt class="score">75</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">3</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">4</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Dave</dd>
+                                            <dt class="avatar character king_boo">
+                                                <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                                            </dt>
+                                            <dt class="points">+8</dt>
+                                            <dt class="score">65</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">5</span></li>
+                                                                                                                                <li><span class="place">6</span></li>
+                                                                                                                                <li><span class="place">7</span></li>
+                                                                                                                                <li><span class="place">8</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">9</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Martin</dd>
+                                            <dt class="avatar character wario">
+                                                <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                                            </dt>
+                                            <dt class="points">+3</dt>
+                                            <dt class="score">61</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">10</span></li>
+                                                                                                                                <li><span class="place">11</span></li>
+                                                                                                                                <li><span class="place">12</span></li>
+                                                                                    </ol>
+                    </div>
+                                    <div class="race race8 n64_bowsers_castle ">
+                        <h3>Race 8 <strong>N64 Bowsers Castle</strong></h3>
+                        <ol>
+                                                                                                <li class="player">
+                                        <span class="place">1</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Martin</dd>
+                                            <dt class="avatar character wario">
+                                                <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                                            </dt>
+                                            <dt class="points">+15</dt>
+                                            <dt class="score">76</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">2</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Alex</dd>
+                                            <dt class="avatar character bowser">
+                                                <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                                            </dt>
+                                            <dt class="points">+12</dt>
+                                            <dt class="score">87</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">3</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Lauren</dd>
+                                            <dt class="avatar character diddy_kong">
+                                                <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                                            </dt>
+                                            <dt class="points">+10</dt>
+                                            <dt class="score">84</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">4</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">5</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Dave</dd>
+                                            <dt class="avatar character king_boo">
+                                                <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                                            </dt>
+                                            <dt class="points">+7</dt>
+                                            <dt class="score">72</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">6</span></li>
+                                                                                                                                <li><span class="place">7</span></li>
+                                                                                                                                <li><span class="place">8</span></li>
+                                                                                                                                <li><span class="place">9</span></li>
+                                                                                                                                <li><span class="place">10</span></li>
+                                                                                                                                <li><span class="place">11</span></li>
+                                                                                                                                <li><span class="place">12</span></li>
+                                                                                    </ol>
+                    </div>
+                                    <div class="race race9 maple_treeway ">
+                        <h3>Race 9 <strong>Maple Treeway</strong></h3>
+                        <ol>
+                                                                                                <li><span class="place">1</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">2</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Alex</dd>
+                                            <dt class="avatar character bowser">
+                                                <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                                            </dt>
+                                            <dt class="points">+12</dt>
+                                            <dt class="score">99</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">3</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Lauren</dd>
+                                            <dt class="avatar character diddy_kong">
+                                                <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                                            </dt>
+                                            <dt class="points">+10</dt>
+                                            <dt class="score">94</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">4</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">5</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Dave</dd>
+                                            <dt class="avatar character king_boo">
+                                                <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                                            </dt>
+                                            <dt class="points">+7</dt>
+                                            <dt class="score">79</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">6</span></li>
+                                                                                                                                <li class="player">
+                                        <span class="place">7</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Martin</dd>
+                                            <dt class="avatar character wario">
+                                                <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                                            </dt>
+                                            <dt class="points">+5</dt>
+                                            <dt class="score">81</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">8</span></li>
+                                                                                                                                <li><span class="place">9</span></li>
+                                                                                                                                <li><span class="place">10</span></li>
+                                                                                                                                <li><span class="place">11</span></li>
+                                                                                                                                <li><span class="place">12</span></li>
+                                                                                    </ol>
+                    </div>
+                                    <div class="race race10 dry_dry_ruins ">
+                        <h3>Race 10 <strong>Dry Dry Ruins</strong></h3>
+                        <ol>
+                                                                                                <li class="player">
+                                        <span class="place">1</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Dave</dd>
+                                            <dt class="avatar character king_boo">
+                                                <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                                            </dt>
+                                            <dt class="points">+15</dt>
+                                            <dt class="score">94</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">2</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Lauren</dd>
+                                            <dt class="avatar character diddy_kong">
+                                                <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                                            </dt>
+                                            <dt class="points">+12</dt>
+                                            <dt class="score">106</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">3</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Alex</dd>
+                                            <dt class="avatar character bowser">
+                                                <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                                            </dt>
+                                            <dt class="points">+10</dt>
+                                            <dt class="score">109</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li class="player">
+                                        <span class="place">4</span>
+                                        <figure class="identity">
+                                        
+                                            <dd class="name">Martin</dd>
+                                            <dt class="avatar character wario">
+                                                <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                                            </dt>
+                                            <dt class="points">+8</dt>
+                                            <dt class="score">89</dt>
+                                        </figure>
+                                    </li>
+                                                                                                                                <li><span class="place">5</span></li>
+                                                                                                                                <li><span class="place">6</span></li>
+                                                                                                                                <li><span class="place">7</span></li>
+                                                                                                                                <li><span class="place">8</span></li>
+                                                                                                                                <li><span class="place">9</span></li>
+                                                                                                                                <li><span class="place">10</span></li>
+                                                                                                                                <li><span class="place">11</span></li>
+                                                                                                                                <li><span class="place">12</span></li>
+                                                                                    </ol>
+                    </div>
+                                
+            </div><!-- .slider -->
+
+        </section>
+        
+    
+        <section id="output">    
+            <p>Race count: 10</p>        
+            <p>Player count: 4</p>
+    
+            <table>
+                <tr>
+                    <th>Player</th>
+                    <th>Character</th>
+                    <th>Vehicle</th>
+                                            <th>Race 1</th>
+                                            <th>Race 2</th>
+                                            <th>Race 3</th>
+                                            <th>Race 4</th>
+                                            <th>Race 5</th>
+                                            <th>Race 6</th>
+                                            <th>Race 7</th>
+                                            <th>Race 8</th>
+                                            <th>Race 9</th>
+                                            <th>Race 10</th>
+                                        <th>Total</th>
+                </tr>
+                <tr id="courses">
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                                            <td>Coconut Mall</td>
+                                            <td>DS Delfino Square</td>
+                                            <td>DKs Snowboard Cross</td>
+                                            <td>Rainbow Road</td>
+                                            <td>DS Peach Gardens</td>
+                                            <td>Moonview Highway</td>
+                                            <td>Toads Factory</td>
+                                            <td>N64 Bowsers Castle</td>
+                                            <td>Maple Treeway</td>
+                                            <td>Dry Dry Ruins</td>
+                                        <td></td>
+                </tr>
+    
+                                    <tr>
+                        <td>Alex</td>
+                        <td>Bowser</td>
+                        <td>Flame Flyer</td>
+                                                    <td>2</td>
+                                                    <td>6</td>
+                                                    <td>2</td>
+                                                    <td>9</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>3</td>
+                                                <td>109</td>
+                    </tr>
+                                    <tr>
+                        <td>Lauren</td>
+                        <td>Diddy Kong</td>
+                        <td>Super Blooper</td>
+                                                    <td>5</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>4</td>
+                                                    <td>6</td>
+                                                    <td>4</td>
+                                                    <td>1</td>
+                                                    <td>3</td>
+                                                    <td>3</td>
+                                                    <td>2</td>
+                                                <td>106</td>
+                    </tr>
+                                    <tr>
+                        <td>Martin</td>
+                        <td>Wario</td>
+                        <td>Offroader</td>
+                                                    <td>4</td>
+                                                    <td>2</td>
+                                                    <td>4</td>
+                                                    <td>3</td>
+                                                    <td>3</td>
+                                                    <td>3</td>
+                                                    <td>9</td>
+                                                    <td>1</td>
+                                                    <td>7</td>
+                                                    <td>4</td>
+                                                <td>89</td>
+                    </tr>
+                                    <tr>
+                        <td>Dave</td>
+                        <td>King Boo</td>
+                        <td>Standard Kart L</td>
+                                                    <td>7</td>
+                                                    <td>3</td>
+                                                    <td>6</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>2</td>
+                                                    <td>4</td>
+                                                    <td>5</td>
+                                                    <td>5</td>
+                                                    <td>1</td>
+                                                <td>94</td>
+                    </tr>
+                            </table>
+    
+            <p>Maximum points for a round of 10: 150</p>
+        </section>
+
+    </div> <!-- /#wrap -->
+    
+</body>
+</html>
