@@ -229,7 +229,7 @@ $(function(){
     // graph animation functions
 
 
-    $('#graph').after('<button id="animate_graph">Animate Graph</button>');
+    $('#graph').after('<button id="animate_round">Animate Round</button>');
 
     function getRank(s, currentScores) {
         var scores = [];
@@ -255,10 +255,11 @@ $(function(){
     
 
 
-    $('#animate_graph').click(function(){
+    $('#animate_round:enabled').click(function(){
         var ajaxing = false;
 
         $('#graph .player .total').text('0');
+        $(this).attr('disabled', 'disable');
 
         var progressX = [];
         var scores = [];
@@ -297,11 +298,12 @@ $(function(){
     		                    $('#curves').fadeIn();
                                 $('#round_races .race').fadeTo('normal', 1);
     		                    debug('animation complete'); 
+                    		    $('#animate_round').removeAttr('disabled');
+                    		    ajaxing = false;
     		                }
     		        });
     		    })
 		    ;
-		    ajaxing = false;
         }
 
         function animateSortRank(i, player) {
@@ -386,6 +388,8 @@ $(function(){
 
     });
 
+
+    // highlight race on graph
     $('#round_races .race').hover(function(){
         var raceJ = $('#round_races .race').index(this);
         $('#graph .player').each(function(){

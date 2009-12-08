@@ -193,9 +193,7 @@
         
     
         <section id="output">    
-            <p>Race count: <?= $_POST['race_count'] ?></p>        
-            <p>Player count: <?= $_POST['player_count'] ?></p>
-    
+
             <table>
                 <tr>
                     <th>Player</th>
@@ -229,7 +227,6 @@
                 <?php endforeach; ?>
             </table>
     
-            <p>Maximum points for a round of <?= $raceCount ?>: <?= $roundMax ?></p>
         </section>
 
     </div> <!-- /#wrap -->
