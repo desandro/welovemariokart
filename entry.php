@@ -108,7 +108,7 @@
             </table>
 
         
-            <input type="submit" name="submit_round" value="Submit Round" id="submit_round" />
+            <input type="submit" class="submit" name="submit_round" value="Submit Round" id="submit_round" />
         
         
         </form>

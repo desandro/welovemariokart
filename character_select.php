@@ -9,6 +9,7 @@
     
 <style type="text/css" media="screen">
 
+
 #wrap {
     position: relative;
 }
@@ -33,12 +34,17 @@ h1 {
     height: 40px;
     border: 1px solid #CCC;
     background: #F4F4F4;
+    -moz-box-shadow: inset 0 2px 4px hsla(0,0%,0%,.15);
 }
-.place_holder.drophover {
+
+.drophover {
     background: #FFF;
     border-color: #AAA;
-    -moz-box-shadow: 0 0 15px hsla(240,100%,80%,.4);
-    -webkit-box-shadow: 0 0 15px hsla(240,100%,80%,.4);
+    -moz-box-shadow:
+        0 0 15px hsla(240,100%,70%,.6),
+        inset 0 2px 4px hsla(0,0%,0%,.12)
+    ;
+    -webkit-box-shadow: 0 0 15px hsla(240,100%,70%,.6);
 }
 
 .place_holder .avatar {
@@ -56,8 +62,8 @@ h1 {
 }
 
 .avatar.character.ui-draggable-dragging {
-    -moz-box-shadow: 0 3px 6px hsla(0,0%,0%,.1);
-    -webkit-box-shadow: 0 3px 6px hsla(0,0%,0%,.1);
+    -moz-box-shadow: 0 4px 5px hsla(0,0%,0%,.2);
+    -webkit-box-shadow: 0 4px 5px hsla(0,0%,0%,.2);
     
 }
 
@@ -69,6 +75,7 @@ h1 {
 #players .place_holder {
     margin-bottom: 60px;
 }
+
 
 </style>
 
@@ -84,54 +91,48 @@ h1 {
             var $previousHolder;
             var $draggee;
 
-            $('.avatar.character')
-                .each(function(){
+            function resetHolders() {
+                $('.avatar.character').each(function(){
                     var $holder = $(this).parent();
                     $(this).data('holder', $holder );
-                    // debug( $(this).data('holder') );
-                })
-                .draggable({ 
-                    revert: 'invalid',
-                    zIndex: 100,
-                    // snap: '.place_holder:not(.ui-droppable-disabled)', 
-                    // snapMode: 'inner',
-                    // snapTolerance: 10,
-                    start: function() {
-                        $draggee = $(this);
-                        $previousHolder = $(this).data('holder');
-                    }
-                })
-            ;
+                });
+            }
+            
+            //line up draggee into holder 100%
+            function alignDraggee($draggee, $holder) {
+                var
+                    x1 = parseInt( $draggee.css('left') ),
+                    y1 = parseInt( $draggee.css('top') ),
+                    x2 = $draggee.offset().left,
+                    y2 = $draggee.offset().top,
+                    x3 = $holder.offset().left,
+                    y3 = $holder.offset().top,
+                
+                    x4 = parseInt( x1 + (x3-x2) ),
+                    y4 = parseInt( y1 + (y3-y2) )
+                ;
+                $draggee.animate({ left: x4, top: y4 }, 130);                
+            }
+            
+            resetHolders();
+
+            $('.avatar.character').draggable({ 
+                revert: 'invalid',
+                zIndex: 100,
+                start: function() {
+                    $draggee = $(this);
+                    $previousHolder = $(this).data('holder');
+                }
+            });
 
             
             $('.place_holder').droppable({
                 hoverClass: 'drophover',
                 drop: function() {
+                    alignDraggee($draggee, $(this));
                     $(this).droppable('disable');
-                    
-                
-                    //line up draggee into holder 100%
-                    var x1 = parseInt( $draggee.css('left') );
-                    var y1 = parseInt( $draggee.css('top') );
-                    var x2 = $draggee.offset().left;
-                    var y2 = $draggee.offset().top;
-                    var x3 = $(this).offset().left;
-                    var y3 = $(this).offset().top;
-                    
-                    // debug( x2, y2, x3, y3 );
-                    
-                    var x4 = parseInt( x1 + (x3-x2) );
-                    var y4 = parseInt( y1 + (y3-y2) );
-                    
-                    $draggee.animate({ left: x4, top: y4 }, 'fast');
-                    
-                    
-                    // debug($draggee);
-                    $draggee.data('holder', $(this) );
-                    
-                    
-                    
                     $previousHolder.droppable('enable');
+                    $draggee.data('holder', $(this) );
                 }
             });
 
@@ -139,13 +140,10 @@ h1 {
             
 
             $('#reset').click(function(){
-                $('.avatar.character').animate({left: -1, top: -1});
-                $('#character_pool .place_holder').each(function(){
-                    $(this).droppable('disable');
-                });
-                $('#players .place_holder').each(function(){
-                    $(this).droppable('enable');
-                });
+                resetHolders();
+                $('.avatar.character').animate({left: -1, top: -1})
+                $('#character_pool .place_holder').droppable('disable');
+                $('#players .place_holder').droppable('enable');
             });
 
         });
@@ -175,7 +173,7 @@ h1 {
             <div id="holder_player4" class="place_holder open"></div>                                    
         </div>
 
-        <button id="reset" disabled="disabled">Reset</button>
+        <button id="reset" >Reset</button>
         
     </div> <!-- /#wrap -->
 

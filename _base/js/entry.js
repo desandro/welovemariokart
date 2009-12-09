@@ -168,15 +168,23 @@ $(function(){
 		}
 		
 	});
-		// check it on startup
-    // $('select').eq(0).change();
     
     // check all selects on start up
     $('select').each(function(){
+        // this one is for exclusivity
         if ($(this).val() != '---') {
             $(this).change();
         }
-    });
+    })
+    .each(function(){
+        // this one is to prevent submitting early
+        if ($(this).val() == '---') {
+            $(this).change();
+            return false;
+        }
+    })
+    ;
+
 
     
 });
