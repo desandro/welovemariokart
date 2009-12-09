@@ -350,6 +350,7 @@ button {
 }
 
 button:hover {
+    cursor: pointer;
     background: #FE8;
     background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#EC6));
 }
@@ -369,6 +370,7 @@ button:active {
 button[disabled],
 button[disabled]:hover,
 button[disabled]:active {
+    cursor: default;
     opacity: 0.6;
     border-color: #BBB;
     background: #CCC;
