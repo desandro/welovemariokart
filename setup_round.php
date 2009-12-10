@@ -40,7 +40,7 @@
             <?php foreach ($characters as $character):?>
                 <div id="holder_<?= cleanURL($character) ?>" class="dropbox avatar">
                     <div class="avatar character draggee <?= cleanURL($character) ?>">
-                        <div><img src="_base/img/character_avatars.png" alt="<?= $player->character ?>" /></div>
+                        <div><img src="_base/img/character_avatars.png" alt="<?= $character ?>" /></div>
                         <label><?= $character ?></label>
                     </div>
                 </div>

@@ -98,6 +98,7 @@ th {
 .dropbox {
     border: 1px solid #CCC;
     background: #F4F4F4;
+    background: -webkit-gradient(linear, left top, left bottom, from(#DDD), to(#F4F4F4), color-stop(0.17, #F4F4F4));
     -moz-box-shadow: inset 0 2px 4px hsla(0,0%,0%,.15);
 }
 
@@ -164,9 +165,11 @@ body.setup_round #players article {
     width: 320px;
     height: 72px;
     margin-bottom: 10px;
-    border: 1px solid #CCC;
+    border: 1px solid;
+    border-color: #DDD #CCC #BBB;
     position: relative;
-
+    -moz-box-shadow: 0 3px 5px hsla(0,0%,0%,.15);
+    -webkit-box-shadow: 0 3px 5px hsla(0,0%,0%,.15);
 }
 
 body.setup_round #players .person {
