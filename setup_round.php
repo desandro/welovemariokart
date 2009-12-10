@@ -22,7 +22,7 @@
         <section id="people">
             <?php foreach ($people as $person): ?>
                 <div id="holder_<?= $person ?>" class="person dropbox">
-                    <div class="person nametag"><strong><?= $person ?></strong></div>
+                    <div class="person draggee"><strong><?= $person ?></strong></div>
                 </div>
             <?php endforeach; ?>
         </section>
@@ -39,17 +39,58 @@
         <section id="character_pool">
             <?php foreach ($characters as $character):?>
                 <div id="holder_<?= cleanURL($character) ?>" class="dropbox avatar">
-                    <div class="avatar character <?= cleanURL($character) ?>">
+                    <div class="avatar character draggee <?= cleanURL($character) ?>">
                         <div><img src="_base/img/character_avatars.png" alt="<?= $player->character ?>" /></div>
                         <label><?= $character ?></label>
                     </div>
                 </div>
             <?php endforeach; ?>
             
-            <button id="reset" >Reset Characters</button>
         </section>
         
         
+        <button id="reset" >Reset</button>
+        
+        <table>
+            <tr>
+                <th scope="row">Player</th>
+                <td></td>
+                <?php for ($i=1; $i <= 4; $i++): ?>
+                    <td>
+                        <?php selectOptions($i, $people, 'person', ''); ?>
+                    </td>
+                <?php endfor; ?>
+            </tr>
+            <tr>
+                <th scope="row">Character</th>
+                <td></td>
+                <?php for ($i=1; $i <= 4; $i++): ?>
+                    <td>
+                        <?php selectOptions($i,  $characters, 'character', ''); ?>
+                    </td>
+                <?php endfor; ?>                
+            </tr>
+            <tr>
+                <th scope="row">Vehicle</th>
+                <td></td>
+                <?php for ($i=1; $i <= 4; $i++): ?>
+                    <td>
+                        <?php $id = 'player' . $i . '_vehicle'; ?>
+                        <select name="<?= $id ?>" id="<?= $id ?>" class="vehicle">
+                            <option value="---">---</option>
+                            <?php foreach ($allVehicles as $vehicleClass => $vehicles): ?>
+                                <optgroup label="<?= $vehicleClass ?>">
+                                <?php foreach ($vehicles as $vehicle): ?>
+                                    <option value="<?= $vehicle ?>"><?= $vehicle ?></option>
+                                <?php endforeach; ?>
+                                </optgroup>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                <?php endfor; ?>                
+            </tr>
+        </table>
+
     </div> <!-- /#wrap -->
 
     

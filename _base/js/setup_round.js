@@ -8,7 +8,7 @@ $(function(){
     var $draggee;
 
     function resetHolders() {
-        $('.avatar.character, .nametag.person').each(function(){
+        $('.draggee').each(function(){
             var $holder = $(this).parent();
             $(this).data('holder', $holder );
         });
@@ -32,7 +32,7 @@ $(function(){
     
     resetHolders();
 
-    $('.avatar.character, .nametag.person').draggable({ 
+    $('.draggee').draggable({ 
         // scope: 'characters',
         revert: 'invalid',
         zIndex: 200,
@@ -54,14 +54,24 @@ $(function(){
     });
     $('.dropbox.avatar').droppable('option', 'accept', '.avatar');
     $('.dropbox.person').droppable('option', 'accept', '.person');
-    // $('.dropbox.person').droppable('accept', '.person');
 
-    $('#character_pool .dropbox').droppable('disable');
+
+    $('#players .dropbox.person').droppable('option', 'drop', function() {
+            alignDraggee($draggee, $(this));
+            $(this).droppable('disable');
+            $previousHolder.droppable('enable');
+            $draggee.data('holder', $(this) );
+            debug( $draggee );
+            
+        }
+    );    
+
+    $('#character_pool .dropbox, #people .dropbox').droppable('disable');
     
 
     $('#reset').click(function(){
         resetHolders();
-        $('.avatar.character, .nametag.person').animate({left: -1, top: -1})
+        $('.draggee').animate({left: -1, top: -1})
         $('#character_pool .dropbox, #people .dropbox').droppable('disable');
         $('#players .dropbox').droppable('enable');
     });
