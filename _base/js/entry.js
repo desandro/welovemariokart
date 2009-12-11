@@ -1,14 +1,14 @@
 var placePoints = [15,12,10,8,7,6,5,4,3,2,1,0];
 
-var smallCharacters = ['Baby Mario', 'Baby Luigi', 'Baby Peach', 'Baby Daisy', 'Toad', 'Toadette', 'Koopa Troopa',  'Dry Bones'];
+var lightCharacters = ['Baby Mario', 'Baby Luigi', 'Baby Peach', 'Baby Daisy', 'Toad', 'Toadette', 'Koopa Troopa',  'Dry Bones'];
 var mediumCharacters = ['Mario', 'Luigi', 'Peach', 'Daisy', 'Yoshi',  'Birdo',  'Diddy Kong', 'Bowser Jr.'];
-var largeCharacters = ['Wario', 'Waluigi', 'Donkey Kong', 'Bowser',  'King Boo', 'Rosalina', 'Funky Kong', 'Dry Bowser'];
+var heavyCharacters = ['Wario', 'Waluigi', 'Donkey Kong', 'Bowser',  'King Boo', 'Rosalina', 'Funky Kong', 'Dry Bowser'];
 
 var characterClass = [];
 for(i=0; i<8; i++) {
-    characterClass[ smallCharacters[i] ] = 'small';
+    characterClass[ lightCharacters[i] ] = 'light';
     characterClass[ mediumCharacters[i] ] = 'medium';
-    characterClass[ largeCharacters[i] ] = 'large';
+    characterClass[ heavyCharacters[i] ] = 'heavy';
 }
 
 $(function(){
@@ -76,12 +76,12 @@ $(function(){
         
 
         
-        if ( charClass == 'small') {
+        if ( charClass == 'light') {
             $optgroups.filter(':gt(1)').attr('disabled', 'disabled').hide();
         } else if ( charClass == 'medium') {
             $optgroups.filter(':lt(2)').attr('disabled', 'disabled').hide();
             $optgroups.filter(':gt(3)').attr('disabled', 'disabled').hide();
-        } else if ( charClass == 'large') {
+        } else if ( charClass == 'heavy') {
             $optgroups.filter(':lt(4)').attr('disabled', 'disabled').hide();
         }
 

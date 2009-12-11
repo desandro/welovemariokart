@@ -66,13 +66,13 @@ select.race {
     font-size: 15px;
 }
 
-select.course, 
-select.vehicle {
+table select.course, 
+table select.vehicle {
     width: 120px;
 }
 
-select.place,
-select.person {
+table select.place,
+table select.person {
     font-size: 16px;
 }
 
@@ -162,7 +162,7 @@ body.setup_round #players .dropbox {
 
 body.setup_round #players article {
     padding: 10px;
-    width: 320px;
+    width: 290px;
     height: 72px;
     margin-bottom: 10px;
     border: 1px solid;
@@ -175,13 +175,13 @@ body.setup_round #players article {
 body.setup_round #players .person {
     position: absolute;
     top: 10px;
-    left: 22px;
+    left: 10px;
 }
 
 body.setup_round #players .avatar {
     position: absolute;
     top: 10px;
-    left: 280px;
+    right: 10px;
 }
 
 
@@ -206,8 +206,9 @@ body.setup_round #players .person {
 
 
 body.setup_round #people {
-    width: 242px;
+    width: 232px;
     float: left;
+    margin-right: 20px;
 }
 
 body.setup_round #people .dropbox {
@@ -217,8 +218,36 @@ body.setup_round #people .dropbox {
 
 #reset {
     clear: both;
+    float: left;
 }
 
+
+#players select.vehicle {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    display: none;
+}
+
+#players .transmission {
+    position: absolute;
+    right: 68px;
+    bottom: 10px;
+    font-weight: bold;
+}
+#players .transmission.disabled { color: #CCC; }
+
+#players .transmission input {
+    margin-left: 8px;
+}
+
+body.setup_round #next {
+    float: right;
+}
+
+body.setup_round table {
+    clear: both;
+}
 
 /**************************
 **  Visualization
