@@ -165,11 +165,23 @@ body.setup_round #players article {
     width: 290px;
     height: 72px;
     margin-bottom: 10px;
-    border: 1px solid;
-    border-color: #DDD #CCC #BBB;
+    border: 1px solid #CCC;
     position: relative;
-    -moz-box-shadow: 0 3px 5px hsla(0,0%,0%,.15);
-    -webkit-box-shadow: 0 3px 5px hsla(0,0%,0%,.15);
+    opacity: 0.7;
+}
+body.setup_round #players article.person_selected,
+body.setup_round #players article.character_selected {
+    border-color: #DDD #CCC #BBB;
+    background: #FFD;
+    -moz-box-shadow: 0 3px 5px hsla(0,0%,0%,.2);
+    -webkit-box-shadow: 0 3px 5px hsla(0,0%,0%,.2);
+    opacity: 1.0;
+}
+body.setup_round #players article.person_selected.character_selected.transmission_selected {
+    border-color: #ABA;
+    background: #DFD;
+    -moz-box-shadow: 0 3px 15px hsla(120,100%,30%,.7);
+    -webkit-box-shadow: 0 3px 15px hsla(120,100%,30%,.7);
 }
 
 body.setup_round #players .person {

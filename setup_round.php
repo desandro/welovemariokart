@@ -29,14 +29,13 @@
     
         <section id="players">
             <?php for ($i=1; $i <= 4; $i++): ?>
-                <article id="player<?= $i ?>">
+                <article id="player<?= $i ?>" class="player">
                     <div class="person dropbox"></div>
                     <div class="avatar dropbox"></div>
                     <?php $weights = array('Light', 'Medium', 'Heavy'); 
                     foreach ($weights as $weight):
                     ?>
                         <select class="vehicle <?= cleanURL($weight) ?>" >
-                            <option value="---">---</option>
                             <optgroup label="<?= $weight ?> Karts">
                                 <?php foreach ($allVehicles[$weight.' Karts'] as $vehicle): ?>
                                     <option value="<?= $vehicle ?>"><?= $vehicle ?></option>

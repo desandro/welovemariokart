@@ -46,17 +46,20 @@ $(function(){
 
 
         //enable transmission selection
-        if ( $holder.parent().parent().is('#players') 
+        if ( $holder.parents('article').parent().is('#players') 
             && $holder.siblings('.ui-droppable-disabled').length < 1 ) 
         {        
             // debug('enable transmisison selection');
-            $holder.siblings('.transmission')
-                .removeClass('disabled')
-                .children('input').removeAttr('disabled');
+            $holder
+                .siblings('.transmission')
+                    .removeClass('disabled')
+                    .children('input').removeAttr('disabled');
+
+            
         }
 
         //disable transmission selection
-        if ( $previousHolder.parent().parent().is('#players') 
+        if ( $previousHolder.parents('article').parent().is('#players') 
             && $previousHolder.siblings('.ui-droppable-disabled').length < 1 ) 
         {        
             // debug('disabled transmisison selection');
@@ -64,11 +67,15 @@ $(function(){
                 .addClass('disabled')
                 .children('input').attr('disabled', 'disabled').removeAttr('checked');
 
+            $previousHolder.parents('article').removeClass('transmission_selected');
+
             // remove selection from table as well
             var i = $('#players article').index( $previousHolder.parent() );
             $('table tr.transmission td').eq(i).children('input').removeAttr('checked');
         }
 
+        
+        validateForm();
     }
     
 
@@ -84,23 +91,37 @@ $(function(){
         }
     });
 
+    // checking logic
+    function validateForm() {
+        // debug('validating form');
+        var completePlayerCount = $('article.person_selected.character_selected.transmission_selected').length;
+        var incompletePlayerCount = $('article.person_selected, article.character_selected').not('.person_selected.character_selected.transmission_selected').length;
+        debug('completePlayerCount ' + completePlayerCount, 'incompletePlayerCount ' + incompletePlayerCount);
+        
+        
+    }
+
 
     $('.dropbox.person').droppable({
         hoverClass: 'drophover',
         accept: '.person',
         drop: function() {
-            handleDrops($draggee, $(this));
 
             // set select to new person
             if ( $(this).parent().parent().is('#players')  ) {
                 var i = $('#players .dropbox.person').index( this );
                 $('table select.person').eq(i).val( $draggee.text() ).change();
+
+                $(this).parent().addClass('person_selected');
             }
             // set previous holder to nill
             if ( $previousHolder.parent().parent().is('#players')  ) {
                 var i = $('#players .dropbox.person').index( $previousHolder );
                 $('table select.person').eq(i).val( '---' ).change();
+                $previousHolder.parent().removeClass('person_selected');
             }
+
+            handleDrops($draggee, $(this));
         }
     });
 
@@ -109,9 +130,8 @@ $(function(){
         hoverClass: 'drophover',
         accept: '.avatar',
         drop: function() {
-            handleDrops($draggee, $(this));
 
-            if ( $(this).parent().parent().is('#players')  ) {
+            if ( $(this).parents('article').parent().is('#players')  ) {
                 
                 // set select to new character
                 var i = $('#players .dropbox.avatar').index( this );
@@ -119,14 +139,21 @@ $(function(){
                 $('table select.character').eq(i).val( character ).change();
                 
                 var vehicleClass = characterClass[character];
-                $(this).siblings('select.vehicle.' + vehicleClass).show();
+                $(this).siblings('select.vehicle.' + vehicleClass).show().change();
+                
+                $(this).parent().addClass('character_selected');
             }
             // set previous holder to nill
             if ( $previousHolder.parent().parent().is('#players')  ) {
                 var i = $('#players .dropbox.avatar').index( $previousHolder );
                 $('table select.character').eq(i).val('---').change();
-                $previousHolder.siblings('select.vehicle').val('---').hide().change();
+                $previousHolder.siblings('select.vehicle').hide().change();
+                
+                $previousHolder.parent().removeClass('character_selected vehicle_selected');
             }
+            
+            
+            handleDrops($draggee, $(this));
         }
     });
 
@@ -136,16 +163,21 @@ $(function(){
 
     $('#players select.vehicle').change(function(){
         var i = $('#players article').index( $(this).parent() );
+        $(this).parents('.player').addClass('vehicle_selected');
         var vehicle = $(this).val();
         $('table select.vehicle').eq(i).val(vehicle);
     })
 
     $('#players .transmission input').change(function(){
-        var i = $('#players article').index( $(this).parent().parent() );
+        var i = $('#players article').index( $(this).parents('article') );
         var mode = $(this).val();
         // debug( mode );
 
         $('table input[value="'+mode+'"]').eq(i).click();
+        
+        $(this).parents('article').addClass('transmission_selected');
+        
+        validateForm();
     })
 
 
@@ -154,9 +186,11 @@ $(function(){
         $('.draggee').animate({left: -1, top: -1})
         $('#character_pool .dropbox, #people .dropbox').droppable('disable');
         $('#players .dropbox').droppable('enable');
-        $('select').val('---');
+        $('table select').val('---');
         $('#players select.vehicle').hide();
-        $('#players .transmission').addClass('disabled');
+        $('#players article').removeClass('person_selected character_selected vehicle_selected transmission_selected')
+        $('#players .transmission').addClass('disabled')
+            .children('input').attr('disabled', 'disabled');
         $('input[type="radio"]').removeAttr('checked');
     });
 
@@ -164,6 +198,8 @@ $(function(){
     $('#next').attr('disabled', 'disabled');
 
 
+
+    /*
     // checking logic
     function validateForm() {
 		var validateSelects = true;
@@ -179,7 +215,7 @@ $(function(){
                 debug('validating column ' + i);
             }
 		}
-	    /*
+
 		$('table select').each(function(){
 			if( $(this).val() == '---' ) {
 				// debug('invalid selects', this );
@@ -193,7 +229,6 @@ $(function(){
 		} else if ( validateSelects && submitDisabled  ) {
 			$('#submit_round').removeAttr('disabled');
 		}
-		*/
         
     }
 
@@ -204,6 +239,7 @@ $(function(){
 
     $('table input[type="radio"]').click(function(){
         debug('changed radio');
-    })
+    });    
+		*/
 
 });
