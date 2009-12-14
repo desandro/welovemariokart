@@ -55,10 +55,10 @@ $(function(){
             var points = placePoints[place];
             $draggee.find('.points').text('+' + points);
             
-            $('table .race:eq('+j+') select.place:eq('+i+')').val( (place+1) );
+            $('table .race:eq('+j+') select.place:eq('+i+')').val( (place+1) ).change();
         } else {
             $draggee.find('.points').text('+0');
-            $('table .race:eq('+j+') select.place:eq('+i+')').val('---');
+            $('table .race:eq('+j+') select.place:eq('+i+')').val('---').change();
         }
         
         if ($previousHolder.parent().is('ol') ) {
@@ -69,8 +69,6 @@ $(function(){
     }
     
 
-    
-    
     $('#round_races article').each(function(i){
         var raceID = 'race' + i;
         $(this).find('.drag').draggable({
@@ -150,7 +148,24 @@ $(function(){
 
         // set select in form to correct one
         var j = $('#round_races select.course').index(this);
-        $('table select.course:eq('+j+')').val( $(this).val() );
+        $('table select.course:eq('+j+')').val( $(this).val() ).change();
     });
+
+
+
+    function validateForm() {
+        // $('table .race').each(function(j){
+        //     // debug(j);
+        // })
+    }
+    
+    $('table select').change(function(){
+        var j = $('table .race').index( $(this).parents('.race') );
+        $(this).parents('.race').find('select').each(function(){
+            debug( $(this) );
+        });
+        // debug(j);
+        validateForm();
+    })
 
 });

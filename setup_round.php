@@ -81,7 +81,12 @@
                     <th scope="row">Player</th>
                     <?php for ($i=1; $i <= 4; $i++): ?>
                         <td>
-                            <?php selectOptions($i, $people, 'person', ''); ?>
+                            <select name="names[<?= $i ?>]" class="person">
+                                <option value="---">---</option>
+                                <?php foreach ($people as $person): ?>
+                                    <option value="<?= $person ?>"><?= $person ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </td>
                     <?php endfor; ?>
                 </tr>
@@ -89,7 +94,12 @@
                     <th scope="row">Character</th>
                     <?php for ($i=1; $i <= 4; $i++): ?>
                         <td>
-                            <?php selectOptions($i,  $characters, 'character', ''); ?>
+                            <select  name="characters[<?= $i ?>]" class="character">
+                                <option value="---">---</option>
+                                <?php foreach ($characters as $character): ?>
+                                    <option value="<?= $character ?>"><?= $character ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </td>
                     <?php endfor; ?>                
                 </tr>
@@ -97,8 +107,7 @@
                     <th scope="row">Vehicle</th>
                     <?php for ($i=1; $i <= 4; $i++): ?>
                         <td>
-                            <?php $id = 'player' . $i . '_vehicle'; ?>
-                            <select name="<?= $id ?>" id="<?= $id ?>" class="vehicle">
+                            <select name="vehicles[<?= $i ?>]" class="vehicle">
                                 <option value="---">---</option>
                                 <?php foreach ($allVehicles as $vehicleClass => $vehicles): ?>
                                     <optgroup label="<?= $vehicleClass ?>">
@@ -116,9 +125,9 @@
                     <?php for ($i=1; $i <= 4; $i++): ?>
                         <td>
                             <?php $id = 'player' . $i . '_transmission'; ?>
-                            <input type="radio" name="<?= $id ?>" value="auto" id="<?= $id ?>_auto" />
+                            <input type="radio" name="transmissions[<?= $i ?>]" value="auto"  />
                             <label for="<?= $id ?>_auto">Auto</label>
-                            <input type="radio" name="<?= $id ?>" value="manual" id="<?= $id ?>_manual" />
+                            <input type="radio" name="transmissions[<?= $i ?>]" value="manual" />
                             <label for="<?= $id ?>_manual">Manual</label>
                         
                         </td>

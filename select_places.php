@@ -18,7 +18,7 @@
     $playerCount = 0;
     $validPlayerIDs[] = '';
     for ($i=1; $i <= 4; $i++) { 
-        if ( $_POST['player'.$i.'_person'] != '---' ) { 
+        if ( $_POST['names'][$i] != '---' ) { 
             $playerCount++;
             $validPlayerIDs[] = $i;
         }
@@ -29,10 +29,10 @@
         $id = $validPlayerIDs[$i];
         $player = new Player;
         
-        $player->name = $_POST['player' . $id . '_person'];
-        $player->character = $_POST['player' . $id . '_character'];
-        $player->vehicle = $_POST['player' . $id . '_vehicle'];
-        $player->transmission = $_POST['player' . $id . '_transmission'];
+        $player->name = $_POST['names'][$id];
+        $player->character = $_POST['characters'][$id];
+        $player->vehicle = $_POST['vehicles'][$id];
+        $player->transmission = $_POST['transmissions'][$id];
         
         $players[$i] = $player;
     }
@@ -42,6 +42,7 @@
 
 
     <title>Select Places</title>
+
 
 
     <script type="text/javascript" src="_base/js/jquery-ui-1.7.2.dragdrop.min.js" charset="utf-8"></script>
@@ -54,6 +55,14 @@
     
     <div id="wrap">
         <h1>Select Places</h1>
+        
+        <?php
+        if ($_POST) {
+            echo '<pre>';
+            echo htmlspecialchars(print_r($_POST, true));
+            echo '</pre>';
+        }
+        ?>
         
         <section id="round_races">
             
