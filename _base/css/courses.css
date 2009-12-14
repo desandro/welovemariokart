@@ -1,0 +1,184 @@
+#graph meter.race.luigi_circuit { border-color: #3C5; }
+#graph meter.race.luigi_circuit.selected,
+#graph meter.race.luigi_circuit:hover,
+#round_races .race.luigi_circuit h3,
+body.select_places #courses_list li li.luigi_circuit { background-color: #3C5; }
+#graph meter.race.moo_moo_meadows { border-color: #AA5; }
+#graph meter.race.moo_moo_meadows.selected,
+#graph meter.race.moo_moo_meadows:hover,
+#round_races .race.moo_moo_meadows h3,
+body.select_places #courses_list li li.moo_moo_meadows { background-color: #AA5; }
+#graph meter.race.mushroom_gorge { border-color: #F22; }
+#graph meter.race.mushroom_gorge.selected,
+#graph meter.race.mushroom_gorge:hover,
+#round_races .race.mushroom_gorge h3,
+body.select_places #courses_list li li.mushroom_gorge { background-color: #F22; }
+#graph meter.race.toads_factory { border-color: #D6D; }
+#graph meter.race.toads_factory.selected,
+#graph meter.race.toads_factory:hover,
+#round_races .race.toads_factory h3,
+body.select_places #courses_list li li.toads_factory { background-color: #D6D; }
+#graph meter.race.mario_circuit { border-color: #E11; }
+#graph meter.race.mario_circuit.selected,
+#graph meter.race.mario_circuit:hover,
+#round_races .race.mario_circuit h3,
+body.select_places #courses_list li li.mario_circuit { background-color: #E11; }
+#graph meter.race.coconut_mall { border-color: #A8A; }
+#graph meter.race.coconut_mall.selected,
+#graph meter.race.coconut_mall:hover,
+#round_races .race.coconut_mall h3,
+body.select_places #courses_list li li.coconut_mall { background-color: #A8A; }
+#graph meter.race.dk_summit { border-color: #EEE; }
+#graph meter.race.dk_summit.selected,
+#graph meter.race.dk_summit:hover,
+#round_races .race.dk_summit h3,
+body.select_places #courses_list li li.dk_summit { background-color: #EEE; }
+#graph meter.race.warios_gold_mine { border-color: #EE2; }
+#graph meter.race.warios_gold_mine.selected,
+#graph meter.race.warios_gold_mine:hover,
+#round_races .race.warios_gold_mine h3,
+body.select_places #courses_list li li.warios_gold_mine { background-color: #EE2; }
+#graph meter.race.daisy_circuit { border-color: #F93; }
+#graph meter.race.daisy_circuit.selected,
+#graph meter.race.daisy_circuit:hover,
+#round_races .race.daisy_circuit h3,
+body.select_places #courses_list li li.daisy_circuit { background-color: #F93; }
+#graph meter.race.koopa_cape { border-color: #789; }
+#graph meter.race.koopa_cape.selected,
+#graph meter.race.koopa_cape:hover,
+#round_races .race.koopa_cape h3,
+body.select_places #courses_list li li.koopa_cape { background-color: #789; }
+#graph meter.race.maple_treeway { border-color: #C94; }
+#graph meter.race.maple_treeway.selected,
+#graph meter.race.maple_treeway:hover,
+#round_races .race.maple_treeway h3,
+body.select_places #courses_list li li.maple_treeway { background-color: #C94; }
+#graph meter.race.grumble_volcano { border-color: #C82; }
+#graph meter.race.grumble_volcano.selected,
+#graph meter.race.grumble_volcano:hover,
+#round_races .race.grumble_volcano h3,
+body.select_places #courses_list li li.grumble_volcano { background-color: #C82; }
+#graph meter.race.dry_dry_ruins { border-color: #EC6; }
+#graph meter.race.dry_dry_ruins.selected,
+#graph meter.race.dry_dry_ruins:hover,
+#round_races .race.dry_dry_ruins h3,
+body.select_places #courses_list li li.dry_dry_ruins { background-color: #EC6; }
+#graph meter.race.moonview_highway { border-color: #343; }
+#graph meter.race.moonview_highway.selected,
+#graph meter.race.moonview_highway:hover,
+#round_races .race.moonview_highway h3,
+body.select_places #courses_list li li.moonview_highway { background-color: #343; }
+#graph meter.race.bowsers_castle { border-color: #116; }
+#graph meter.race.bowsers_castle.selected,
+#graph meter.race.bowsers_castle:hover,
+#round_races .race.bowsers_castle h3,
+body.select_places #courses_list li li.bowsers_castle { background-color: #116; }
+#graph meter.race.rainbow_road { border-color: #000; }
+#graph meter.race.rainbow_road.selected,
+#graph meter.race.rainbow_road:hover,
+#round_races .race.rainbow_road h3,
+body.select_places #courses_list li li.rainbow_road { background-color: #000; }
+#graph meter.race.gcn_peach_beach { border-color: #66E; }
+#graph meter.race.gcn_peach_beach.selected,
+#graph meter.race.gcn_peach_beach:hover,
+#round_races .race.gcn_peach_beach h3,
+body.select_places #courses_list li li.gcn_peach_beach { background-color: #66E; }
+#graph meter.race.ds_yoshi_falls { border-color: #2D2; }
+#graph meter.race.ds_yoshi_falls.selected,
+#graph meter.race.ds_yoshi_falls:hover,
+#round_races .race.ds_yoshi_falls h3,
+body.select_places #courses_list li li.ds_yoshi_falls { background-color: #2D2; }
+#graph meter.race.snes_ghost_valley_2 { border-color: #442; }
+#graph meter.race.snes_ghost_valley_2.selected,
+#graph meter.race.snes_ghost_valley_2:hover,
+#round_races .race.snes_ghost_valley_2 h3,
+body.select_places #courses_list li li.snes_ghost_valley_2 { background-color: #442; }
+#graph meter.race.n64_mario_raceway { border-color: #C22; }
+#graph meter.race.n64_mario_raceway.selected,
+#graph meter.race.n64_mario_raceway:hover,
+#round_races .race.n64_mario_raceway h3,
+body.select_places #courses_list li li.n64_mario_raceway { background-color: #C22; }
+#graph meter.race.n64_sherbet_land { border-color: #DDE; }
+#graph meter.race.n64_sherbet_land.selected,
+#graph meter.race.n64_sherbet_land:hover,
+#round_races .race.n64_sherbet_land h3,
+body.select_places #courses_list li li.n64_sherbet_land { background-color: #DDE; }
+#graph meter.race.gba_shy_guy_beach { border-color: #EE8; }
+#graph meter.race.gba_shy_guy_beach.selected,
+#graph meter.race.gba_shy_guy_beach:hover,
+#round_races .race.gba_shy_guy_beach h3,
+body.select_places #courses_list li li.gba_shy_guy_beach { background-color: #EE8; }
+#graph meter.race.ds_delfino_square { border-color: #AAC; }
+#graph meter.race.ds_delfino_square.selected,
+#graph meter.race.ds_delfino_square:hover,
+#round_races .race.ds_delfino_square h3,
+body.select_places #courses_list li li.ds_delfino_square { background-color: #AAC; }
+#graph meter.race.gcn_waluigi_stadium { border-color: #963; }
+#graph meter.race.gcn_waluigi_stadium.selected,
+#graph meter.race.gcn_waluigi_stadium:hover,
+#round_races .race.gcn_waluigi_stadium h3,
+body.select_places #courses_list li li.gcn_waluigi_stadium { background-color: #963; }
+#graph meter.race.ds_desert_hills { border-color: #FDB; }
+#graph meter.race.ds_desert_hills.selected,
+#graph meter.race.ds_desert_hills:hover,
+#round_races .race.ds_desert_hills h3,
+body.select_places #courses_list li li.ds_desert_hills { background-color: #FDB; }
+#graph meter.race.gba_bowser_castle_3 { border-color: #F63; }
+#graph meter.race.gba_bowser_castle_3.selected,
+#graph meter.race.gba_bowser_castle_3:hover,
+#round_races .race.gba_bowser_castle_3 h3,
+body.select_places #courses_list li li.gba_bowser_castle_3 { background-color: #F63; }
+#graph meter.race.n64_dks_jungle_parkway { border-color: #FD3; }
+#graph meter.race.n64_dks_jungle_parkway.selected,
+#graph meter.race.n64_dks_jungle_parkway:hover,
+#round_races .race.n64_dks_jungle_parkway h3,
+body.select_places #courses_list li li.n64_dks_jungle_parkway { background-color: #FD3; }
+#graph meter.race.gcn_mario_circuit { border-color: #292; }
+#graph meter.race.gcn_mario_circuit.selected,
+#graph meter.race.gcn_mario_circuit:hover,
+#round_races .race.gcn_mario_circuit h3,
+body.select_places #courses_list li li.gcn_mario_circuit { background-color: #292; }
+#graph meter.race.snes_mario_circuit_3 { border-color: #EE2; }
+#graph meter.race.snes_mario_circuit_3.selected,
+#graph meter.race.snes_mario_circuit_3:hover,
+#round_races .race.snes_mario_circuit_3 h3,
+body.select_places #courses_list li li.snes_mario_circuit_3 { background-color: #EE2; }
+#graph meter.race.ds_peach_gardens { border-color: #8A8; }
+#graph meter.race.ds_peach_gardens.selected,
+#graph meter.race.ds_peach_gardens:hover,
+#round_races .race.ds_peach_gardens h3,
+body.select_places #courses_list li li.ds_peach_gardens { background-color: #8A8; }
+#graph meter.race.gcn_dk_mountain { border-color: #8AA; }
+#graph meter.race.gcn_dk_mountain.selected,
+#graph meter.race.gcn_dk_mountain:hover,
+#round_races .race.gcn_dk_mountain h3,
+body.select_places #courses_list li li.gcn_dk_mountain { background-color: #8AA; }
+#graph meter.race.n64_bowsers_castle { border-color: #33A; }
+#graph meter.race.n64_bowsers_castle.selected,
+#graph meter.race.n64_bowsers_castle:hover,
+#round_races .race.n64_bowsers_castle h3,
+body.select_places #courses_list li li.n64_bowsers_castle { background-color: #33A; }
+
+#round_races .race.dk_summit h3,
+#graph meter.race.dk_summit .place,
+body.select_places #courses_list li li.dk_summit,
+#round_races .race.warios_gold_mine h3,
+#graph meter.race.warios_gold_mine .place,
+body.select_places #courses_list li li.warios_gold_mine,
+#round_races .race.n64_sherbet_land h3,
+#graph meter.race.n64_sherbet_land .place,
+body.select_places #courses_list li li.n64_sherbet_land,
+#round_races .race.gba_shy_guy_beach h3,
+#graph meter.race.gba_shy_guy_beach .place,
+body.select_places #courses_list li li.gba_shy_guy_beach,
+#round_races .race.n64_dks_jungle_parkway h3,
+#graph meter.race.n64_dks_jungle_parkway .place,
+body.select_places #courses_list li li.n64_dks_jungle_parkway,
+#round_races .race.snes_mario_circuit_3 h3,
+#graph meter.race.snes_mario_circuit_3 .place,
+body.select_places #courses_list li li.snes_mario_circuit_3,
+#round_races .race.ds_desert_hills h3,
+#graph meter.race.ds_desert_hills .place,
+body.select_places #courses_list li li.ds_desert_hills { 
+    color: #111; 
+}

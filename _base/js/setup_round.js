@@ -94,10 +94,15 @@ $(function(){
     // checking logic
     function validateForm() {
         // debug('validating form');
-        var completePlayerCount = $('article.person_selected.character_selected.transmission_selected').length;
-        var incompletePlayerCount = $('article.person_selected, article.character_selected').not('.person_selected.character_selected.transmission_selected').length;
-        debug('completePlayerCount ' + completePlayerCount, 'incompletePlayerCount ' + incompletePlayerCount);
-        
+		var submitDisabled = $('#next').attr('disabled');
+        var completeCount = $('article.person_selected.character_selected.transmission_selected').length;
+        var incompleteCount = $('article.person_selected, article.character_selected').not('.person_selected.character_selected.transmission_selected').length;
+        // debug('completeCount ' + completeCount, 'incompleteCount ' + incompleteCount, 'submitDisabled '+ submitDisabled);
+        if (completeCount > 1 && incompleteCount == 0 && submitDisabled) {
+            $('#next').removeAttr('disabled');
+        } else if ( (completeCount <= 1 || incompleteCount != 0) && !submitDisabled  ) {
+            $('#next').attr('disabled', 'disabled');
+        }
         
     }
 
@@ -192,54 +197,11 @@ $(function(){
         $('#players .transmission').addClass('disabled')
             .children('input').attr('disabled', 'disabled');
         $('input[type="radio"]').removeAttr('checked');
+        $('#next').attr('disabled', 'disabled');
     });
 
     
     $('#next').attr('disabled', 'disabled');
 
-
-
-    /*
-    // checking logic
-    function validateForm() {
-		var validateSelects = true;
-		var submitDisabled = $('#next').attr('disabled');
-		
-		var ready = 0;
-		var unready = 0
-		
-		for (i=0; i < 4; i++) {
-		    var playerVal = $('table .player td').eq(i).children('select').val();
-		    var characterVal = $('table .character td').eq(i).children('select').val();
-            if ( playerVal != '---' || characterVal != '---') {
-                debug('validating column ' + i);
-            }
-		}
-
-		$('table select').each(function(){
-			if( $(this).val() == '---' ) {
-				// debug('invalid selects', this );
-				validateSelects = false;
-				return false;
-			}
-		})
-
-		if ( !validateSelects && !submitDisabled ) {
-			$('#submit_round').attr('disabled', 'disabled');
-		} else if ( validateSelects && submitDisabled  ) {
-			$('#submit_round').removeAttr('disabled');
-		}
-        
-    }
-
-
-    $('table select').change(function(){
-	    validateForm()
-    });
-
-    $('table input[type="radio"]').click(function(){
-        debug('changed radio');
-    });    
-		*/
 
 });

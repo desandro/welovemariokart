@@ -19,16 +19,6 @@
         return $width;
     }
 
-    class Player {
-        public $name;
-        public $character;
-        public $vehicle;
-        public $places = array();
-        public $points = array();
-        public $scores = array();
-        public $total = 0;
-    }
-
     // get data for each player
     $players = array();
     for ($i=1; $i <= $playerCount; $i++) {
@@ -46,7 +36,6 @@
             $player->total += $point;
             $player->scores[$j] = $player->total;
         }
-        
         
         $players[$i] = $player;
     }

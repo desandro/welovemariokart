@@ -25,6 +25,17 @@
     $placePositions[2] = 'nd';
     $placePositions[3] = 'rd';
 
+    class Player {
+        public $name;
+        public $character;
+        public $vehicle;
+        public $transmission;
+        public $places = array();
+        public $points = array();
+        public $scores = array();
+        public $total = 0;
+    }
+
 	function cleanURL($str) {
 		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $str);
 		$clean = strtolower(trim($clean, '-'));
@@ -39,6 +50,8 @@
     function selectOptions($playerID,  $items, $class1, $class2) {
         include('_base/includes/templates/select_options.php');
     }
+
+
 
 
 ?>

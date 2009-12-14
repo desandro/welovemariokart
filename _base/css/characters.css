@@ -1,0 +1,79 @@
+.avatar.character.baby_mario div,
+.avatar.character.baby_daisy div,
+.avatar.character.toadette div,
+.avatar.character.daisy div,
+.avatar.character.yoshi div,
+.avatar.character.birdo div,
+.avatar.character.diddy_kong div,
+.avatar.character.bowser div {
+    left: 0;
+}
+
+.avatar.character.baby_luigi div,
+.avatar.character.baby_peach div,
+.avatar.character.toad div,
+.avatar.character.koopa_troopa div,
+.avatar.character.dry_bones div,
+.avatar.character.mario div,
+.avatar.character.luigi div,
+.avatar.character.peach div,
+.avatar.character.bowser_jr div,
+.avatar.character.wario div,
+.avatar.character.waluigi div,
+.avatar.character.donkey_kong div,
+.avatar.character.king_boo div,
+.avatar.character.rosalina div,
+.avatar.character.funky_kong div,
+.avatar.character.dry_bowser div {
+    right: 0;
+}
+
+.avatar.character.baby_mario img { top: -0px; left: 0px; }
+.avatar.character.baby_luigi img { top: -0px; left: -45px; }
+.avatar.character.baby_peach img { top: -0px; left: -90px; }
+.avatar.character.baby_daisy img { top: -0px; left: -135px; }
+.avatar.character.toad img { top: -45px; left: 0px; }
+.avatar.character.toadette img { top: -45px; left: -45px; }
+.avatar.character.koopa_troopa img { top: -45px; left: -90px; }
+.avatar.character.dry_bones img { top: -45px; left: -135px; }
+.avatar.character.mario img { top: -90px; left: 0px; }
+.avatar.character.luigi img { top: -90px; left: -45px; }
+.avatar.character.peach img { top: -90px; left: -90px; }
+.avatar.character.daisy img { top: -90px; left: -135px; }
+.avatar.character.yoshi img { top: -135px; left: 0px; }
+.avatar.character.birdo img { top: -135px; left: -45px; }
+.avatar.character.diddy_kong img { top: -135px; left: -90px; }
+.avatar.character.bowser_jr img { top: -135px; left: -135px; }
+.avatar.character.wario img { top: -180px; left: 0px; }
+.avatar.character.waluigi img { top: -180px; left: -45px; }
+.avatar.character.donkey_kong img { top: -180px; left: -90px; }
+.avatar.character.bowser img { top: -180px; left: -135px; }
+.avatar.character.king_boo img { top: -225px; left: 0px; }
+.avatar.character.rosalina img { top: -225px; left: -45px; }
+.avatar.character.funky_kong img { top: -225px; left: -90px; }
+.avatar.character.dry_bowser img { top: -225px; left: -135px; }
+
+#graph .player.baby_mario progress.round { background-color: hsla(0,100%,50%,.175); }
+#graph .player.baby_luigi progress.round { background-color: hsla(110,100%,35%,.175); }
+#graph .player.baby_peach progress.round { background-color: hsla(340,50%,50%,.175); }
+#graph .player.baby_daisy progress.round { background-color: hsla(45,75%,50%,.175); }
+#graph .player.toad progress.round { background-color: hsla(250,100%,50%,.175); }
+#graph .player.toadette progress.round { background-color: hsla(330,65%,50%,.175); }
+#graph .player.koopa_troopa progress.round { background-color: hsla(50,100%,50%,.175); }
+#graph .player.dry_bones progress.round { background-color: hsla(240,5%,60%,.175); }
+#graph .player.mario progress.round { background-color: hsla(0,100%,50%,.175); }
+#graph .player.luigi progress.round { background-color: hsla(110,90%,35%,.175); }
+#graph .player.peach progress.round { background-color: hsla(60,100%,50%,.175); }
+#graph .player.daisy progress.round { background-color: hsla(45,80%,50%,.175); }
+#graph .player.yoshi progress.round { background-color: hsla(120,60%,50%,.175); }
+#graph .player.birdo progress.round { background-color: hsla(300,100%,50%,.175); }
+#graph .player.diddy_kong progress.round { background-color: hsla(15,100%,30%,.175); }
+#graph .player.bowser_jr progress.round { background-color: hsla(75,100%,40%,.175); }
+#graph .player.wario progress.round { background-color: hsla(60,100%,50%,.175); }
+#graph .player.waluigi progress.round { background-color: hsla(270,100%,50%,.175); }
+#graph .player.donkey_kong progress.round { background-color: hsla(15,80%,30%,.175); }
+#graph .player.bowser progress.round { background-color: hsla(15,100%,50%,.175); }
+#graph .player.king_boo progress.round { background-color: hsla(0,0%,70%,.175); }
+#graph .player.rosalina progress.round { background-color: hsla(170,60%,50%,.175); }
+#graph .player.funky_kong progress.round { background-color: hsla(30,20%,50%,.175); }
+#graph .player.dry_bowser progress.round { background-color: hsla(55,10%,45%,.175); }

@@ -74,7 +74,7 @@
         
         <button id="reset">Reset</button>
         
-        <form id="setup" action="record_places.php" method="post">
+        <form id="setup" action="select_places.php" method="post">
             <input type="submit" name="submit" value="Next" id="next" />
             
             <table>
