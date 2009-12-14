@@ -54,7 +54,7 @@
             #round_races .race.<?= cleanURL($course) ?> h3 { background-color: <?= $courseColors[$course] ?>; }
         <?php endforeach; ?>
 
-        #round_races .race.dks_snowboard_cross h3,
+        #round_races .race.dk_summit h3,
         #round_races .race.warios_gold_mine h3,
         #round_races .race.n64_sherbet_land h3,
         #round_races .race.gba_shy_guy_beach h3,

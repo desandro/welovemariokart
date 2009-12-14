@@ -72,9 +72,8 @@
         </section>
         
         
-        <button id="reset">Reset</button>
-        
         <form id="setup" action="select_places.php" method="post">
+            <?php radioInputs('Number of Races', 'race_count', array(2,3,4,5,8,10,12,16,32), 10 ); ?>
             <input type="submit" name="submit" value="Next" id="next" />
             
             <table>
@@ -128,6 +127,7 @@
             </table>
         </form>
         
+        <button id="reset">Reset</button>
 
     </div> <!-- /#wrap -->
 

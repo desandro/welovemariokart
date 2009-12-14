@@ -261,6 +261,20 @@ body.setup_round table {
     clear: both;
 }
 
+body.setup_round #setup {
+    clear: both;
+}
+
+body.setup_round fieldset {
+    margin-bottom: 20px;
+}
+
+body.setup_round fieldset li {
+    display: block;
+    float: left;
+    width: 50px;
+}
+
 /**************************
 **  Visualization
 **************************/
@@ -568,7 +582,16 @@ button[disabled]:active
 
 #round_races dl {
     position: relative;
+    border: 1px solid #CCC;
+    background: transparent;
+    left: -1px;
+    top: -1px;
+    height: 25px;
+    width: 240px;
+    
 }
+
+#round_races dl.ui-draggable-dragging { background: hsla(0,0%,100%,.7);}
 
 #round_races .avatar {
     position: absolute;
@@ -655,3 +678,9 @@ body.select_places #courses_list li li {
 body.select_places #courses_list li li span {
 
 }
+
+/**************************
+**  Drag & Drop UI
+**************************/
+
+.drop:hover {z-index: 200;}

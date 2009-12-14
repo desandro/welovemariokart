@@ -12,8 +12,9 @@
     $allCourses['Leaf'] = array('DS Desert Hills', 'GBA Bowser Castle 3', 'N64 DKs Jungle Parkway', 'GCN Mario Circuit');
     $allCourses['Lightning'] = array('SNES Mario Circuit 3', 'DS Peach Gardens', 'GCN DK Mountain', 'N64 Bowsers Castle');
     
-    $raceCount = 10;
-
+    $raceCount = intval($_POST['race_count']);
+    
+    
     $playerCount = 0;
     $validPlayerIDs[] = '';
     for ($i=1; $i <= 4; $i++) { 
@@ -54,26 +55,54 @@
     <div id="wrap">
         <h1>Select Places</h1>
         
-        <ol id="round_courses">
-            <?php for ($j=1; $j <= $raceCount ; $j++): ?>
-                <li class="course dropbox"></li>
-            <?php endfor; ?>
-        </ol>
-        
-        <ul id="courses_list">
-            <?php foreach ($allCourses as $cup => $courses): ?>
-                <li>
-                    <h3><?= $cup ?> Cup</h3>
-                    <ul>
-                        <?php foreach ($courses as $course): ?>
-                            <li class="<?= cleanURL($course) ?>"><span><?= $course ?></span></li>
-                        <?php endforeach ?>
-                    </ul>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+        <section id="round_races">
+            
+            <div class="slider" style="width: <?= (262*$raceCount+20) ?>px">
+                
+                <?php for ($j=1; $j <= $raceCount; $j++): ?>
+                    <article class="race race<?= $j ?> ">
+                        <p>Race <?= $j ?></p>
+                        <p>
+                            <select class="course">
+                                <option value="---">---</option>
+                                <?php foreach ($allCourses as $cup => $courses): ?>
+                                    <optgroup label="<?= $cup ?> Cup">
+                                    <?php foreach ($courses as $course): ?>
+                                        <option value="<?= $course ?>"><?= $course ?></option>
+                                    <?php endforeach; ?>
+                                    </optgroup>
+                                <?php endforeach; ?>
+                            </select>
+                        </p>
+                        <ul>
+                            <?php foreach ($players as $player): ?>
+                                <li class="player drop">
+                                    <dl class="identity drag">
+                                    
+                                        <dt class="name"><?= $player->name ?></dt>
+                                        <dd class="avatar character <?= cleanURL($player->character) ?>">
+                                            <div><img src="_base/img/character_avatars.png" alt="<?= $player->character ?>" /></div>
+                                        </dd>
+                                        <dd class="points">+0</dd>
+                                        <dd class="score">0</dd>
+                                    </dl>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <ol>
+                            <?php for ($k=1; $k <= 12; $k++): ?>
+                                <li class="drop"><h4><?= $k ?></h4></li>
+                            <?php endfor; ?>
+                        </ol>
+                    </article>
+                <?php endfor; ?>
+                
+            </div><!-- .slider -->
+
+        </section>
         
         <p>Player count: <?= $playerCount ?></p>
+        <p>Race count: <?= $raceCount ?></p>
 
         <ul>
             <?php foreach ($validPlayerIDs as $id): ?>
@@ -110,6 +139,34 @@
                     <td><?= $player->transmission ?></td>
                 <?php endforeach; ?>
             </tr>
+
+            <?php for ($j=1; $j <= $raceCount; $j++): 
+            
+            ?>
+                <tr class="race">
+                    <th scope="row">Race <?= $j ?></th>
+                    <td>
+                        <?php $id = 'course_' . $j; ?>
+                        <select name="<?= $id ?>" id="<?= $id ?>" class="course">
+                            <option value="---">---</option>
+                            <?php foreach ($allCourses as $cup => $courses): ?>
+                                <optgroup label="<?= $cup ?> Cup">
+                                <?php foreach ($courses as $course): ?>
+                                    <option value="<?= $course ?>"><?= $course ?></option>
+                                <?php endforeach; ?>
+                                </optgroup>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
+                    <?php  for ($i=1; $i <= $playerCount; $i++): ?>
+                        <td>
+                            <?php selectOptions($i, array(1,2,3,4,5,6,7,8,9,10,11,12), 'place_race' . $j, 'place' ); ?>
+                        </td>
+                    <?php endfor; ?>
+
+                </tr>
+            <?php endfor; ?>
+
             
         </table>
 
