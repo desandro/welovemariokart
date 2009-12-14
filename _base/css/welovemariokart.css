@@ -627,7 +627,7 @@ body.select_places #courses_list li {
     width: 220px;
     float: left;
     margin-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 body.select_places #courses_list li:nth-child(4n) {
     margin-right: 0;
@@ -635,31 +635,23 @@ body.select_places #courses_list li:nth-child(4n) {
 
 body.select_places #courses_list h3 {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
     text-transform: uppercase;
     color: #888;
-    margin-bottom: 0.5em;
-
 }
 
 body.select_places #courses_list li li {
-    width: 40px;
-    height: 180px;
-    margin-right: 10px;
+    float: none;
+    width: 198px;
     border: 1px solid #CCC;
-    margin-bottom: 0;
-    position: relative;
+    margin-bottom: 5px;
+    padding: 0 10px;
+    line-height: 20px;
     font-weight: bold;
     color: #FFF;
     background: #666;
 }
 
 body.select_places #courses_list li li span {
-    display: block;
-    width: 160px;
-    -moz-transform-origin: 0 0;
-    -moz-transform: rotate(90deg);
-    position: absolute;
-    top: 10px;
-    left: 30px;
+
 }

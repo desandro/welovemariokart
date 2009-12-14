@@ -12,6 +12,7 @@
     $allCourses['Leaf'] = array('DS Desert Hills', 'GBA Bowser Castle 3', 'N64 DKs Jungle Parkway', 'GCN Mario Circuit');
     $allCourses['Lightning'] = array('SNES Mario Circuit 3', 'DS Peach Gardens', 'GCN DK Mountain', 'N64 Bowsers Castle');
     
+    $raceCount = 10;
 
     $playerCount = 0;
     $validPlayerIDs[] = '';
@@ -52,6 +53,12 @@
     
     <div id="wrap">
         <h1>Select Places</h1>
+        
+        <ol id="round_courses">
+            <?php for ($j=1; $j <= $raceCount ; $j++): ?>
+                <li class="course dropbox"></li>
+            <?php endfor; ?>
+        </ol>
         
         <ul id="courses_list">
             <?php foreach ($allCourses as $cup => $courses): ?>
