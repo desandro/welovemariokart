@@ -9,6 +9,21 @@ $(function(){
 
     var $draggee, $previousHolder;
     
+    var playerCount = parseInt( $('#player_count').val() );
+    var raceCount = parseInt( $('#race_count').val() );
+    
+    function updatePlayerScores(i) {
+        var playerTotal = 0;
+        $('table .race').each(function(j){
+            var selectPlace = $(this).find('select.place:eq('+i+')');
+            if( selectPlace.val() != '---' ) {
+                var selVal = parseInt( selectPlace.val() );
+                playerTotal += placePoints[selVal-1];
+            }
+            $('#round_races article:eq('+j+') dl:eq('+i+') .score').text(playerTotal);
+        });
+    }
+    
     function handleDrops($draggee, $holder) {
         $holder.droppable('disable');
         $previousHolder.droppable('enable');
@@ -35,7 +50,7 @@ $(function(){
         if ( $holder.parent().is('ol') ) {
             $holder.addClass('player');
             
-            debug(i);
+            // debug(i);
             var place = $('#round_races article:eq('+j+') ol li').index($holder);
             var points = placePoints[place];
             $draggee.find('.points').text('+' + points);
@@ -49,13 +64,12 @@ $(function(){
         if ($previousHolder.parent().is('ol') ) {
             $previousHolder.removeClass('player');
         }
+        
+        updatePlayerScores(i);
     }
     
+
     
-    $('.drag').each(function(){
-        var $holder = $(this).parent();
-        $(this).data('holder', $holder );
-    });
     
     $('#round_races article').each(function(i){
         var raceID = 'race' + i;
@@ -80,7 +94,63 @@ $(function(){
 
     });
     
-    $('ul .drop').droppable('disable');
-    
+    // on startup set holders
+    $('.drag').each(function(){
+        var $holder = $(this).parent();
+        $(this).data('holder', $holder );
+    });
 
-})
+    // on startup, disable original holders
+    $('ul .drop').droppable('disable');
+
+    // on startup, fake drop characters if this is from a refresh
+    $('table select.place').each(function(){
+        if( $(this).val() != '---' ) {
+            var selOpt = $(this).find(':selected');
+            var place = $(this).find('option').index( selOpt );
+            var j = $('table .race').index( $(this).parents('.race') );
+            var i = $('table .race:eq('+j+') select.place').index(this);
+
+            // debug('race '+(j+1), 'player '+(i+1),  'place ' + place);
+            
+            var $draggee = $('#round_races article:eq('+j+') dl:eq('+i+')');
+            var $holder = $('#round_races article:eq('+j+') ol li:eq('+(place-1)+')');
+            
+            $previousHolder = $draggee.data('holder');
+            // debug(j, i, $draggee);
+            handleDrops($draggee, $holder);
+            // $('#round_races article:eq('+j+') ul li:eq('+i+')').droppable('enable');
+        }
+    })
+
+
+    
+    // select exclusivity & matching with form.
+    $('#round_races select.course').change(function(){  
+
+        var selOpt = $(this).find(':selected');
+        var selIdx = $(this).find('option').index( selOpt );
+
+        var otherSelects = $('#round_races select.course').not(this);
+        
+        // enable previous selection if its defined
+        var prevSelIdx = $(this).data('prevSelIdx');
+        if ( prevSelIdx != undefined ) {
+            otherSelects.each(function(){
+                $(this).find('option:eq('+prevSelIdx+')').removeAttr('disabled');
+            });                
+        }
+        $(this).data('prevSelIdx', selIdx);
+
+        if( selIdx > 0 ) {
+            otherSelects.each(function(){
+                $(this).find('option:eq('+selIdx+')').attr('disabled', 'disabled');
+            });            
+        }
+
+        // set select in form to correct one
+        var j = $('#round_races select.course').index(this);
+        $('table select.course:eq('+j+')').val( $(this).val() );
+    });
+
+});

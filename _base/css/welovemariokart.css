@@ -560,6 +560,10 @@ button[disabled]:active
     font-weight: 200;
 }
 
+#round_races ul li {
+    background: #F5F5F5;
+}
+
 #round_races h4 {
     float: left;
     width: 18px;

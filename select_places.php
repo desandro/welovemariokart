@@ -110,6 +110,10 @@
             <?php endforeach; ?>
         </ul>
 
+        <input type="hidden" name="race_count" value="<?= $raceCount ?>" id="race_count" />
+        <input type="hidden" name="player_count" value="<?= $playerCount ?>" id="player_count" />
+        
+
         <table>
             <tr>
                 <th scope="row">Players</th>
