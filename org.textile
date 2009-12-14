@@ -4,6 +4,11 @@ h2. Overview
 
 Visualizes rounds of races for Mario Kart Wii.
 
+h2. To do
+
+* *setup_round.php* Handle refreshes
+* *select_places.php* Send to round.php
+
 h2. Vars
 
 Per Round
@@ -17,38 +22,6 @@ Per Player
     Character
     Vehicle
 
-
-h4. Characters
-
-Baby Mario
-Baby Peach
-Toad
-Koopa Troopa
-Baby Luigi
-Baby Daisy
-Toadette
-Dry Bones
-Mario
-Luigi
-Peach
-Yoshi
-Daisy
-Birdo
-Bowser Jr.
-Diddy Kong
-Wario
-Waluigi
-Donkey Kong
-Bowser
-Funky Kong
-King Boo
-Rosalina
-Dry Bowser
-
-
-Legend
-id
-array
 
 
 h3. Animate process
