@@ -161,10 +161,23 @@ $(function(){
     
     $('table select').change(function(){
         var j = $('table .race').index( $(this).parents('.race') );
+        
+        var completeRace = true;
         $(this).parents('.race').find('select').each(function(){
-            debug( $(this) );
+            if ( $(this).val() == '---') {
+                completeRace = false;
+                return false;
+            }
         });
-        // debug(j);
+        
+        if ( completeRace ) {
+            $('#round_races article').eq(j).addClass('complete');
+        } else {
+            $('#round_races article').eq(j).removeClass('complete');
+        }
+        
+        
+        debug(j, completeRace);
         validateForm();
     })
 

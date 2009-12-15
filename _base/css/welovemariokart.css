@@ -547,6 +547,13 @@ button[disabled]:active
     position: relative;
 }
 
+#round_races .race.complete {
+    border-color: #ABA;
+    background: #DFD;
+    -moz-box-shadow: 0 3px 15px hsla(120,100%,30%,.7);
+    -webkit-box-shadow: 0 3px 15px hsla(120,100%,30%,.7);
+}
+
 #round_races .race h3 {
     padding: 0 10px;
     color: #FFF ;
