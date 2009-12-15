@@ -127,7 +127,7 @@
             </table>
         </form>
         
-        <button id="reset">Reset</button>
+        <button id="reset">Reset again</button>
 
     </div> <!-- /#wrap -->
 
