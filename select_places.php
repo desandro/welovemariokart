@@ -115,65 +115,101 @@
         <input type="hidden" name="player_count" value="<?= $playerCount ?>" id="player_count" />
         
 
-        <table>
-            <tr>
-                <th scope="row">Players</th>
-                <td></td>
-                <?php foreach ($players as $player): ?>
-                    <td><?= $player->name ?></td>
-                <?php endforeach; ?>
-            </tr>
-            <tr>
-                <th scope="row">Characters</th>
-                <td></td>
-                <?php foreach ($players as $player): ?>
-                    <td><?= $player->character ?></td>
-                <?php endforeach; ?>
-            </tr>
-            <tr>
-                <th scope="row">Vehicles</th>
-                <td></td>
-                <?php foreach ($players as $player): ?>
-                    <td><?= $player->vehicle ?></td>
-                <?php endforeach; ?>
-            </tr>
-            <tr>
-                <th scope="row">Transmission</th>
-                <td></td>
-                <?php foreach ($players as $player): ?>
-                    <td><?= $player->transmission ?></td>
-                <?php endforeach; ?>
-            </tr>
-
-            <?php for ($j=1; $j <= $raceCount; $j++): 
+        <form action="view_round.php" method="post">
+            <input type="submit" name="view_round" value="View Round" id="view_round" />
             
-            ?>
-                <tr class="race">
-                    <th scope="row">Race <?= $j ?></th>
-                    <td>
-                        <?php $id = 'course_' . $j; ?>
-                        <select name="<?= $id ?>" id="<?= $id ?>" class="course">
-                            <option value="---">---</option>
-                            <?php foreach ($allCourses as $cup => $courses): ?>
-                                <optgroup label="<?= $cup ?> Cup">
-                                <?php foreach ($courses as $course): ?>
-                                    <option value="<?= $course ?>"><?= $course ?></option>
-                                <?php endforeach; ?>
-                                </optgroup>
-                            <?php endforeach; ?>
-                        </select>
+            <table>
+                <tr>
+                    <th scope="row">Player Count</th>
+                    <td colspan="<?= $playerCount+1 ?>">
+                        <?= $playerCount ?>
+                        <input type="hidden" name="player_count" value="<?= $playerCount ?>" />
                     </td>
-                    <?php  for ($i=1; $i <= $playerCount; $i++): ?>
-                        <td>
-                            <?php selectOptions($i, array(1,2,3,4,5,6,7,8,9,10,11,12), 'place_race' . $j, 'place' ); ?>
-                        </td>
-                    <?php endfor; ?>
-
                 </tr>
-            <?php endfor; ?>
+                <tr>
+                    <th scope="row">Race Count</th>
+                    <td colspan="<?= $playerCount+1 ?>">
+                        <?= $raceCount  ?>
+                        <input type="hidden" name="race_count" value="<?= $raceCount ?>" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Players</th>
+                    <td></td>
+                    <?php $i = 1; foreach ($players as $player): ?>
+                        <td>
+                            <?= $player->name ?>
+                            <input type="hidden" name="names[<?= $i ?>]" value="<?= $player->name ?>"  />
+                        </td>
+                    <?php $i++; endforeach; ?>
+                </tr>
+                <tr>
+                    <th scope="row">Characters</th>
+                    <td></td>
+                    <?php $i = 1; foreach ($players as $player): ?>
+                        <td>
+                            <?= $player->character ?>
+                            <input type="hidden" name="characters[<?= $i ?>]" value="<?= $player->character ?>"  />
+                        </td>
+                    <?php $i++; endforeach; ?>
+                </tr>
+                <tr>
+                    <th scope="row">Vehicles</th>
+                    <td></td>
+                    <?php $i = 1; foreach ($players as $player): ?>
+                        <td>
+                            <?= $player->vehicle ?>
+                            <input type="hidden" name="vehicles[<?= $i ?>]" value="<?= $player->vehicle ?>"  />
+                        </td>
+                    <?php $i++; endforeach; ?>
+                </tr>
+                <tr>
+                    <th scope="row">Transmission</th>
+                    <td></td>
+                    <?php $i = 1; foreach ($players as $player): ?>
+                        <td>
+                            <?= $player->transmission ?>
+                            <input type="hidden" name="transmissions[<?= $i ?>]" value="<?= $player->transmission ?>"  />
+                        </td>
+                    <?php $i++; endforeach; ?>
+                </tr>
+
+                <?php for ($j=1; $j <= $raceCount; $j++): 
+            
+                ?>
+                    <tr class="race">
+                        <th scope="row">Race <?= $j ?></th>
+                        <td>
+                            <?php $id = 'course_' . $j; ?>
+                            <select name="courses[<?= $j ?>]" class="course">
+                                <option value="---">---</option>
+                                <?php foreach ($allCourses as $cup => $courses): ?>
+                                    <optgroup label="<?= $cup ?> Cup">
+                                    <?php foreach ($courses as $course): ?>
+                                        <option value="<?= $course ?>"><?= $course ?></option>
+                                    <?php endforeach; ?>
+                                    </optgroup>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                        <?php  for ($i=1; $i <= $playerCount; $i++): ?>
+                            <td>
+                                <select name="places[<?= $i ?>][<?= $j ?>]" class="place">
+                                    <option value="---">---</option>
+                                    <?php for ($k=1; $k <= 12; $k++): ?>
+                                        <option value="<?= $k ?>"><?= $k ?></option>
+                                    <?php endfor ?>
+                                </select>                                
+                            </td>
+                        <?php endfor; ?>
+                    </tr>
+                <?php endfor; ?>
 
             
-        </table>
+            </table>
+
+
+        </form>
 
     </div> <!-- /#wrap -->
 

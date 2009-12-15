@@ -547,7 +547,7 @@ button[disabled]:active
     position: relative;
 }
 
-#round_races .race.complete {
+#round_races .race.completed {
     border-color: #ABA;
     background: #DFD;
     -moz-box-shadow: 0 3px 15px hsla(120,100%,30%,.7);
@@ -568,7 +568,7 @@ button[disabled]:active
 }
 
 #round_races ul li {
-    background: #F5F5F5;
+    background: hsla(0,0%,0%,.05);
 }
 
 #round_races h4 {
@@ -693,5 +693,9 @@ body.select_places #courses_list li li span {
 /**************************
 **  Drag & Drop UI
 **************************/
+
+body.setup_round .ui-draggable {
+    -moz-box-shadow: 0 1px 2px hsla(0,0%,0%,.15);
+}
 
 .drop:hover {z-index: 200;}

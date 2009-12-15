@@ -68,7 +68,38 @@ $(function(){
         updatePlayerScores(i);
     }
     
+    function validateRace($row) {
+        var j = $('table .race').index( $row );
+        var $roundRace = $('#round_races article').eq(j);
+        
+        var completeRace = true;
+        $row.find('select').each(function(){
+            if ( $(this).val() == '---') {
+                completeRace = false;
+                return false;
+            }
+        });
+        
+        if ( completeRace ) {
+            $roundRace.addClass('completed');
+        } else {
+            $roundRace.removeClass('completed');
+        }
+    }
 
+    function validateForm() {
+	    var submitDisabled = $('#view_round').attr('disabled');
+        var completedCount = $('#round_races article.completed').length;
+        if ( completedCount == raceCount && submitDisabled ) {
+            $('#view_round').removeAttr('disabled');
+        } else if ( completedCount != raceCount && !submitDisabled ){
+            $('#view_round').attr('disabled', 'disabled');
+        }
+        
+
+    }
+
+    // set up drag & droppables on startup
     $('#round_races article').each(function(i){
         var raceID = 'race' + i;
         $(this).find('.drag').draggable({
@@ -119,7 +150,16 @@ $(function(){
             handleDrops($draggee, $holder);
             // $('#round_races article:eq('+j+') ul li:eq('+i+')').droppable('enable');
         }
-    })
+    });
+
+    // disable submit button on startup
+    $('#view_round').attr('disabled', 'disabled');
+
+    // on startup, validate races & form
+    $('table .race').each(function(){
+        validateRace( $(this) );
+    });
+    validateForm();
 
 
     
@@ -151,34 +191,14 @@ $(function(){
         $('table select.course:eq('+j+')').val( $(this).val() ).change();
     });
 
-
-
-    function validateForm() {
-        // $('table .race').each(function(j){
-        //     // debug(j);
-        // })
-    }
     
     $('table select').change(function(){
-        var j = $('table .race').index( $(this).parents('.race') );
-        
-        var completeRace = true;
-        $(this).parents('.race').find('select').each(function(){
-            if ( $(this).val() == '---') {
-                completeRace = false;
-                return false;
-            }
-        });
-        
-        if ( completeRace ) {
-            $('#round_races article').eq(j).addClass('complete');
-        } else {
-            $('#round_races article').eq(j).removeClass('complete');
-        }
-        
-        
-        debug(j, completeRace);
+        var $row = $(this).parents('.race');
+        validateRace($row);
+
         validateForm();
-    })
+    });
+    
+
 
 });
