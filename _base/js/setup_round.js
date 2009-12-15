@@ -173,7 +173,7 @@ $(function(){
         $('table select.vehicle').eq(i).val(vehicle);
     })
 
-    $('#players .transmission input').change(function(){
+    $('#players .transmission input').click(function(){
         var i = $('#players article').index( $(this).parents('article') );
         var mode = $(this).val();
         // debug( mode );
