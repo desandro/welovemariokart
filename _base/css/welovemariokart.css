@@ -124,6 +124,7 @@ th {
     z-index: 100;
 }
 
+body.setup_round .ui-draggable:hover,
 .ui-draggable:hover {
     -moz-box-shadow: 0 3px 10px hsla(240,0%,70%,.6);
     -webkit-box-shadow: 0 3px 10px hsla(240,0%,70%,.6);
@@ -696,6 +697,7 @@ body.select_places #courses_list li li span {
 
 body.setup_round .ui-draggable {
     -moz-box-shadow: 0 1px 2px hsla(0,0%,0%,.15);
+    -webkit-box-shadow: 0 1px 2px hsla(0,0%,0%,.15);
 }
 
 .drop:hover {z-index: 200;}

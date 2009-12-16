@@ -7,7 +7,7 @@ Visualizes rounds of races for Mario Kart Wii.
 h2. To do
 
 * *setup_round.php* Handle refreshes
-* *select_places.php* Send to round.php
+
 
 h2. Vars
 
