@@ -14,7 +14,7 @@ $(function(){
     
     function updatePlayerScores(i) {
         var playerTotal = 0;
-        $('table .race').each(function(j){
+        $('#data .race').each(function(j){
             var selectPlace = $(this).find('select.place').eq(i);
             if( selectPlace.val() != '---' ) {
                 var selVal = parseInt( selectPlace.val() );
@@ -47,7 +47,7 @@ $(function(){
 
         var j = $('#round_races article').index( $holder.parents('article') );
         var i = $('#round_races article').eq(j).find('dl').index($draggee);
-        var $selectPlace = $('table .race').eq(j).find('select.place').eq(i);
+        var $selectPlace = $('#data .race').eq(j).find('select.place').eq(i);
 
         if ( $holder.parent().is('ol') ) {
             $holder.addClass('player');
@@ -70,7 +70,7 @@ $(function(){
     }
     
     function validateRace($row) {
-        var j = $('table .race').index( $row );
+        var j = $('#data .race').index( $row );
         var $roundRace = $('#round_races article').eq(j);
         
         var completeRace = true;
@@ -134,12 +134,12 @@ $(function(){
     $('ul .drop').droppable('disable');
 
     // on startup, fake drop characters if this is from a refresh
-    $('table select.place').each(function(){
+    $('#data select.place').each(function(){
         if( $(this).val() != '---' ) {
             var selOpt = $(this).find(':selected');
             var place = $(this).find('option').index( selOpt );
-            var j = $('table .race').index( $(this).parents('.race') );
-            var i = $('table .race').eq(j).find('select.place').index(this);
+            var j = $('#data .race').index( $(this).parents('.race') );
+            var i = $('#data .race').eq(j).find('select.place').index(this);
             
             var $roundRace = $('#round_races article').eq(j);
             var $draggee = $roundRace.find('dl').eq(i);
@@ -154,7 +154,7 @@ $(function(){
     $('#view_round').attr('disabled', 'disabled');
 
     // on startup, validate races & form
-    $('table .race').each(function(){
+    $('#data .race').each(function(){
         validateRace( $(this) );
     });
     validateForm();
@@ -186,11 +186,11 @@ $(function(){
 
         // set select in form to correct one
         var j = $('#round_races select.course').index(this);
-        $('table select.course').eq(j).val( $(this).val() ).change();
+        $('#data select.course').eq(j).val( $(this).val() ).change();
     });
 
     
-    $('table select').change(function(){
+    $('#data select').change(function(){
         var $row = $(this).parents('.race');
         validateRace($row);
 

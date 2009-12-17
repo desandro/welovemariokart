@@ -54,6 +54,8 @@
 
     
     <div id="wrap">
+        <?php include('_base/includes/templates/header.php'); ?>
+        
         <h1>Select Places</h1>
         
         <section id="round_races">
@@ -102,15 +104,6 @@
 
         </section>
         
-        <p>Player count: <?= $playerCount ?></p>
-        <p>Race count: <?= $raceCount ?></p>
-
-        <ul>
-            <?php foreach ($validPlayerIDs as $id): ?>
-                <li><?= $id ?></li>
-            <?php endforeach; ?>
-        </ul>
-
         <input type="hidden" name="race_count" value="<?= $raceCount ?>" id="race_count" />
         <input type="hidden" name="player_count" value="<?= $playerCount ?>" id="player_count" />
         
@@ -118,7 +111,7 @@
         <form action="view_round.php" method="post">
             <input type="submit" name="view_round" value="View Round" id="view_round" />
             
-            <table>
+            <table id="data">
                 <tr>
                     <th scope="row">Player Count</th>
                     <td colspan="<?= $playerCount+1 ?>">

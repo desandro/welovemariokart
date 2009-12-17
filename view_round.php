@@ -76,6 +76,7 @@
 </head>
 <body class="round">
     <div id="wrap"> 
+        <?php include('_base/includes/templates/header.php'); ?>
            
         <h1>View Round</h1>
 
@@ -175,7 +176,7 @@
     
         <section id="output">    
 
-            <table>
+            <table id="data">
                 <tr>
                     <th>Player</th>
                     <th>Character</th>

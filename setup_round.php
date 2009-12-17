@@ -76,7 +76,7 @@
             <?php radioInputs('Number of Races', 'race_count', array(2,3,4,5,8,10,12,16,32), 10 ); ?>
             <input type="submit" name="submit" value="Next" id="next" />
             
-            <table>
+            <table id="data">
                 <tr class="player">
                     <th scope="row">Player</th>
                     <?php for ($i=1; $i <= 4; $i++): ?>

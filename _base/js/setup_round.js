@@ -30,14 +30,14 @@ $(function(){
             // set select to new person
             if ( $holder.parent().parent().is('#players')  ) {
                 var i = $('#players .dropbox.person').index( $holder );
-                $('table select.person').eq(i).val( $draggee.text() ).change();
+                $('#data select.person').eq(i).val( $draggee.text() ).change();
 
                 $holder.parent().addClass('person_selected');
             }
             // set previous holder to nill
             if ( $previousHolder.parent().parent().is('#players')  ) {
                 var i = $('#players .dropbox.person').index( $previousHolder );
-                $('table select.person').eq(i).val('---').change();
+                $('#data select.person').eq(i).val('---').change();
                 $previousHolder.parent().removeClass('person_selected');
             }
             
@@ -47,7 +47,7 @@ $(function(){
                 // set select to new character
                 var i = $('#players .dropbox.avatar').index( $holder );
                 var character = $draggee.find('label').text();
-                $('table select.character').eq(i).val( character ).change();
+                $('#data select.character').eq(i).val( character ).change();
                 
                 var vehicleClass = characterClass[character];
                 $holder.siblings('select.vehicle.' + vehicleClass).show().change();
@@ -57,7 +57,7 @@ $(function(){
             // set previous holder to nill
             if ( $previousHolder.parents('article').parent().is('#players')  ) {
                 var i = $('#players .dropbox.avatar').index( $previousHolder );
-                $('table select.character').eq(i).val('---').change();
+                $('#data select.character').eq(i).val('---').change();
                 $previousHolder.siblings('select.vehicle').hide().change();
                 
                 $previousHolder.parent().removeClass('character_selected vehicle_selected');
@@ -110,7 +110,7 @@ $(function(){
 
             // remove selection from table as well
             var i = $('#players article').index( $previousHolder.parent() );
-            $('table tr.transmission td').eq(i).children('input').removeAttr('checked');
+            $('#data tr.transmission td').eq(i).children('input').removeAttr('checked');
         }
 
         
@@ -160,12 +160,12 @@ $(function(){
     
     
     // fake drops for refreshes on startup
-    $('table select.person').each(function(){
+    $('#data select.person').each(function(){
         if ( $(this).val() != '---') {
             var selOpt = $(this).find(':selected');
             var idx = $(this).find('option').index( selOpt ) - 1 ;
             // var j = $('table .race').index( $(this).parents('.race') );
-            var i = $('table select.person').index(this);
+            var i = $('#data select.person').index(this);
             // debug('person ' + idx);
             var $draggee = $('#people .person.draggee').eq(idx);
             var $holder = $('#players .person.dropbox').eq(i);
@@ -175,11 +175,11 @@ $(function(){
         }
     });
     // fake drops for refreshes on startup
-    $('table select.character').each(function(){
+    $('#data select.character').each(function(){
         if ( $(this).val() != '---') {
             var selOpt = $(this).find(':selected');
             var idx = $(this).find('option').index( selOpt ) - 1 ;
-            var i = $('table select.character').index(this);
+            var i = $('#data select.character').index(this);
             // debug('person ' + idx);
             var $draggee = $('#character_pool .avatar.draggee').eq(idx);
             var $holder = $('#players .avatar.dropbox').eq(i);
@@ -190,7 +190,7 @@ $(function(){
     });
     
     // fake click transmission selection on startup
-    $('table input:radio:checked').each(function(){
+    $('#data input:radio:checked').each(function(){
         var i = $('tr.transmission td').index( $(this).parent() );
         var $player = $('#players .player').eq(i);
         if ( $player.children('.transmission').is(':not(.disabled)') ) {
@@ -208,14 +208,14 @@ $(function(){
         var i = $('#players article').index( $(this).parent() );
         $(this).parents('.player').addClass('vehicle_selected');
         var vehicle = $(this).val();
-        $('table select.vehicle').eq(i).val(vehicle);
+        $('#data select.vehicle').eq(i).val(vehicle);
     });
 
     $('#players .transmission input').click(function(){
         var i = $('#players article').index( $(this).parents('article') );
         var mode = $(this).val();
 
-        $('table input[value="'+mode+'"]').eq(i).click();
+        $('#data input[value="'+mode+'"]').eq(i).click();
         $(this).parents('article').addClass('transmission_selected');
         validateForm();
     });
@@ -226,7 +226,7 @@ $(function(){
         $('.draggee').animate({left: -1, top: -1})
         $('#character_pool .dropbox, #people .dropbox').droppable('disable');
         $('#players .dropbox').droppable('enable');
-        $('table select').val('---');
+        $('#data select').val('---');
         $('#players select.vehicle').hide();
         $('#players article').removeClass('person_selected character_selected vehicle_selected transmission_selected')
         $('#players .transmission').addClass('disabled')

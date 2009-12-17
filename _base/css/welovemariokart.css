@@ -21,9 +21,8 @@ body {
 
 #wrap {
     width: 940px;
-    padding: 20px 10px;
+    padding: 10px;
     margin: 0 auto;
-/*    overflow: hidden;*/
 }
 
 h1 {
@@ -37,6 +36,22 @@ h1 {
 th, td {
     border: 1px solid #AAA;
 	padding: 1px;
+}
+
+/**************************
+**  Header
+**************************/
+
+#site_header {
+    border-bottom: 1px solid #CCC;
+    margin-bottom: 20px;
+
+}
+
+#branding {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -0.02em;
 }
 
 /**************************
@@ -230,7 +245,6 @@ body.setup_round #people .dropbox {
 
 
 #reset {
-    clear: both;
     float: left;
 }
 
@@ -691,6 +705,10 @@ body.select_places #courses_list li li span {
 
 }
 
+body.select_places #view_round {
+    float: right;
+}
+
 /**************************
 **  Drag & Drop UI
 **************************/
@@ -701,3 +719,9 @@ body.setup_round .ui-draggable {
 }
 
 .drop:hover {z-index: 200;}
+
+/**************************
+**  whatever
+**************************/
+
+table#data { display: none;}
