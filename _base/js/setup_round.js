@@ -192,7 +192,7 @@ $(function(){
     // fake click transmission selection on startup
     $('table input:radio:checked').each(function(){
         var i = $('tr.transmission td').index( $(this).parent() );
-        var $player = $('#players .player:eq('+i+')');
+        var $player = $('#players .player').eq(i);
         if ( $player.children('.transmission').is(':not(.disabled)') ) {
             $player.addClass('transmission_selected');
         }

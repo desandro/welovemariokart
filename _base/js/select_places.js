@@ -15,12 +15,13 @@ $(function(){
     function updatePlayerScores(i) {
         var playerTotal = 0;
         $('table .race').each(function(j){
-            var selectPlace = $(this).find('select.place:eq('+i+')');
+            var selectPlace = $(this).find('select.place').eq(i);
             if( selectPlace.val() != '---' ) {
                 var selVal = parseInt( selectPlace.val() );
                 playerTotal += placePoints[selVal-1];
             }
-            $('#round_races article:eq('+j+') dl:eq('+i+') .score').text(playerTotal);
+            var $roundRace = $('#round_races article').eq(j);
+            $roundRace.find('dl').eq(i).find('.score').text(playerTotal);
         });
     }
     
@@ -45,20 +46,20 @@ $(function(){
 
 
         var j = $('#round_races article').index( $holder.parents('article') );
-        var i = $('#round_races article:eq('+j+') dl').index($draggee);
+        var i = $('#round_races article').eq(j).find('dl').index($draggee);
+        var $selectPlace = $('table .race').eq(j).find('select.place').eq(i);
 
         if ( $holder.parent().is('ol') ) {
             $holder.addClass('player');
-            
-            // debug(i);
-            var place = $('#round_races article:eq('+j+') ol li').index($holder);
+    
+            var place = $('#round_races article').eq(j).find('ol li').index($holder);
             var points = placePoints[place];
             $draggee.find('.points').text('+' + points);
             
-            $('table .race:eq('+j+') select.place:eq('+i+')').val( (place+1) ).change();
+            $selectPlace.val( (place+1) ).change();
         } else {
             $draggee.find('.points').text('+0');
-            $('table .race:eq('+j+') select.place:eq('+i+')').val('---').change();
+            $selectPlace.val('---').change();
         }
         
         if ($previousHolder.parent().is('ol') ) {
@@ -138,17 +139,14 @@ $(function(){
             var selOpt = $(this).find(':selected');
             var place = $(this).find('option').index( selOpt );
             var j = $('table .race').index( $(this).parents('.race') );
-            var i = $('table .race:eq('+j+') select.place').index(this);
-
-            // debug('race '+(j+1), 'player '+(i+1),  'place ' + place);
+            var i = $('table .race').eq(j).find('select.place').index(this);
             
-            var $draggee = $('#round_races article:eq('+j+') dl:eq('+i+')');
-            var $holder = $('#round_races article:eq('+j+') ol li:eq('+(place-1)+')');
+            var $roundRace = $('#round_races article').eq(j);
+            var $draggee = $roundRace.find('dl').eq(i);
+            var $holder = $roundRace.find('ol li').eq(place-1);
             
             $previousHolder = $draggee.data('holder');
-            // debug(j, i, $draggee);
             handleDrops($draggee, $holder);
-            // $('#round_races article:eq('+j+') ul li:eq('+i+')').droppable('enable');
         }
     });
 
@@ -175,20 +173,20 @@ $(function(){
         var prevSelIdx = $(this).data('prevSelIdx');
         if ( prevSelIdx != undefined ) {
             otherSelects.each(function(){
-                $(this).find('option:eq('+prevSelIdx+')').removeAttr('disabled');
+                $(this).find('option').eq(prevSelIdx).removeAttr('disabled');
             });                
         }
         $(this).data('prevSelIdx', selIdx);
 
         if( selIdx > 0 ) {
             otherSelects.each(function(){
-                $(this).find('option:eq('+selIdx+')').attr('disabled', 'disabled');
+                $(this).find('option').eq(selIdx).attr('disabled', 'disabled');
             });            
         }
 
         // set select in form to correct one
         var j = $('#round_races select.course').index(this);
-        $('table select.course:eq('+j+')').val( $(this).val() ).change();
+        $('table select.course').eq(j).val( $(this).val() ).change();
     });
 
     

@@ -36,9 +36,9 @@ $(function(){
         playerPoints[i] = [];
         playerPlaces[i] = [];
         for (j=1; j <= raceCount; j++ ) {
-            var points = $('#graph .player:eq('+(i-1)+') meter.race:eq('+(j-1)+')')
-                            .attr('value');
-            var place = $('#output tr:eq('+(i+1)+') td:eq('+(j+2)+')').text();
+            var points = $('#graph .player').eq(i-1).find('meter.race').eq(j-1).attr('value');
+            var place = $('#output tr').eq(i+1).find('td').eq(j+2).text();
+            
             points = parseInt(points);
             place = parseInt(place);
             playerPoints[i][j] = points;
@@ -147,8 +147,8 @@ $(function(){
  		        
                  hue = (360 / playerCount) * i;
                  hue = parseInt(hue);
-                 ctx.fillStyle = $('#graph .player:eq('+(i-1)+') progress.round').css('background-color');
-                 debug(ctx.fillStyle);
+                 ctx.fillStyle = $('#graph .player').eq(i-1).find('progress.round').css('background-color');
+                 // debug(ctx.fillStyle);
                  
                  x1 = 0;
                  y1 = playerPlaces[i][1]*sizeY;
