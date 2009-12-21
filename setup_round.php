@@ -16,8 +16,10 @@
 
     
     <div id="wrap">
-        <h1>Setup Round</h1>
         
+        <?php include('_base/includes/templates/header.php'); ?>
+
+        <h1>Setup Round</h1>
 
         <section id="people">
             <?php foreach ($people as $person): ?>
@@ -28,7 +30,7 @@
         </section>
     
         <section id="players">
-            <?php for ($i=1; $i <= 4; $i++): ?>
+            <?php for ($i=1; $i <= 8; $i++): ?>
                 <article id="player<?= $i ?>" class="player">
                     <div class="person dropbox"></div>
                     <div class="avatar dropbox"></div>
@@ -79,7 +81,7 @@
             <table id="data">
                 <tr class="player">
                     <th scope="row">Player</th>
-                    <?php for ($i=1; $i <= 4; $i++): ?>
+                    <?php for ($i=1; $i <= 8; $i++): ?>
                         <td>
                             <select name="names[<?= $i ?>]" class="person">
                                 <option value="---">---</option>
@@ -92,7 +94,7 @@
                 </tr>
                 <tr class="character">
                     <th scope="row">Character</th>
-                    <?php for ($i=1; $i <= 4; $i++): ?>
+                    <?php for ($i=1; $i <= 8; $i++): ?>
                         <td>
                             <select  name="characters[<?= $i ?>]" class="character">
                                 <option value="---">---</option>
@@ -105,7 +107,7 @@
                 </tr>
                 <tr class="vehicle">
                     <th scope="row">Vehicle</th>
-                    <?php for ($i=1; $i <= 4; $i++): ?>
+                    <?php for ($i=1; $i <= 8; $i++): ?>
                         <td>
                             <select name="vehicles[<?= $i ?>]" class="vehicle">
                                 <option value="---">---</option>
@@ -122,7 +124,7 @@
                 </tr>
                 <tr class="transmission">
                     <th scope="row">Transmission</th>
-                    <?php for ($i=1; $i <= 4; $i++): ?>
+                    <?php for ($i=1; $i <= 8; $i++): ?>
                         <td>
                             <?php $id = 'player' . $i . '_transmission'; ?>
                             <input type="radio" name="transmissions[<?= $i ?>]" value="auto"  />

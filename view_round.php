@@ -5,6 +5,7 @@
     $playerCount = intval($_POST['player_count']);
 
     $roundMax = $raceCount * 15;
+    $playerY = 90 - 5*$playerCount;
 
     $roundCourses = array();
 
@@ -80,7 +81,7 @@
            
         <h1>View Round</h1>
 
-        <section id="graph">
+        <section id="graph" style="height: <?= $playerY * $playerCount + 10 ?>px">
             <div class="graph_lines">
                 <label class="zero">0</label>
                 <?php for ($i=1; $i <= 6; $i++): 
@@ -90,14 +91,14 @@
                 <?php endfor; ?>
             </div>
         
-        	<canvas id="curves" width="600" height="260"></canvas>
+        	<canvas id="curves" width="600" height="<?= $playerY * $playerCount ?>"></canvas>
         
             <?php $i = 1;
             foreach( $players as $player): 
                 $roundW = ($player->total / $roundMax) * 600;
                 $roundW = intval($roundW);
             ?>
-                <div id="player_<?= $i ?>" class="player <?= cleanURL($player->character) ?>">
+                <div id="player_<?= $i ?>" class="player <?= cleanURL($player->character) ?>" style="top: <?= $playerY * ($i-1) ?>px">
                     <p class="total"><?= $player->total ?></p>
                     <progress class="round" value="<?= $player->total ?>" max="<?= $roundMax ?>" style="width: <?= pixelWidth($player->total)+2 ?>px;">
                         <?php 

@@ -17,7 +17,7 @@
     
     $playerCount = 0;
     $validPlayerIDs[] = '';
-    for ($i=1; $i <= 4; $i++) { 
+    for ($i=1; $i <= 8; $i++) { 
         if ( $_POST['names'][$i] != '---' ) { 
             $playerCount++;
             $validPlayerIDs[] = $i;
@@ -57,6 +57,14 @@
         <?php include('_base/includes/templates/header.php'); ?>
         
         <h1>Select Places</h1>
+        
+        <?php
+        if ($_POST) {
+            echo '<pre>';
+            echo htmlspecialchars(print_r($_POST, true));
+            echo '</pre>';
+        }
+        ?>
         
         <section id="round_races">
             

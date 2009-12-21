@@ -298,7 +298,6 @@ body.setup_round fieldset li {
     margin: 40px 0 10px 80px;
     background: #FFF;
     position: relative;
-    height: 280px;
 }
 
 
@@ -307,7 +306,7 @@ body.setup_round fieldset li {
 #graph .graph_lines {
     border-left: 1px solid #DDD;
     position: absolute;
-    height: 280px;
+    height: 100%;
     top: -20px;
     left: 0;
 }
@@ -349,13 +348,13 @@ body.setup_round fieldset li {
 #graph .player {
     border: 0px solid #CCC;
     position: absolute;
-    top: 0;
+/*    top: 0;*/
     left: 0;
 }
-#graph #player_2 { top: 70px; }
+/*#graph #player_2 { top: 70px; }
 #graph #player_3 { top: 140px; }
 #graph #player_4 { top: 210px; }
-
+*/
 #graph progress.round {
     border: 1px solid #AAA;
     height: 20px;
@@ -724,4 +723,4 @@ body.setup_round .ui-draggable {
 **  whatever
 **************************/
 
-table#data { display: none;}
+/*table#data { display: none;}*/

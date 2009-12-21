@@ -17,7 +17,7 @@ $(function(){
     
     var meterSpeed = 1500;
     var switchSpeed = 500;
-    var playerY = 70;
+    var playerY = 90 - playerCount*5;
 
     var roundRacesW = $('#round_races').width();
     var sliderW = $('#round_races .slider').width();
@@ -57,7 +57,7 @@ $(function(){
 			// begin canvas code
 
             var meterH = 20;
-            var marginY = 50;
+            var marginY = playerY - meterH;
             var handleY = marginY * .5;
 
             var x = [];

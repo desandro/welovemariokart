@@ -6,21 +6,27 @@ Visualizes rounds of races for Mario Kart Wii.
 
 h2. To do
 
-* *setup_round.php* Handle refreshes
-
+* select_places > on refresh do the exclusion thing
+* view_round > Make names smaller
 
 h2. Vars
 
 Per Round
     Date (date)
     Number of Races (1-10)
-    Number of Players (2-4)
+    Number of Players (2-8)
     Round ID (#)
+    items setting (normal, strategic, aggressive, none)
+    level (50, 100, 150, 150mirror)
+    
     
 Per Player
     Player Name / Player ID
     Character
     Vehicle
+    Transmission  (Automatic, Manual)
+    Controller (Wii Wheel, Nunchuck, Gamecube controller)
+    
 
 
 
@@ -38,5 +44,7 @@ h3. Players (people)
 *Options*
 
 Prefered Character
-Prefered Kart
+ + Prefered Kart
+Preferred Controller
+Preferred Transmission
 Buddies - 
