@@ -30,7 +30,7 @@
         </section>
     
         <section id="players">
-            <?php for ($i=1; $i <= 8; $i++): ?>
+            <?php for ($i=1; $i <= 4; $i++): ?>
                 <article id="player<?= $i ?>" class="player">
                     <div class="person dropbox"></div>
                     <div class="avatar dropbox"></div>
