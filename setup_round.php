@@ -12,7 +12,7 @@
     <script type="text/javascript" src="_base/js/setup_round.js" charset="utf-8"></script>
 
 </head>
-<body class="setup_round">
+<body class="setup_round museo">
 
     
     <div id="wrap">
