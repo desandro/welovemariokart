@@ -7,6 +7,9 @@ $(function(){
 	    window.console && console.log.call(console,arguments);
 	}
 
+
+    $('table#data').hide();
+
     var $draggee, $previousHolder;
     
     var playerCount = parseInt( $('#player_count').val() );

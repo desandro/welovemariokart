@@ -209,6 +209,8 @@
             
             </table>
 
+            
+            <?php include('_base/includes/templates/footer.php'); ?>
 
         </form>
 

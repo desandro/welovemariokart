@@ -15,6 +15,8 @@ $(function(){
 	    window.console && console.log.call(console,arguments);
 	}
 
+    $('table#data').hide();
+
     var $previousHolder;
     var $draggee;
 

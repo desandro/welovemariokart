@@ -140,6 +140,9 @@
         
         <button id="reset">Reset</button>
 
+        
+        <?php include('_base/includes/templates/footer.php'); ?>
+
     </div> <!-- /#wrap -->
 
     

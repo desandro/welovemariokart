@@ -10,6 +10,9 @@ $(function(){
 	    window.console && console.log.call(console,arguments);
 	}
 
+    
+    $('table#data').hide();
+
     var raceCount = $('#player_1 meter.race').length;
     var playerCount = $('#graph .player').length;
     var roundMax = raceCount * 15;
