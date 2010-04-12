@@ -150,7 +150,7 @@ $(function(){
  		        
                  hue = (360 / playerCount) * i;
                  hue = parseInt(hue);
-                 ctx.fillStyle = $('#graph .player').eq(i-1).find('progress.round').css('background-color');
+                 ctx.fillStyle = $('#graph .player').eq(i-1).find('.round').css('background-color');
                  // debug(ctx.fillStyle);
                  
                  x1 = 0;
@@ -281,7 +281,7 @@ $(function(){
 
         $('#curves').fadeOut();
         $('#round_races .race').fadeTo('normal', .15);
-        $('#graph .player progress.round').animate({ width: 0 }, 'normal', 'swing', function(){
+        $('#graph .player .round').animate({ width: 0 }, 'normal', 'swing', function(){
             if( !ajaxing ) {
         		animateRace();
             }
@@ -345,7 +345,7 @@ $(function(){
 
                 var addPoints =  playerPoints[i+1][j];
 
-				var roundMeter = $(this).children('progress.round');
+				var roundMeter = $(this).children('.round');
 				var roundTotal = $(this).children('.total');
 
 

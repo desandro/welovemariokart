@@ -100,7 +100,7 @@
             ?>
                 <div id="player_<?= $i ?>" class="player <?= cleanURL($player->character) ?>" style="top: <?= $playerY * ($i-1) ?>px">
                     <p class="total"><?= $player->total ?></p>
-                    <progress class="round" value="<?= $player->total ?>" max="<?= $roundMax ?>" style="width: <?= pixelWidth($player->total)+2 ?>px;">
+                    <div class="round" value="<?= $player->total ?>" max="<?= $roundMax ?>" style="width: <?= pixelWidth($player->total)+2 ?>px;">
                         <?php 
                             $x = 0;
                             for ($j=1; $j <= $raceCount; $j++): 
@@ -118,7 +118,7 @@
                             $x += $w; 
                             endfor; 
                         ?>
-                    </progress>
+                    </div> <!-- .round -->
                     <dl class="identity">
                         <dt class="name"><?= $player->name ?></dt>
                         <dd class="avatar character <?= cleanURL($player->character) ?>">

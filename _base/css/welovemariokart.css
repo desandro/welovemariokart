@@ -12,6 +12,10 @@ section, header, progress, article, meter, figure {
     display: block;
 }
 
+html {
+    background: -moz-radial-gradient(center center, circle cover, #FFF 0%, #FAFAFA 80%, #DDD 100%) fixed;
+
+}
 
 body {
     font-size: 13px;
@@ -23,6 +27,7 @@ body {
     width: 940px;
     padding: 10px;
     margin: 0 auto;
+    height: 200px;
 }
 
 h1 {
@@ -318,7 +323,6 @@ body.setup_round fieldset li {
 
 #graph {
     margin: 40px 0 10px 80px;
-    background: #FFF;
     position: relative;
 }
 
@@ -377,7 +381,7 @@ body.setup_round fieldset li {
 #graph #player_3 { top: 140px; }
 #graph #player_4 { top: 210px; }
 */
-#graph progress.round {
+#graph .round {
     border: 1px solid #AAA;
     height: 20px;
     width: 640px;
