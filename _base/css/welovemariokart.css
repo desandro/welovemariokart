@@ -33,7 +33,7 @@ body {
 h1 {
     font-size: 32px;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 100;
     color: #CCC;
     margin-bottom: 0.5em;
 }
@@ -445,7 +445,6 @@ body.setup_round fieldset li {
     letter-spacing: -0.015em;
     display: inline;
     font-weight: 900;
-    font-style: italic;
 }
 
 #graph .total {
@@ -666,7 +665,6 @@ button[disabled]:active
     left: 78px;
     font-size: 19px;
     font-weight: 800;
-    font-style: italic;
 }
 
 #round_races .points {
