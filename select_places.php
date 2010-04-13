@@ -45,7 +45,8 @@
 
 
 
-    <script type="text/javascript" src="_base/js/jquery-ui-1.7.2.dragdrop.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="_base/js/jquery-ui-1.8.dragndrop.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="_base/js/jquery.iphoneui.js" charset="utf-8"></script>
 
     <script type="text/javascript" src="_base/js/select_places.js" charset="utf-8"></script>
 

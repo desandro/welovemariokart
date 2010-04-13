@@ -115,7 +115,9 @@ $(function(){
                 $draggee = $(this);
                 $previousHolder = $(this).data('holder');
             }
-        });
+        })
+            .addTouch();
+        ;
 
         $(this).find('.drop').droppable({
             hoverClass: 'drophover',

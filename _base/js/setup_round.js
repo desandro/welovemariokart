@@ -130,7 +130,9 @@ $(function(){
             $draggee = $(this);
             $previousHolder = $(this).data('holder');
         }
-    });
+    })
+        .addTouch()
+    ;
 
     // checking logic
     function validateForm() {

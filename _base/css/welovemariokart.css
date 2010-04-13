@@ -254,7 +254,6 @@ body.setup_round #players .person {
     padding-left: 10px;
     font-size: 28px;
     font-weight: 900;
-    font-style: italic;
     background: #FFF;
 }
 
@@ -777,4 +776,23 @@ body.setup_round .ui-draggable {
 
 #site_footer .nclud a:hover {
     color: #222;
+}
+
+
+/**************************
+**  Select places tweaks for iPad
+**************************/
+
+body.select_places {
+    padding: 0 30px;
+}
+
+body.select_places #wrap {
+    width: auto;
+}
+
+body.select_places #round_races {
+    overflow: visible;
+    border: none;
+    
 }
