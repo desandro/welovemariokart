@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    <link rel="stylesheet" href="_base/css/master.css" type="text/css" media="screen" />
+
+    <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    
+    <script type="text/javascript" src="_base/js/jquery-1.4.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://use.typekit.com/gmb0cdb.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+
+    <title>Setup Round</title>
+
+
+    <script type="text/javascript" src="_base/js/jquery-ui-1.8.dragndrop.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="_base/js/jquery.iphoneui.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="_base/js/setup_round.js" charset="utf-8"></script>
+
+</head>
+<body class="setup_round museo">
+
+    
+    <div id="wrap">
+        
+        <section id="site_header">
+    <p id="branding">welovemariokart</p>
+</section>
+        <h1>Setup Round</h1>
+
+        <section id="people">
+                            <div id="holder_Martin" class="person dropbox">
+                    <div class="person draggee"><strong>Martin</strong></div>
+                </div>
+                            <div id="holder_Alex" class="person dropbox">
+                    <div class="person draggee"><strong>Alex</strong></div>
+                </div>
+                            <div id="holder_Dan" class="person dropbox">
+                    <div class="person draggee"><strong>Dan</strong></div>
+                </div>
+                            <div id="holder_Lauren" class="person dropbox">
+                    <div class="person draggee"><strong>Lauren</strong></div>
+                </div>
+                            <div id="holder_Dave" class="person dropbox">
+                    <div class="person draggee"><strong>Dave</strong></div>
+                </div>
+                            <div id="holder_Mike" class="person dropbox">
+                    <div class="person draggee"><strong>Mike</strong></div>
+                </div>
+                            <div id="holder_Doris" class="person dropbox">
+                    <div class="person draggee"><strong>Doris</strong></div>
+                </div>
+                            <div id="holder_Brandon" class="person dropbox">
+                    <div class="person draggee"><strong>Brandon</strong></div>
+                </div>
+                    </section>
+    
+        <section id="players">
+                            <article id="player1" class="player">
+                    <div class="person dropbox"></div>
+                    <div class="avatar dropbox"></div>
+                                            <select class="vehicle light" >
+                            <optgroup label="Light Karts">
+                                                                    <option value="Standard Kart S">Standard Kart S</option>
+                                                                    <option value="Booster Seat">Booster Seat</option>
+                                                                    <option value="Mini Beast">Mini Beast</option>
+                                                                    <option value="Cheep Charger">Cheep Charger</option>
+                                                                    <option value="Tiny Titan">Tiny Titan</option>
+                                                                    <option value="Blue Falcon">Blue Falcon</option>
+                                                            </optgroup>
+                            <optgroup label="Light Bikes">
+                                                                    <option value="Standard Bike S">Standard Bike S</option>
+                                                                    <option value="Bullet Bike">Bullet Bike</option>
+                                                                    <option value="Bit Bike">Bit Bike</option>
+                                                                    <option value="Quacker">Quacker</option>
+                                                                    <option value="Magikruiser">Magikruiser</option>
+                                                                    <option value="Jet Bubble">Jet Bubble</option>
+                                                            </optgroup>
+                        </select>
+                                            <select class="vehicle medium" >
+                            <optgroup label="Medium Karts">
+                                                                    <option value="Standard Kart M">Standard Kart M</option>
+                                                                    <option value="Classic Dragster">Classic Dragster</option>
+                                                                    <option value="Wild Wing">Wild Wing</option>
+                                                                    <option value="Super Blooper">Super Blooper</option>
+                                                                    <option value="Daytripper">Daytripper</option>
+                                                                    <option value="Sprinter">Sprinter</option>
+                                                            </optgroup>
+                            <optgroup label="Medium Bikes">
+                                                                    <option value="Standard Bike M">Standard Bike M</option>
+                                                                    <option value="Mach Bike">Mach Bike</option>
+                                                                    <option value="Sugarscoot">Sugarscoot</option>
+                                                                    <option value="Zip Zip">Zip Zip</option>
+                                                                    <option value="Sneakster">Sneakster</option>
+                                                                    <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                            </optgroup>
+                        </select>
+                                            <select class="vehicle heavy" >
+                            <optgroup label="Heavy Karts">
+                                                                    <option value="Standard Kart L">Standard Kart L</option>
+                                                                    <option value="Offroader">Offroader</option>
+                                                                    <option value="Flame Flyer">Flame Flyer</option>
+                                                                    <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                    <option value="Jetsetter">Jetsetter</option>
+                                                                    <option value="Honeycoupe">Honeycoupe</option>
+                                                            </optgroup>
+                            <optgroup label="Heavy Bikes">
+                                                                    <option value="Standard Bike L">Standard Bike L</option>
+                                                                    <option value="Flame Runner">Flame Runner</option>
+                                                                    <option value="Wario Bike">Wario Bike</option>
+                                                                    <option value="Shooting Star">Shooting Star</option>
+                                                                    <option value="Spear">Spear</option>
+                                                                    <option value="Phantom">Phantom</option>
+                                                            </optgroup>
+                        </select>
+                                        <div class="transmission disabled">
+                                                <input type="radio" name="transmission1" value="auto" id="transmission1_auto" disabled="disabled" />
+                        <label for="transmission1_auto">A</label>
+                        <input type="radio" name="transmission1" value="manual" id="transmission1_manual" disabled="disabled" />
+                        <label for="transmission1_manual">M</label>
+                    </div>
+                </article>
+                            <article id="player2" class="player">
+                    <div class="person dropbox"></div>
+                    <div class="avatar dropbox"></div>
+                                            <select class="vehicle light" >
+                            <optgroup label="Light Karts">
+                                                                    <option value="Standard Kart S">Standard Kart S</option>
+                                                                    <option value="Booster Seat">Booster Seat</option>
+                                                                    <option value="Mini Beast">Mini Beast</option>
+                                                                    <option value="Cheep Charger">Cheep Charger</option>
+                                                                    <option value="Tiny Titan">Tiny Titan</option>
+                                                                    <option value="Blue Falcon">Blue Falcon</option>
+                                                            </optgroup>
+                            <optgroup label="Light Bikes">
+                                                                    <option value="Standard Bike S">Standard Bike S</option>
+                                                                    <option value="Bullet Bike">Bullet Bike</option>
+                                                                    <option value="Bit Bike">Bit Bike</option>
+                                                                    <option value="Quacker">Quacker</option>
+                                                                    <option value="Magikruiser">Magikruiser</option>
+                                                                    <option value="Jet Bubble">Jet Bubble</option>
+                                                            </optgroup>
+                        </select>
+                                            <select class="vehicle medium" >
+                            <optgroup label="Medium Karts">
+                                                                    <option value="Standard Kart M">Standard Kart M</option>
+                                                                    <option value="Classic Dragster">Classic Dragster</option>
+                                                                    <option value="Wild Wing">Wild Wing</option>
+                                                                    <option value="Super Blooper">Super Blooper</option>
+                                                                    <option value="Daytripper">Daytripper</option>
+                                                                    <option value="Sprinter">Sprinter</option>
+                                                            </optgroup>
+                            <optgroup label="Medium Bikes">
+                                                                    <option value="Standard Bike M">Standard Bike M</option>
+                                                                    <option value="Mach Bike">Mach Bike</option>
+                                                                    <option value="Sugarscoot">Sugarscoot</option>
+                                                                    <option value="Zip Zip">Zip Zip</option>
+                                                                    <option value="Sneakster">Sneakster</option>
+                                                                    <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                            </optgroup>
+                        </select>
+                                            <select class="vehicle heavy" >
+                            <optgroup label="Heavy Karts">
+                                                                    <option value="Standard Kart L">Standard Kart L</option>
+                                                                    <option value="Offroader">Offroader</option>
+                                                                    <option value="Flame Flyer">Flame Flyer</option>
+                                                                    <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                    <option value="Jetsetter">Jetsetter</option>
+                                                                    <option value="Honeycoupe">Honeycoupe</option>
+                                                            </optgroup>
+                            <optgroup label="Heavy Bikes">
+                                                                    <option value="Standard Bike L">Standard Bike L</option>
+                                                                    <option value="Flame Runner">Flame Runner</option>
+                                                                    <option value="Wario Bike">Wario Bike</option>
+                                                                    <option value="Shooting Star">Shooting Star</option>
+                                                                    <option value="Spear">Spear</option>
+                                                                    <option value="Phantom">Phantom</option>
+                                                            </optgroup>
+                        </select>
+                                        <div class="transmission disabled">
+                                                <input type="radio" name="transmission2" value="auto" id="transmission2_auto" disabled="disabled" />
+                        <label for="transmission2_auto">A</label>
+                        <input type="radio" name="transmission2" value="manual" id="transmission2_manual" disabled="disabled" />
+                        <label for="transmission2_manual">M</label>
+                    </div>
+                </article>
+                            <article id="player3" class="player">
+                    <div class="person dropbox"></div>
+                    <div class="avatar dropbox"></div>
+                                            <select class="vehicle light" >
+                            <optgroup label="Light Karts">
+                                                                    <option value="Standard Kart S">Standard Kart S</option>
+                                                                    <option value="Booster Seat">Booster Seat</option>
+                                                                    <option value="Mini Beast">Mini Beast</option>
+                                                                    <option value="Cheep Charger">Cheep Charger</option>
+                                                                    <option value="Tiny Titan">Tiny Titan</option>
+                                                                    <option value="Blue Falcon">Blue Falcon</option>
+                                                            </optgroup>
+                            <optgroup label="Light Bikes">
+                                                                    <option value="Standard Bike S">Standard Bike S</option>
+                                                                    <option value="Bullet Bike">Bullet Bike</option>
+                                                                    <option value="Bit Bike">Bit Bike</option>
+                                                                    <option value="Quacker">Quacker</option>
+                                                                    <option value="Magikruiser">Magikruiser</option>
+                                                                    <option value="Jet Bubble">Jet Bubble</option>
+                                                            </optgroup>
+                        </select>
+                                            <select class="vehicle medium" >
+                            <optgroup label="Medium Karts">
+                                                                    <option value="Standard Kart M">Standard Kart M</option>
+                                                                    <option value="Classic Dragster">Classic Dragster</option>
+                                                                    <option value="Wild Wing">Wild Wing</option>
+                                                                    <option value="Super Blooper">Super Blooper</option>
+                                                                    <option value="Daytripper">Daytripper</option>
+                                                                    <option value="Sprinter">Sprinter</option>
+                                                            </optgroup>
+                            <optgroup label="Medium Bikes">
+                                                                    <option value="Standard Bike M">Standard Bike M</option>
+                                                                    <option value="Mach Bike">Mach Bike</option>
+                                                                    <option value="Sugarscoot">Sugarscoot</option>
+                                                                    <option value="Zip Zip">Zip Zip</option>
+                                                                    <option value="Sneakster">Sneakster</option>
+                                                                    <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                            </optgroup>
+                        </select>
+                                            <select class="vehicle heavy" >
+                            <optgroup label="Heavy Karts">
+                                                                    <option value="Standard Kart L">Standard Kart L</option>
+                                                                    <option value="Offroader">Offroader</option>
+                                                                    <option value="Flame Flyer">Flame Flyer</option>
+                                                                    <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                    <option value="Jetsetter">Jetsetter</option>
+                                                                    <option value="Honeycoupe">Honeycoupe</option>
+                                                            </optgroup>
+                            <optgroup label="Heavy Bikes">
+                                                                    <option value="Standard Bike L">Standard Bike L</option>
+                                                                    <option value="Flame Runner">Flame Runner</option>
+                                                                    <option value="Wario Bike">Wario Bike</option>
+                                                                    <option value="Shooting Star">Shooting Star</option>
+                                                                    <option value="Spear">Spear</option>
+                                                                    <option value="Phantom">Phantom</option>
+                                                            </optgroup>
+                        </select>
+                                        <div class="transmission disabled">
+                                                <input type="radio" name="transmission3" value="auto" id="transmission3_auto" disabled="disabled" />
+                        <label for="transmission3_auto">A</label>
+                        <input type="radio" name="transmission3" value="manual" id="transmission3_manual" disabled="disabled" />
+                        <label for="transmission3_manual">M</label>
+                    </div>
+                </article>
+                            <article id="player4" class="player">
+                    <div class="person dropbox"></div>
+                    <div class="avatar dropbox"></div>
+                                            <select class="vehicle light" >
+                            <optgroup label="Light Karts">
+                                                                    <option value="Standard Kart S">Standard Kart S</option>
+                                                                    <option value="Booster Seat">Booster Seat</option>
+                                                                    <option value="Mini Beast">Mini Beast</option>
+                                                                    <option value="Cheep Charger">Cheep Charger</option>
+                                                                    <option value="Tiny Titan">Tiny Titan</option>
+                                                                    <option value="Blue Falcon">Blue Falcon</option>
+                                                            </optgroup>
+                            <optgroup label="Light Bikes">
+                                                                    <option value="Standard Bike S">Standard Bike S</option>
+                                                                    <option value="Bullet Bike">Bullet Bike</option>
+                                                                    <option value="Bit Bike">Bit Bike</option>
+                                                                    <option value="Quacker">Quacker</option>
+                                                                    <option value="Magikruiser">Magikruiser</option>
+                                                                    <option value="Jet Bubble">Jet Bubble</option>
+                                                            </optgroup>
+                        </select>
+                                            <select class="vehicle medium" >
+                            <optgroup label="Medium Karts">
+                                                                    <option value="Standard Kart M">Standard Kart M</option>
+                                                                    <option value="Classic Dragster">Classic Dragster</option>
+                                                                    <option value="Wild Wing">Wild Wing</option>
+                                                                    <option value="Super Blooper">Super Blooper</option>
+                                                                    <option value="Daytripper">Daytripper</option>
+                                                                    <option value="Sprinter">Sprinter</option>
+                                                            </optgroup>
+                            <optgroup label="Medium Bikes">
+                                                                    <option value="Standard Bike M">Standard Bike M</option>
+                                                                    <option value="Mach Bike">Mach Bike</option>
+                                                                    <option value="Sugarscoot">Sugarscoot</option>
+                                                                    <option value="Zip Zip">Zip Zip</option>
+                                                                    <option value="Sneakster">Sneakster</option>
+                                                                    <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                            </optgroup>
+                        </select>
+                                            <select class="vehicle heavy" >
+                            <optgroup label="Heavy Karts">
+                                                                    <option value="Standard Kart L">Standard Kart L</option>
+                                                                    <option value="Offroader">Offroader</option>
+                                                                    <option value="Flame Flyer">Flame Flyer</option>
+                                                                    <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                    <option value="Jetsetter">Jetsetter</option>
+                                                                    <option value="Honeycoupe">Honeycoupe</option>
+                                                            </optgroup>
+                            <optgroup label="Heavy Bikes">
+                                                                    <option value="Standard Bike L">Standard Bike L</option>
+                                                                    <option value="Flame Runner">Flame Runner</option>
+                                                                    <option value="Wario Bike">Wario Bike</option>
+                                                                    <option value="Shooting Star">Shooting Star</option>
+                                                                    <option value="Spear">Spear</option>
+                                                                    <option value="Phantom">Phantom</option>
+                                                            </optgroup>
+                        </select>
+                                        <div class="transmission disabled">
+                                                <input type="radio" name="transmission4" value="auto" id="transmission4_auto" disabled="disabled" />
+                        <label for="transmission4_auto">A</label>
+                        <input type="radio" name="transmission4" value="manual" id="transmission4_manual" disabled="disabled" />
+                        <label for="transmission4_manual">M</label>
+                    </div>
+                </article>
+                    </section>
+
+        <section id="character_pool">
+                            <div id="holder_baby_mario" class="dropbox avatar">
+                    <div class="avatar character draggee baby_mario">
+                        <div><img src="_base/img/character_avatars.png" alt="Baby Mario" /></div>
+                        <label>Baby Mario</label>
+                    </div>
+                </div>
+                            <div id="holder_baby_luigi" class="dropbox avatar">
+                    <div class="avatar character draggee baby_luigi">
+                        <div><img src="_base/img/character_avatars.png" alt="Baby Luigi" /></div>
+                        <label>Baby Luigi</label>
+                    </div>
+                </div>
+                            <div id="holder_baby_peach" class="dropbox avatar">
+                    <div class="avatar character draggee baby_peach">
+                        <div><img src="_base/img/character_avatars.png" alt="Baby Peach" /></div>
+                        <label>Baby Peach</label>
+                    </div>
+                </div>
+                            <div id="holder_baby_daisy" class="dropbox avatar">
+                    <div class="avatar character draggee baby_daisy">
+                        <div><img src="_base/img/character_avatars.png" alt="Baby Daisy" /></div>
+                        <label>Baby Daisy</label>
+                    </div>
+                </div>
+                            <div id="holder_toad" class="dropbox avatar">
+                    <div class="avatar character draggee toad">
+                        <div><img src="_base/img/character_avatars.png" alt="Toad" /></div>
+                        <label>Toad</label>
+                    </div>
+                </div>
+                            <div id="holder_toadette" class="dropbox avatar">
+                    <div class="avatar character draggee toadette">
+                        <div><img src="_base/img/character_avatars.png" alt="Toadette" /></div>
+                        <label>Toadette</label>
+                    </div>
+                </div>
+                            <div id="holder_koopa_troopa" class="dropbox avatar">
+                    <div class="avatar character draggee koopa_troopa">
+                        <div><img src="_base/img/character_avatars.png" alt="Koopa Troopa" /></div>
+                        <label>Koopa Troopa</label>
+                    </div>
+                </div>
+                            <div id="holder_dry_bones" class="dropbox avatar">
+                    <div class="avatar character draggee dry_bones">
+                        <div><img src="_base/img/character_avatars.png" alt="Dry Bones" /></div>
+                        <label>Dry Bones</label>
+                    </div>
+                </div>
+                            <div id="holder_mario" class="dropbox avatar">
+                    <div class="avatar character draggee mario">
+                        <div><img src="_base/img/character_avatars.png" alt="Mario" /></div>
+                        <label>Mario</label>
+                    </div>
+                </div>
+                            <div id="holder_luigi" class="dropbox avatar">
+                    <div class="avatar character draggee luigi">
+                        <div><img src="_base/img/character_avatars.png" alt="Luigi" /></div>
+                        <label>Luigi</label>
+                    </div>
+                </div>
+                            <div id="holder_peach" class="dropbox avatar">
+                    <div class="avatar character draggee peach">
+                        <div><img src="_base/img/character_avatars.png" alt="Peach" /></div>
+                        <label>Peach</label>
+                    </div>
+                </div>
+                            <div id="holder_daisy" class="dropbox avatar">
+                    <div class="avatar character draggee daisy">
+                        <div><img src="_base/img/character_avatars.png" alt="Daisy" /></div>
+                        <label>Daisy</label>
+                    </div>
+                </div>
+                            <div id="holder_yoshi" class="dropbox avatar">
+                    <div class="avatar character draggee yoshi">
+                        <div><img src="_base/img/character_avatars.png" alt="Yoshi" /></div>
+                        <label>Yoshi</label>
+                    </div>
+                </div>
+                            <div id="holder_birdo" class="dropbox avatar">
+                    <div class="avatar character draggee birdo">
+                        <div><img src="_base/img/character_avatars.png" alt="Birdo" /></div>
+                        <label>Birdo</label>
+                    </div>
+                </div>
+                            <div id="holder_diddy_kong" class="dropbox avatar">
+                    <div class="avatar character draggee diddy_kong">
+                        <div><img src="_base/img/character_avatars.png" alt="Diddy Kong" /></div>
+                        <label>Diddy Kong</label>
+                    </div>
+                </div>
+                            <div id="holder_bowser_jr" class="dropbox avatar">
+                    <div class="avatar character draggee bowser_jr">
+                        <div><img src="_base/img/character_avatars.png" alt="Bowser Jr." /></div>
+                        <label>Bowser Jr.</label>
+                    </div>
+                </div>
+                            <div id="holder_wario" class="dropbox avatar">
+                    <div class="avatar character draggee wario">
+                        <div><img src="_base/img/character_avatars.png" alt="Wario" /></div>
+                        <label>Wario</label>
+                    </div>
+                </div>
+                            <div id="holder_waluigi" class="dropbox avatar">
+                    <div class="avatar character draggee waluigi">
+                        <div><img src="_base/img/character_avatars.png" alt="Waluigi" /></div>
+                        <label>Waluigi</label>
+                    </div>
+                </div>
+                            <div id="holder_donkey_kong" class="dropbox avatar">
+                    <div class="avatar character draggee donkey_kong">
+                        <div><img src="_base/img/character_avatars.png" alt="Donkey Kong" /></div>
+                        <label>Donkey Kong</label>
+                    </div>
+                </div>
+                            <div id="holder_bowser" class="dropbox avatar">
+                    <div class="avatar character draggee bowser">
+                        <div><img src="_base/img/character_avatars.png" alt="Bowser" /></div>
+                        <label>Bowser</label>
+                    </div>
+                </div>
+                            <div id="holder_king_boo" class="dropbox avatar">
+                    <div class="avatar character draggee king_boo">
+                        <div><img src="_base/img/character_avatars.png" alt="King Boo" /></div>
+                        <label>King Boo</label>
+                    </div>
+                </div>
+                            <div id="holder_rosalina" class="dropbox avatar">
+                    <div class="avatar character draggee rosalina">
+                        <div><img src="_base/img/character_avatars.png" alt="Rosalina" /></div>
+                        <label>Rosalina</label>
+                    </div>
+                </div>
+                            <div id="holder_funky_kong" class="dropbox avatar">
+                    <div class="avatar character draggee funky_kong">
+                        <div><img src="_base/img/character_avatars.png" alt="Funky Kong" /></div>
+                        <label>Funky Kong</label>
+                    </div>
+                </div>
+                            <div id="holder_dry_bowser" class="dropbox avatar">
+                    <div class="avatar character draggee dry_bowser">
+                        <div><img src="_base/img/character_avatars.png" alt="Dry Bowser" /></div>
+                        <label>Dry Bowser</label>
+                    </div>
+                </div>
+                        
+        </section>
+        
+        
+        <form id="setup" action="select_places.php" method="post">
+            <fieldset>
+    <legend>Number of Races</legend>
+    <ul>
+                    <li>
+                <input type="radio" value="2" id="race_count_2" name="race_count"   />
+                <label for="race_count_2">2</label>
+            </li>
+                    <li>
+                <input type="radio" value="3" id="race_count_3" name="race_count"   />
+                <label for="race_count_3">3</label>
+            </li>
+                    <li>
+                <input type="radio" value="4" id="race_count_4" name="race_count"   />
+                <label for="race_count_4">4</label>
+            </li>
+                    <li>
+                <input type="radio" value="5" id="race_count_5" name="race_count"   />
+                <label for="race_count_5">5</label>
+            </li>
+                    <li>
+                <input type="radio" value="8" id="race_count_8" name="race_count"   />
+                <label for="race_count_8">8</label>
+            </li>
+                    <li>
+                <input type="radio" value="10" id="race_count_10" name="race_count" checked="checked"  />
+                <label for="race_count_10">10</label>
+            </li>
+                    <li>
+                <input type="radio" value="12" id="race_count_12" name="race_count"   />
+                <label for="race_count_12">12</label>
+            </li>
+                    <li>
+                <input type="radio" value="16" id="race_count_16" name="race_count"   />
+                <label for="race_count_16">16</label>
+            </li>
+                    <li>
+                <input type="radio" value="32" id="race_count_32" name="race_count"   />
+                <label for="race_count_32">32</label>
+            </li>
+                
+    </ul>
+</fieldset>
+            <input type="submit" name="submit" value="Next" id="next" />
+            
+            <table id="data">
+                <tr class="player">
+                    <th scope="row">Player</th>
+                                            <td>
+                            <select name="names[1]" class="person">
+                                <option value="---">---</option>
+                                                                    <option value="Martin">Martin</option>
+                                                                    <option value="Alex">Alex</option>
+                                                                    <option value="Dan">Dan</option>
+                                                                    <option value="Lauren">Lauren</option>
+                                                                    <option value="Dave">Dave</option>
+                                                                    <option value="Mike">Mike</option>
+                                                                    <option value="Doris">Doris</option>
+                                                                    <option value="Brandon">Brandon</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="names[2]" class="person">
+                                <option value="---">---</option>
+                                                                    <option value="Martin">Martin</option>
+                                                                    <option value="Alex">Alex</option>
+                                                                    <option value="Dan">Dan</option>
+                                                                    <option value="Lauren">Lauren</option>
+                                                                    <option value="Dave">Dave</option>
+                                                                    <option value="Mike">Mike</option>
+                                                                    <option value="Doris">Doris</option>
+                                                                    <option value="Brandon">Brandon</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="names[3]" class="person">
+                                <option value="---">---</option>
+                                                                    <option value="Martin">Martin</option>
+                                                                    <option value="Alex">Alex</option>
+                                                                    <option value="Dan">Dan</option>
+                                                                    <option value="Lauren">Lauren</option>
+                                                                    <option value="Dave">Dave</option>
+                                                                    <option value="Mike">Mike</option>
+                                                                    <option value="Doris">Doris</option>
+                                                                    <option value="Brandon">Brandon</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="names[4]" class="person">
+                                <option value="---">---</option>
+                                                                    <option value="Martin">Martin</option>
+                                                                    <option value="Alex">Alex</option>
+                                                                    <option value="Dan">Dan</option>
+                                                                    <option value="Lauren">Lauren</option>
+                                                                    <option value="Dave">Dave</option>
+                                                                    <option value="Mike">Mike</option>
+                                                                    <option value="Doris">Doris</option>
+                                                                    <option value="Brandon">Brandon</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="names[5]" class="person">
+                                <option value="---">---</option>
+                                                                    <option value="Martin">Martin</option>
+                                                                    <option value="Alex">Alex</option>
+                                                                    <option value="Dan">Dan</option>
+                                                                    <option value="Lauren">Lauren</option>
+                                                                    <option value="Dave">Dave</option>
+                                                                    <option value="Mike">Mike</option>
+                                                                    <option value="Doris">Doris</option>
+                                                                    <option value="Brandon">Brandon</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="names[6]" class="person">
+                                <option value="---">---</option>
+                                                                    <option value="Martin">Martin</option>
+                                                                    <option value="Alex">Alex</option>
+                                                                    <option value="Dan">Dan</option>
+                                                                    <option value="Lauren">Lauren</option>
+                                                                    <option value="Dave">Dave</option>
+                                                                    <option value="Mike">Mike</option>
+                                                                    <option value="Doris">Doris</option>
+                                                                    <option value="Brandon">Brandon</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="names[7]" class="person">
+                                <option value="---">---</option>
+                                                                    <option value="Martin">Martin</option>
+                                                                    <option value="Alex">Alex</option>
+                                                                    <option value="Dan">Dan</option>
+                                                                    <option value="Lauren">Lauren</option>
+                                                                    <option value="Dave">Dave</option>
+                                                                    <option value="Mike">Mike</option>
+                                                                    <option value="Doris">Doris</option>
+                                                                    <option value="Brandon">Brandon</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="names[8]" class="person">
+                                <option value="---">---</option>
+                                                                    <option value="Martin">Martin</option>
+                                                                    <option value="Alex">Alex</option>
+                                                                    <option value="Dan">Dan</option>
+                                                                    <option value="Lauren">Lauren</option>
+                                                                    <option value="Dave">Dave</option>
+                                                                    <option value="Mike">Mike</option>
+                                                                    <option value="Doris">Doris</option>
+                                                                    <option value="Brandon">Brandon</option>
+                                                            </select>
+                        </td>
+                                    </tr>
+                <tr class="character">
+                    <th scope="row">Character</th>
+                                            <td>
+                            <select  name="characters[1]" class="character">
+                                <option value="---">---</option>
+                                                                    <option value="Baby Mario">Baby Mario</option>
+                                                                    <option value="Baby Luigi">Baby Luigi</option>
+                                                                    <option value="Baby Peach">Baby Peach</option>
+                                                                    <option value="Baby Daisy">Baby Daisy</option>
+                                                                    <option value="Toad">Toad</option>
+                                                                    <option value="Toadette">Toadette</option>
+                                                                    <option value="Koopa Troopa">Koopa Troopa</option>
+                                                                    <option value="Dry Bones">Dry Bones</option>
+                                                                    <option value="Mario">Mario</option>
+                                                                    <option value="Luigi">Luigi</option>
+                                                                    <option value="Peach">Peach</option>
+                                                                    <option value="Daisy">Daisy</option>
+                                                                    <option value="Yoshi">Yoshi</option>
+                                                                    <option value="Birdo">Birdo</option>
+                                                                    <option value="Diddy Kong">Diddy Kong</option>
+                                                                    <option value="Bowser Jr.">Bowser Jr.</option>
+                                                                    <option value="Wario">Wario</option>
+                                                                    <option value="Waluigi">Waluigi</option>
+                                                                    <option value="Donkey Kong">Donkey Kong</option>
+                                                                    <option value="Bowser">Bowser</option>
+                                                                    <option value="King Boo">King Boo</option>
+                                                                    <option value="Rosalina">Rosalina</option>
+                                                                    <option value="Funky Kong">Funky Kong</option>
+                                                                    <option value="Dry Bowser">Dry Bowser</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select  name="characters[2]" class="character">
+                                <option value="---">---</option>
+                                                                    <option value="Baby Mario">Baby Mario</option>
+                                                                    <option value="Baby Luigi">Baby Luigi</option>
+                                                                    <option value="Baby Peach">Baby Peach</option>
+                                                                    <option value="Baby Daisy">Baby Daisy</option>
+                                                                    <option value="Toad">Toad</option>
+                                                                    <option value="Toadette">Toadette</option>
+                                                                    <option value="Koopa Troopa">Koopa Troopa</option>
+                                                                    <option value="Dry Bones">Dry Bones</option>
+                                                                    <option value="Mario">Mario</option>
+                                                                    <option value="Luigi">Luigi</option>
+                                                                    <option value="Peach">Peach</option>
+                                                                    <option value="Daisy">Daisy</option>
+                                                                    <option value="Yoshi">Yoshi</option>
+                                                                    <option value="Birdo">Birdo</option>
+                                                                    <option value="Diddy Kong">Diddy Kong</option>
+                                                                    <option value="Bowser Jr.">Bowser Jr.</option>
+                                                                    <option value="Wario">Wario</option>
+                                                                    <option value="Waluigi">Waluigi</option>
+                                                                    <option value="Donkey Kong">Donkey Kong</option>
+                                                                    <option value="Bowser">Bowser</option>
+                                                                    <option value="King Boo">King Boo</option>
+                                                                    <option value="Rosalina">Rosalina</option>
+                                                                    <option value="Funky Kong">Funky Kong</option>
+                                                                    <option value="Dry Bowser">Dry Bowser</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select  name="characters[3]" class="character">
+                                <option value="---">---</option>
+                                                                    <option value="Baby Mario">Baby Mario</option>
+                                                                    <option value="Baby Luigi">Baby Luigi</option>
+                                                                    <option value="Baby Peach">Baby Peach</option>
+                                                                    <option value="Baby Daisy">Baby Daisy</option>
+                                                                    <option value="Toad">Toad</option>
+                                                                    <option value="Toadette">Toadette</option>
+                                                                    <option value="Koopa Troopa">Koopa Troopa</option>
+                                                                    <option value="Dry Bones">Dry Bones</option>
+                                                                    <option value="Mario">Mario</option>
+                                                                    <option value="Luigi">Luigi</option>
+                                                                    <option value="Peach">Peach</option>
+                                                                    <option value="Daisy">Daisy</option>
+                                                                    <option value="Yoshi">Yoshi</option>
+                                                                    <option value="Birdo">Birdo</option>
+                                                                    <option value="Diddy Kong">Diddy Kong</option>
+                                                                    <option value="Bowser Jr.">Bowser Jr.</option>
+                                                                    <option value="Wario">Wario</option>
+                                                                    <option value="Waluigi">Waluigi</option>
+                                                                    <option value="Donkey Kong">Donkey Kong</option>
+                                                                    <option value="Bowser">Bowser</option>
+                                                                    <option value="King Boo">King Boo</option>
+                                                                    <option value="Rosalina">Rosalina</option>
+                                                                    <option value="Funky Kong">Funky Kong</option>
+                                                                    <option value="Dry Bowser">Dry Bowser</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select  name="characters[4]" class="character">
+                                <option value="---">---</option>
+                                                                    <option value="Baby Mario">Baby Mario</option>
+                                                                    <option value="Baby Luigi">Baby Luigi</option>
+                                                                    <option value="Baby Peach">Baby Peach</option>
+                                                                    <option value="Baby Daisy">Baby Daisy</option>
+                                                                    <option value="Toad">Toad</option>
+                                                                    <option value="Toadette">Toadette</option>
+                                                                    <option value="Koopa Troopa">Koopa Troopa</option>
+                                                                    <option value="Dry Bones">Dry Bones</option>
+                                                                    <option value="Mario">Mario</option>
+                                                                    <option value="Luigi">Luigi</option>
+                                                                    <option value="Peach">Peach</option>
+                                                                    <option value="Daisy">Daisy</option>
+                                                                    <option value="Yoshi">Yoshi</option>
+                                                                    <option value="Birdo">Birdo</option>
+                                                                    <option value="Diddy Kong">Diddy Kong</option>
+                                                                    <option value="Bowser Jr.">Bowser Jr.</option>
+                                                                    <option value="Wario">Wario</option>
+                                                                    <option value="Waluigi">Waluigi</option>
+                                                                    <option value="Donkey Kong">Donkey Kong</option>
+                                                                    <option value="Bowser">Bowser</option>
+                                                                    <option value="King Boo">King Boo</option>
+                                                                    <option value="Rosalina">Rosalina</option>
+                                                                    <option value="Funky Kong">Funky Kong</option>
+                                                                    <option value="Dry Bowser">Dry Bowser</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select  name="characters[5]" class="character">
+                                <option value="---">---</option>
+                                                                    <option value="Baby Mario">Baby Mario</option>
+                                                                    <option value="Baby Luigi">Baby Luigi</option>
+                                                                    <option value="Baby Peach">Baby Peach</option>
+                                                                    <option value="Baby Daisy">Baby Daisy</option>
+                                                                    <option value="Toad">Toad</option>
+                                                                    <option value="Toadette">Toadette</option>
+                                                                    <option value="Koopa Troopa">Koopa Troopa</option>
+                                                                    <option value="Dry Bones">Dry Bones</option>
+                                                                    <option value="Mario">Mario</option>
+                                                                    <option value="Luigi">Luigi</option>
+                                                                    <option value="Peach">Peach</option>
+                                                                    <option value="Daisy">Daisy</option>
+                                                                    <option value="Yoshi">Yoshi</option>
+                                                                    <option value="Birdo">Birdo</option>
+                                                                    <option value="Diddy Kong">Diddy Kong</option>
+                                                                    <option value="Bowser Jr.">Bowser Jr.</option>
+                                                                    <option value="Wario">Wario</option>
+                                                                    <option value="Waluigi">Waluigi</option>
+                                                                    <option value="Donkey Kong">Donkey Kong</option>
+                                                                    <option value="Bowser">Bowser</option>
+                                                                    <option value="King Boo">King Boo</option>
+                                                                    <option value="Rosalina">Rosalina</option>
+                                                                    <option value="Funky Kong">Funky Kong</option>
+                                                                    <option value="Dry Bowser">Dry Bowser</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select  name="characters[6]" class="character">
+                                <option value="---">---</option>
+                                                                    <option value="Baby Mario">Baby Mario</option>
+                                                                    <option value="Baby Luigi">Baby Luigi</option>
+                                                                    <option value="Baby Peach">Baby Peach</option>
+                                                                    <option value="Baby Daisy">Baby Daisy</option>
+                                                                    <option value="Toad">Toad</option>
+                                                                    <option value="Toadette">Toadette</option>
+                                                                    <option value="Koopa Troopa">Koopa Troopa</option>
+                                                                    <option value="Dry Bones">Dry Bones</option>
+                                                                    <option value="Mario">Mario</option>
+                                                                    <option value="Luigi">Luigi</option>
+                                                                    <option value="Peach">Peach</option>
+                                                                    <option value="Daisy">Daisy</option>
+                                                                    <option value="Yoshi">Yoshi</option>
+                                                                    <option value="Birdo">Birdo</option>
+                                                                    <option value="Diddy Kong">Diddy Kong</option>
+                                                                    <option value="Bowser Jr.">Bowser Jr.</option>
+                                                                    <option value="Wario">Wario</option>
+                                                                    <option value="Waluigi">Waluigi</option>
+                                                                    <option value="Donkey Kong">Donkey Kong</option>
+                                                                    <option value="Bowser">Bowser</option>
+                                                                    <option value="King Boo">King Boo</option>
+                                                                    <option value="Rosalina">Rosalina</option>
+                                                                    <option value="Funky Kong">Funky Kong</option>
+                                                                    <option value="Dry Bowser">Dry Bowser</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select  name="characters[7]" class="character">
+                                <option value="---">---</option>
+                                                                    <option value="Baby Mario">Baby Mario</option>
+                                                                    <option value="Baby Luigi">Baby Luigi</option>
+                                                                    <option value="Baby Peach">Baby Peach</option>
+                                                                    <option value="Baby Daisy">Baby Daisy</option>
+                                                                    <option value="Toad">Toad</option>
+                                                                    <option value="Toadette">Toadette</option>
+                                                                    <option value="Koopa Troopa">Koopa Troopa</option>
+                                                                    <option value="Dry Bones">Dry Bones</option>
+                                                                    <option value="Mario">Mario</option>
+                                                                    <option value="Luigi">Luigi</option>
+                                                                    <option value="Peach">Peach</option>
+                                                                    <option value="Daisy">Daisy</option>
+                                                                    <option value="Yoshi">Yoshi</option>
+                                                                    <option value="Birdo">Birdo</option>
+                                                                    <option value="Diddy Kong">Diddy Kong</option>
+                                                                    <option value="Bowser Jr.">Bowser Jr.</option>
+                                                                    <option value="Wario">Wario</option>
+                                                                    <option value="Waluigi">Waluigi</option>
+                                                                    <option value="Donkey Kong">Donkey Kong</option>
+                                                                    <option value="Bowser">Bowser</option>
+                                                                    <option value="King Boo">King Boo</option>
+                                                                    <option value="Rosalina">Rosalina</option>
+                                                                    <option value="Funky Kong">Funky Kong</option>
+                                                                    <option value="Dry Bowser">Dry Bowser</option>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select  name="characters[8]" class="character">
+                                <option value="---">---</option>
+                                                                    <option value="Baby Mario">Baby Mario</option>
+                                                                    <option value="Baby Luigi">Baby Luigi</option>
+                                                                    <option value="Baby Peach">Baby Peach</option>
+                                                                    <option value="Baby Daisy">Baby Daisy</option>
+                                                                    <option value="Toad">Toad</option>
+                                                                    <option value="Toadette">Toadette</option>
+                                                                    <option value="Koopa Troopa">Koopa Troopa</option>
+                                                                    <option value="Dry Bones">Dry Bones</option>
+                                                                    <option value="Mario">Mario</option>
+                                                                    <option value="Luigi">Luigi</option>
+                                                                    <option value="Peach">Peach</option>
+                                                                    <option value="Daisy">Daisy</option>
+                                                                    <option value="Yoshi">Yoshi</option>
+                                                                    <option value="Birdo">Birdo</option>
+                                                                    <option value="Diddy Kong">Diddy Kong</option>
+                                                                    <option value="Bowser Jr.">Bowser Jr.</option>
+                                                                    <option value="Wario">Wario</option>
+                                                                    <option value="Waluigi">Waluigi</option>
+                                                                    <option value="Donkey Kong">Donkey Kong</option>
+                                                                    <option value="Bowser">Bowser</option>
+                                                                    <option value="King Boo">King Boo</option>
+                                                                    <option value="Rosalina">Rosalina</option>
+                                                                    <option value="Funky Kong">Funky Kong</option>
+                                                                    <option value="Dry Bowser">Dry Bowser</option>
+                                                            </select>
+                        </td>
+                                    
+                </tr>
+                <tr class="vehicle">
+                    <th scope="row">Vehicle</th>
+                                            <td>
+                            <select name="vehicles[1]" class="vehicle">
+                                <option value="---">---</option>
+                                                                    <optgroup label="Light Karts">
+                                                                            <option value="Standard Kart S">Standard Kart S</option>
+                                                                            <option value="Booster Seat">Booster Seat</option>
+                                                                            <option value="Mini Beast">Mini Beast</option>
+                                                                            <option value="Cheep Charger">Cheep Charger</option>
+                                                                            <option value="Tiny Titan">Tiny Titan</option>
+                                                                            <option value="Blue Falcon">Blue Falcon</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Light Bikes">
+                                                                            <option value="Standard Bike S">Standard Bike S</option>
+                                                                            <option value="Bullet Bike">Bullet Bike</option>
+                                                                            <option value="Bit Bike">Bit Bike</option>
+                                                                            <option value="Quacker">Quacker</option>
+                                                                            <option value="Magikruiser">Magikruiser</option>
+                                                                            <option value="Jet Bubble">Jet Bubble</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Karts">
+                                                                            <option value="Standard Kart M">Standard Kart M</option>
+                                                                            <option value="Classic Dragster">Classic Dragster</option>
+                                                                            <option value="Wild Wing">Wild Wing</option>
+                                                                            <option value="Super Blooper">Super Blooper</option>
+                                                                            <option value="Daytripper">Daytripper</option>
+                                                                            <option value="Sprinter">Sprinter</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Bikes">
+                                                                            <option value="Standard Bike M">Standard Bike M</option>
+                                                                            <option value="Mach Bike">Mach Bike</option>
+                                                                            <option value="Sugarscoot">Sugarscoot</option>
+                                                                            <option value="Zip Zip">Zip Zip</option>
+                                                                            <option value="Sneakster">Sneakster</option>
+                                                                            <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Karts">
+                                                                            <option value="Standard Kart L">Standard Kart L</option>
+                                                                            <option value="Offroader">Offroader</option>
+                                                                            <option value="Flame Flyer">Flame Flyer</option>
+                                                                            <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                            <option value="Jetsetter">Jetsetter</option>
+                                                                            <option value="Honeycoupe">Honeycoupe</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Bikes">
+                                                                            <option value="Standard Bike L">Standard Bike L</option>
+                                                                            <option value="Flame Runner">Flame Runner</option>
+                                                                            <option value="Wario Bike">Wario Bike</option>
+                                                                            <option value="Shooting Star">Shooting Star</option>
+                                                                            <option value="Spear">Spear</option>
+                                                                            <option value="Phantom">Phantom</option>
+                                                                        </optgroup>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="vehicles[2]" class="vehicle">
+                                <option value="---">---</option>
+                                                                    <optgroup label="Light Karts">
+                                                                            <option value="Standard Kart S">Standard Kart S</option>
+                                                                            <option value="Booster Seat">Booster Seat</option>
+                                                                            <option value="Mini Beast">Mini Beast</option>
+                                                                            <option value="Cheep Charger">Cheep Charger</option>
+                                                                            <option value="Tiny Titan">Tiny Titan</option>
+                                                                            <option value="Blue Falcon">Blue Falcon</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Light Bikes">
+                                                                            <option value="Standard Bike S">Standard Bike S</option>
+                                                                            <option value="Bullet Bike">Bullet Bike</option>
+                                                                            <option value="Bit Bike">Bit Bike</option>
+                                                                            <option value="Quacker">Quacker</option>
+                                                                            <option value="Magikruiser">Magikruiser</option>
+                                                                            <option value="Jet Bubble">Jet Bubble</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Karts">
+                                                                            <option value="Standard Kart M">Standard Kart M</option>
+                                                                            <option value="Classic Dragster">Classic Dragster</option>
+                                                                            <option value="Wild Wing">Wild Wing</option>
+                                                                            <option value="Super Blooper">Super Blooper</option>
+                                                                            <option value="Daytripper">Daytripper</option>
+                                                                            <option value="Sprinter">Sprinter</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Bikes">
+                                                                            <option value="Standard Bike M">Standard Bike M</option>
+                                                                            <option value="Mach Bike">Mach Bike</option>
+                                                                            <option value="Sugarscoot">Sugarscoot</option>
+                                                                            <option value="Zip Zip">Zip Zip</option>
+                                                                            <option value="Sneakster">Sneakster</option>
+                                                                            <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Karts">
+                                                                            <option value="Standard Kart L">Standard Kart L</option>
+                                                                            <option value="Offroader">Offroader</option>
+                                                                            <option value="Flame Flyer">Flame Flyer</option>
+                                                                            <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                            <option value="Jetsetter">Jetsetter</option>
+                                                                            <option value="Honeycoupe">Honeycoupe</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Bikes">
+                                                                            <option value="Standard Bike L">Standard Bike L</option>
+                                                                            <option value="Flame Runner">Flame Runner</option>
+                                                                            <option value="Wario Bike">Wario Bike</option>
+                                                                            <option value="Shooting Star">Shooting Star</option>
+                                                                            <option value="Spear">Spear</option>
+                                                                            <option value="Phantom">Phantom</option>
+                                                                        </optgroup>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="vehicles[3]" class="vehicle">
+                                <option value="---">---</option>
+                                                                    <optgroup label="Light Karts">
+                                                                            <option value="Standard Kart S">Standard Kart S</option>
+                                                                            <option value="Booster Seat">Booster Seat</option>
+                                                                            <option value="Mini Beast">Mini Beast</option>
+                                                                            <option value="Cheep Charger">Cheep Charger</option>
+                                                                            <option value="Tiny Titan">Tiny Titan</option>
+                                                                            <option value="Blue Falcon">Blue Falcon</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Light Bikes">
+                                                                            <option value="Standard Bike S">Standard Bike S</option>
+                                                                            <option value="Bullet Bike">Bullet Bike</option>
+                                                                            <option value="Bit Bike">Bit Bike</option>
+                                                                            <option value="Quacker">Quacker</option>
+                                                                            <option value="Magikruiser">Magikruiser</option>
+                                                                            <option value="Jet Bubble">Jet Bubble</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Karts">
+                                                                            <option value="Standard Kart M">Standard Kart M</option>
+                                                                            <option value="Classic Dragster">Classic Dragster</option>
+                                                                            <option value="Wild Wing">Wild Wing</option>
+                                                                            <option value="Super Blooper">Super Blooper</option>
+                                                                            <option value="Daytripper">Daytripper</option>
+                                                                            <option value="Sprinter">Sprinter</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Bikes">
+                                                                            <option value="Standard Bike M">Standard Bike M</option>
+                                                                            <option value="Mach Bike">Mach Bike</option>
+                                                                            <option value="Sugarscoot">Sugarscoot</option>
+                                                                            <option value="Zip Zip">Zip Zip</option>
+                                                                            <option value="Sneakster">Sneakster</option>
+                                                                            <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Karts">
+                                                                            <option value="Standard Kart L">Standard Kart L</option>
+                                                                            <option value="Offroader">Offroader</option>
+                                                                            <option value="Flame Flyer">Flame Flyer</option>
+                                                                            <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                            <option value="Jetsetter">Jetsetter</option>
+                                                                            <option value="Honeycoupe">Honeycoupe</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Bikes">
+                                                                            <option value="Standard Bike L">Standard Bike L</option>
+                                                                            <option value="Flame Runner">Flame Runner</option>
+                                                                            <option value="Wario Bike">Wario Bike</option>
+                                                                            <option value="Shooting Star">Shooting Star</option>
+                                                                            <option value="Spear">Spear</option>
+                                                                            <option value="Phantom">Phantom</option>
+                                                                        </optgroup>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="vehicles[4]" class="vehicle">
+                                <option value="---">---</option>
+                                                                    <optgroup label="Light Karts">
+                                                                            <option value="Standard Kart S">Standard Kart S</option>
+                                                                            <option value="Booster Seat">Booster Seat</option>
+                                                                            <option value="Mini Beast">Mini Beast</option>
+                                                                            <option value="Cheep Charger">Cheep Charger</option>
+                                                                            <option value="Tiny Titan">Tiny Titan</option>
+                                                                            <option value="Blue Falcon">Blue Falcon</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Light Bikes">
+                                                                            <option value="Standard Bike S">Standard Bike S</option>
+                                                                            <option value="Bullet Bike">Bullet Bike</option>
+                                                                            <option value="Bit Bike">Bit Bike</option>
+                                                                            <option value="Quacker">Quacker</option>
+                                                                            <option value="Magikruiser">Magikruiser</option>
+                                                                            <option value="Jet Bubble">Jet Bubble</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Karts">
+                                                                            <option value="Standard Kart M">Standard Kart M</option>
+                                                                            <option value="Classic Dragster">Classic Dragster</option>
+                                                                            <option value="Wild Wing">Wild Wing</option>
+                                                                            <option value="Super Blooper">Super Blooper</option>
+                                                                            <option value="Daytripper">Daytripper</option>
+                                                                            <option value="Sprinter">Sprinter</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Bikes">
+                                                                            <option value="Standard Bike M">Standard Bike M</option>
+                                                                            <option value="Mach Bike">Mach Bike</option>
+                                                                            <option value="Sugarscoot">Sugarscoot</option>
+                                                                            <option value="Zip Zip">Zip Zip</option>
+                                                                            <option value="Sneakster">Sneakster</option>
+                                                                            <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Karts">
+                                                                            <option value="Standard Kart L">Standard Kart L</option>
+                                                                            <option value="Offroader">Offroader</option>
+                                                                            <option value="Flame Flyer">Flame Flyer</option>
+                                                                            <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                            <option value="Jetsetter">Jetsetter</option>
+                                                                            <option value="Honeycoupe">Honeycoupe</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Bikes">
+                                                                            <option value="Standard Bike L">Standard Bike L</option>
+                                                                            <option value="Flame Runner">Flame Runner</option>
+                                                                            <option value="Wario Bike">Wario Bike</option>
+                                                                            <option value="Shooting Star">Shooting Star</option>
+                                                                            <option value="Spear">Spear</option>
+                                                                            <option value="Phantom">Phantom</option>
+                                                                        </optgroup>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="vehicles[5]" class="vehicle">
+                                <option value="---">---</option>
+                                                                    <optgroup label="Light Karts">
+                                                                            <option value="Standard Kart S">Standard Kart S</option>
+                                                                            <option value="Booster Seat">Booster Seat</option>
+                                                                            <option value="Mini Beast">Mini Beast</option>
+                                                                            <option value="Cheep Charger">Cheep Charger</option>
+                                                                            <option value="Tiny Titan">Tiny Titan</option>
+                                                                            <option value="Blue Falcon">Blue Falcon</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Light Bikes">
+                                                                            <option value="Standard Bike S">Standard Bike S</option>
+                                                                            <option value="Bullet Bike">Bullet Bike</option>
+                                                                            <option value="Bit Bike">Bit Bike</option>
+                                                                            <option value="Quacker">Quacker</option>
+                                                                            <option value="Magikruiser">Magikruiser</option>
+                                                                            <option value="Jet Bubble">Jet Bubble</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Karts">
+                                                                            <option value="Standard Kart M">Standard Kart M</option>
+                                                                            <option value="Classic Dragster">Classic Dragster</option>
+                                                                            <option value="Wild Wing">Wild Wing</option>
+                                                                            <option value="Super Blooper">Super Blooper</option>
+                                                                            <option value="Daytripper">Daytripper</option>
+                                                                            <option value="Sprinter">Sprinter</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Bikes">
+                                                                            <option value="Standard Bike M">Standard Bike M</option>
+                                                                            <option value="Mach Bike">Mach Bike</option>
+                                                                            <option value="Sugarscoot">Sugarscoot</option>
+                                                                            <option value="Zip Zip">Zip Zip</option>
+                                                                            <option value="Sneakster">Sneakster</option>
+                                                                            <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Karts">
+                                                                            <option value="Standard Kart L">Standard Kart L</option>
+                                                                            <option value="Offroader">Offroader</option>
+                                                                            <option value="Flame Flyer">Flame Flyer</option>
+                                                                            <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                            <option value="Jetsetter">Jetsetter</option>
+                                                                            <option value="Honeycoupe">Honeycoupe</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Bikes">
+                                                                            <option value="Standard Bike L">Standard Bike L</option>
+                                                                            <option value="Flame Runner">Flame Runner</option>
+                                                                            <option value="Wario Bike">Wario Bike</option>
+                                                                            <option value="Shooting Star">Shooting Star</option>
+                                                                            <option value="Spear">Spear</option>
+                                                                            <option value="Phantom">Phantom</option>
+                                                                        </optgroup>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="vehicles[6]" class="vehicle">
+                                <option value="---">---</option>
+                                                                    <optgroup label="Light Karts">
+                                                                            <option value="Standard Kart S">Standard Kart S</option>
+                                                                            <option value="Booster Seat">Booster Seat</option>
+                                                                            <option value="Mini Beast">Mini Beast</option>
+                                                                            <option value="Cheep Charger">Cheep Charger</option>
+                                                                            <option value="Tiny Titan">Tiny Titan</option>
+                                                                            <option value="Blue Falcon">Blue Falcon</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Light Bikes">
+                                                                            <option value="Standard Bike S">Standard Bike S</option>
+                                                                            <option value="Bullet Bike">Bullet Bike</option>
+                                                                            <option value="Bit Bike">Bit Bike</option>
+                                                                            <option value="Quacker">Quacker</option>
+                                                                            <option value="Magikruiser">Magikruiser</option>
+                                                                            <option value="Jet Bubble">Jet Bubble</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Karts">
+                                                                            <option value="Standard Kart M">Standard Kart M</option>
+                                                                            <option value="Classic Dragster">Classic Dragster</option>
+                                                                            <option value="Wild Wing">Wild Wing</option>
+                                                                            <option value="Super Blooper">Super Blooper</option>
+                                                                            <option value="Daytripper">Daytripper</option>
+                                                                            <option value="Sprinter">Sprinter</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Bikes">
+                                                                            <option value="Standard Bike M">Standard Bike M</option>
+                                                                            <option value="Mach Bike">Mach Bike</option>
+                                                                            <option value="Sugarscoot">Sugarscoot</option>
+                                                                            <option value="Zip Zip">Zip Zip</option>
+                                                                            <option value="Sneakster">Sneakster</option>
+                                                                            <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Karts">
+                                                                            <option value="Standard Kart L">Standard Kart L</option>
+                                                                            <option value="Offroader">Offroader</option>
+                                                                            <option value="Flame Flyer">Flame Flyer</option>
+                                                                            <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                            <option value="Jetsetter">Jetsetter</option>
+                                                                            <option value="Honeycoupe">Honeycoupe</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Bikes">
+                                                                            <option value="Standard Bike L">Standard Bike L</option>
+                                                                            <option value="Flame Runner">Flame Runner</option>
+                                                                            <option value="Wario Bike">Wario Bike</option>
+                                                                            <option value="Shooting Star">Shooting Star</option>
+                                                                            <option value="Spear">Spear</option>
+                                                                            <option value="Phantom">Phantom</option>
+                                                                        </optgroup>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="vehicles[7]" class="vehicle">
+                                <option value="---">---</option>
+                                                                    <optgroup label="Light Karts">
+                                                                            <option value="Standard Kart S">Standard Kart S</option>
+                                                                            <option value="Booster Seat">Booster Seat</option>
+                                                                            <option value="Mini Beast">Mini Beast</option>
+                                                                            <option value="Cheep Charger">Cheep Charger</option>
+                                                                            <option value="Tiny Titan">Tiny Titan</option>
+                                                                            <option value="Blue Falcon">Blue Falcon</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Light Bikes">
+                                                                            <option value="Standard Bike S">Standard Bike S</option>
+                                                                            <option value="Bullet Bike">Bullet Bike</option>
+                                                                            <option value="Bit Bike">Bit Bike</option>
+                                                                            <option value="Quacker">Quacker</option>
+                                                                            <option value="Magikruiser">Magikruiser</option>
+                                                                            <option value="Jet Bubble">Jet Bubble</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Karts">
+                                                                            <option value="Standard Kart M">Standard Kart M</option>
+                                                                            <option value="Classic Dragster">Classic Dragster</option>
+                                                                            <option value="Wild Wing">Wild Wing</option>
+                                                                            <option value="Super Blooper">Super Blooper</option>
+                                                                            <option value="Daytripper">Daytripper</option>
+                                                                            <option value="Sprinter">Sprinter</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Bikes">
+                                                                            <option value="Standard Bike M">Standard Bike M</option>
+                                                                            <option value="Mach Bike">Mach Bike</option>
+                                                                            <option value="Sugarscoot">Sugarscoot</option>
+                                                                            <option value="Zip Zip">Zip Zip</option>
+                                                                            <option value="Sneakster">Sneakster</option>
+                                                                            <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Karts">
+                                                                            <option value="Standard Kart L">Standard Kart L</option>
+                                                                            <option value="Offroader">Offroader</option>
+                                                                            <option value="Flame Flyer">Flame Flyer</option>
+                                                                            <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                            <option value="Jetsetter">Jetsetter</option>
+                                                                            <option value="Honeycoupe">Honeycoupe</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Bikes">
+                                                                            <option value="Standard Bike L">Standard Bike L</option>
+                                                                            <option value="Flame Runner">Flame Runner</option>
+                                                                            <option value="Wario Bike">Wario Bike</option>
+                                                                            <option value="Shooting Star">Shooting Star</option>
+                                                                            <option value="Spear">Spear</option>
+                                                                            <option value="Phantom">Phantom</option>
+                                                                        </optgroup>
+                                                            </select>
+                        </td>
+                                            <td>
+                            <select name="vehicles[8]" class="vehicle">
+                                <option value="---">---</option>
+                                                                    <optgroup label="Light Karts">
+                                                                            <option value="Standard Kart S">Standard Kart S</option>
+                                                                            <option value="Booster Seat">Booster Seat</option>
+                                                                            <option value="Mini Beast">Mini Beast</option>
+                                                                            <option value="Cheep Charger">Cheep Charger</option>
+                                                                            <option value="Tiny Titan">Tiny Titan</option>
+                                                                            <option value="Blue Falcon">Blue Falcon</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Light Bikes">
+                                                                            <option value="Standard Bike S">Standard Bike S</option>
+                                                                            <option value="Bullet Bike">Bullet Bike</option>
+                                                                            <option value="Bit Bike">Bit Bike</option>
+                                                                            <option value="Quacker">Quacker</option>
+                                                                            <option value="Magikruiser">Magikruiser</option>
+                                                                            <option value="Jet Bubble">Jet Bubble</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Karts">
+                                                                            <option value="Standard Kart M">Standard Kart M</option>
+                                                                            <option value="Classic Dragster">Classic Dragster</option>
+                                                                            <option value="Wild Wing">Wild Wing</option>
+                                                                            <option value="Super Blooper">Super Blooper</option>
+                                                                            <option value="Daytripper">Daytripper</option>
+                                                                            <option value="Sprinter">Sprinter</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Medium Bikes">
+                                                                            <option value="Standard Bike M">Standard Bike M</option>
+                                                                            <option value="Mach Bike">Mach Bike</option>
+                                                                            <option value="Sugarscoot">Sugarscoot</option>
+                                                                            <option value="Zip Zip">Zip Zip</option>
+                                                                            <option value="Sneakster">Sneakster</option>
+                                                                            <option value="Dolphin Dasher">Dolphin Dasher</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Karts">
+                                                                            <option value="Standard Kart L">Standard Kart L</option>
+                                                                            <option value="Offroader">Offroader</option>
+                                                                            <option value="Flame Flyer">Flame Flyer</option>
+                                                                            <option value="Piranha Prowler">Piranha Prowler</option>
+                                                                            <option value="Jetsetter">Jetsetter</option>
+                                                                            <option value="Honeycoupe">Honeycoupe</option>
+                                                                        </optgroup>
+                                                                    <optgroup label="Heavy Bikes">
+                                                                            <option value="Standard Bike L">Standard Bike L</option>
+                                                                            <option value="Flame Runner">Flame Runner</option>
+                                                                            <option value="Wario Bike">Wario Bike</option>
+                                                                            <option value="Shooting Star">Shooting Star</option>
+                                                                            <option value="Spear">Spear</option>
+                                                                            <option value="Phantom">Phantom</option>
+                                                                        </optgroup>
+                                                            </select>
+                        </td>
+                                    
+                </tr>
+                <tr class="transmission">
+                    <th scope="row">Transmission</th>
+                                            <td>
+                                                        <input type="radio" name="transmissions[1]" value="auto"  />
+                            <label for="player1_transmission_auto">Auto</label>
+                            <input type="radio" name="transmissions[1]" value="manual" />
+                            <label for="player1_transmission_manual">Manual</label>
+                        
+                        </td>
+                                            <td>
+                                                        <input type="radio" name="transmissions[2]" value="auto"  />
+                            <label for="player2_transmission_auto">Auto</label>
+                            <input type="radio" name="transmissions[2]" value="manual" />
+                            <label for="player2_transmission_manual">Manual</label>
+                        
+                        </td>
+                                            <td>
+                                                        <input type="radio" name="transmissions[3]" value="auto"  />
+                            <label for="player3_transmission_auto">Auto</label>
+                            <input type="radio" name="transmissions[3]" value="manual" />
+                            <label for="player3_transmission_manual">Manual</label>
+                        
+                        </td>
+                                            <td>
+                                                        <input type="radio" name="transmissions[4]" value="auto"  />
+                            <label for="player4_transmission_auto">Auto</label>
+                            <input type="radio" name="transmissions[4]" value="manual" />
+                            <label for="player4_transmission_manual">Manual</label>
+                        
+                        </td>
+                                            <td>
+                                                        <input type="radio" name="transmissions[5]" value="auto"  />
+                            <label for="player5_transmission_auto">Auto</label>
+                            <input type="radio" name="transmissions[5]" value="manual" />
+                            <label for="player5_transmission_manual">Manual</label>
+                        
+                        </td>
+                                            <td>
+                                                        <input type="radio" name="transmissions[6]" value="auto"  />
+                            <label for="player6_transmission_auto">Auto</label>
+                            <input type="radio" name="transmissions[6]" value="manual" />
+                            <label for="player6_transmission_manual">Manual</label>
+                        
+                        </td>
+                                            <td>
+                                                        <input type="radio" name="transmissions[7]" value="auto"  />
+                            <label for="player7_transmission_auto">Auto</label>
+                            <input type="radio" name="transmissions[7]" value="manual" />
+                            <label for="player7_transmission_manual">Manual</label>
+                        
+                        </td>
+                                            <td>
+                                                        <input type="radio" name="transmissions[8]" value="auto"  />
+                            <label for="player8_transmission_auto">Auto</label>
+                            <input type="radio" name="transmissions[8]" value="manual" />
+                            <label for="player8_transmission_manual">Manual</label>
+                        
+                        </td>
+                                    
+                </tr>
+            </table>
+        </form>
+        
+        <button id="reset">Reset</button>
+
+        
+        <section id="site_footer" class="clearfix">
+    <p class="nclud"><a href="http://nclud.com">an nclud creation</a></p>
+</section>
+    </div> <!-- /#wrap -->
+
+    
+</body>
+</html>
